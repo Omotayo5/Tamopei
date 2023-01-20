@@ -1,0 +1,114 @@
+*{
+          margin: 0;
+          padding: 0;
+}
+body{
+          margin: 0;
+          padding: 0;
+}
+.register-page{
+          border: 2px solid green;
+          display: flex;
+}
+.form-column{
+          border: 2px solid red;
+          width: 50%;
+          padding: 50px;
+}
+.form-column h1{
+          color: #5EA536;
+          font-size: 35px;
+          font-weight: 500;
+          margin-bottom: 50px;
+}
+.form-column input {
+          padding: 15px 10px;
+          margin: 7px 0;
+          width: 60%;
+          font-size: 16px;
+          font-weight: 600;
+          border: 1px solid rgba(62, 137, 20, 0.6);
+          border-radius: 4.56604px;
+          box-sizing: border-box;
+          color: #1E1E1E;
+          outline: 1px solid rgba(62, 137, 20, 0.6);
+
+}
+.form-column select{
+          padding: 15px 10px;
+          width: 60%;
+          margin: 7px 0;
+          border: 1px solid rgba(62, 137, 20, 0.6);
+          border-radius: 4.56604px;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-weight: 600;
+          color: #1E1E1E;
+          outline: 1px solid rgba(62, 137, 20, 0.6);
+          color: rgba(62, 137, 20, 0.6);
+}
+
+.form-column input:focus::placeholder{
+          transform: translateY(-10px);
+          font-size: 10.65px;
+          transition: 0.4s ease-in-out;
+}
+.form-column select:focus::placeholder{
+          transform: translateY(-10px);
+          font-size: 10.65px;
+          transition: 0.4s ease-in-out;
+
+}
+.checkme{
+          display: flex;
+          align-items: center;
+}
+.checkme p{
+          margin-left: -10px;
+}
+#check-1{
+          width: 10%;
+          background: #5EA536;
+          height: 15px;
+          border: none;
+          outline: none;
+}
+input[type=checkbox] {
+          accent-color:  #5EA536;
+          /* color: #5EA536; */
+}
+
+.checkme a{
+          text-decoration: none;
+          color: #5EA536;
+}
+.banner-column{
+          border: 2px solid blue;
+          width: 50%;
+}
+button{
+          margin: 20px 0;
+          padding: 20px 40px;
+          border-radius: 50px;
+          background: #5EA536;
+          border: transparent;
+          cursor: pointer;
+}
+button a{
+          color: white;
+          font-size: 16px;
+          text-decoration: none;
+}
+p a{
+          text-decoration: none;
+          color: #5EA536; 
+}
+
+
+
+
+
+
+
+
+
