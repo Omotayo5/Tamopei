@@ -5,3 +5,54 @@
     font-size: 62.5%;
     font-family: ;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+    font-family:'lato','Roboto', sans-serif; ;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+header ul {
+    display: flex;
+
+}
+header li {
+    display: inline-block;
+    margin: 0 1.5rem;
+}
+
+.logo,.login-reg,.quest{
+    border: 1px solid tomato;
+    padding: 1rem;
+    margin: 1rem;
+}
+.login-reg {
+    padding: 1.5rem;
+    margin: 0 1.5rem;
+}
+
+/* Buttons green and white */
+.greenBtn {
+    border-radius:2.5rem;
+    background-color: green;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+.whiteBtn{
+    border-radius:2.5rem;
+    border:1px solid green;
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+/* __________________________ */
