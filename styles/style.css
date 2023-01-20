@@ -26,7 +26,7 @@ header li {
 }
 
 .logo,.login-reg,.quest{
-    border: 1px solid tomato;
+    /* border: 1px solid tomato; */
     padding: 1rem;
     margin: 1rem;
 }
@@ -38,21 +38,163 @@ header li {
 /* Buttons green and white */
 .greenBtn {
     border-radius:2.5rem;
-    background-color: green;
+    background-color: #5EA536;
+    ;
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     text-decoration: none;
     font-size: 1.5rem;
     margin: 0 1rem;
 }
 .whiteBtn{
     border-radius:2.5rem;
-    border:1px solid green;
+    border:1px solid #5EA536;
+    ;
     background-color: white;
     color: black;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     font-weight: 800;
     text-decoration: none;
     font-size: 1.5rem;
 }
 /* __________________________ */
+
+
+/* Header center container link font size */
+.linkTxt {
+    font-size: 2rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: black;
+}
+
+/* Main section for banner */
+.banner{
+    display: flex;
+    width: 98%;margin: auto;
+    padding: 5rem;
+}
+.hero-text {
+    /* border: 1px solid black; */
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.textAndBtnArrange{
+    /* border: 1px solid black; */
+    display: flex;
+    margin: auto;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 1rem; */
+}
+.hero-image{
+    /* border: 1px solid tomato; */
+    width: 60%;
+}
+/* Media Query */
+
+
+
+
+
+/* ___________________ */
+
+
+
+/* Main section for summary */
+.summary{
+    border: 1px solid black;
+    background: url(/Tamopei/images/Rectangle2.jpg);
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.description-box{
+    /* border: 2px solid white; */
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+.send-money{
+    padding: 2rem;
+    /* border: 1px solid tomato; */
+    margin: 0 1rem;
+}
+.send-money h2{
+    color: white;
+    font-size: 2.5rem;
+    padding: 1.5rem 0;
+    display: flex;
+    /* border: 1px solid tomato; */
+    /* text-align: left; */
+}
+.send-money p {
+    color: white;
+    /* border: 1px solid tomato; */
+    height: 10rem;
+    text-align: left;
+    font-size: 2.5rem;
+    text-justify: distribute;
+    word-spacing: 1rem;
+}
+
+/* Media Queries */
+
+
+
+/* Main section How it works */
+section .how-it-works{
+    width: 100%;
+    height: 70vh;
+}
+.how-it-works h2 {
+    font-size: 5rem;
+    margin: auto;
+    text-align: center;
+    padding: 5rem;
+    color: #5EA536;
+}
+.decsription-container{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2.5rem;
+    background-color: #E7E7E7;
+}
+
+.description-box-h-i-w{
+    width: 20%;
+    height: 30%;
+    border: 2px solid black;
+    margin: 1.5rem;
+    background-color: white;
+    padding: 2.5rem;
+}
+.num{
+    padding: 1.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.description-box-h-i-w h1 {
+    font-size: 2.5rem;
+    color: #5EA536;
+    text-align: left;
+    width: 70%;
+}
+
+.description-box-h-i-w p {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    font-weight: 800;
+}
