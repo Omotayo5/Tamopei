@@ -9,19 +9,27 @@ body{
 .register-page{
           display: flex;
 }
-.form-column{
+.mobile-background{
+          padding: 0;
+          margin: 0;
           width: 45%;
+}
+.form-column{
+          width: 100%;
           padding-top: 0px;
           padding: 30px 70px;
 }
 .logo img{
           margin-bottom: 50px;
+
+          
 }
 .form-column h1{
           color: #5EA536;
           font-size: 35px;
           font-weight: 500;
           margin-bottom: 50px;
+          width: fit-content;
 }
 .form-column input {
           padding: 20px 10px;
@@ -114,9 +122,14 @@ button a{
           font-size: 16px;
           text-decoration: none;
 }
+.bottom{
+          padding-bottom: 40px;
+          width: fit-content;
+}
 p a{
           text-decoration: none;
           color: #5EA536; 
+          margin-top: 20px;
 }
 .banner-column{
           width: 55%;
@@ -124,6 +137,8 @@ p a{
           background-repeat: no-repeat;
           background-size: cover;
           background-position: right;
+          margin: 0;
+          /* height: 100%; */
 
 }
 .banner-column h2{
@@ -131,7 +146,7 @@ p a{
           width: 20%;
           position: absolute;
           right: 70px;
-          bottom: -200px;
+          bottom: -250px;
           text-align: right;
           font-size: 35px;
           color: white;
