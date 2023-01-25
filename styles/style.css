@@ -185,6 +185,7 @@ header li {
     height: 80vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .description-box{
     /* border: 2px solid white; */
@@ -192,18 +193,16 @@ header li {
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: space-evenly;
+    width: 100%;
 }
 .send-money{
     width: clamp(20vw,30vw,400px);
-    height: clamp(25vh,35vh,fit-content);
+    height: clamp(25vh,40vh,45vh);
     padding: calc(2vw+1rem);
-    display: inline-block;
     border-radius: .5rem;
-    /* border: 1px solid tomato; */
     box-shadow: 2px 1px 3px #5EA536;
-    margin: 0 1rem;
+    margin: 1rem;
 }
 .send-money h2{
     color: white;
@@ -219,7 +218,7 @@ header li {
     padding: .5rem;
     height: fit-content;
     text-align: left;
-    font-size: calc(1.5vw + 2.5px);
+    font-size: calc(1.2vw + 2.5px);
     text-justify: distribute;
     word-spacing: 1rem;
 }
@@ -290,8 +289,9 @@ section .how-it-works{
 }
 
 .description-box-h-i-w{
-    width: clamp(40vw,50vw,40vw);
-    height: clamp(42.5vh,450px,max-content);
+    width: clamp(20vw,30vw,400px);
+    height: clamp(25vh,40vh,45vh);
+    padding: calc(2vw+1rem);
     /* border: 2px solid black; */
     border-radius: .5rem;
     margin: 1.5rem;
@@ -377,7 +377,7 @@ section .service-offers{
 .offers-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: auto;
     /* gap: 1rem; */
     /* border: 2px solid tomato; */
@@ -395,12 +395,19 @@ section .service-offers{
     width: clamp(300px,30vw,32vw);
     height: clamp(320px,35vh,37vh);
     border: 2px solid tomato;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 0 2.5rem;
+    margin-bottom: 2.5rem;
 }
 .icon {
     width: clamp(50px,5vw,15vw);
     height: clamp(50px,5vw,15vw);
+    align-self: flex-start;
     border: 2px solid tomato;
+    margin-left:0 ;
 }
 .box h2{
     padding: calc(1.5vw + .25rem) 0;
@@ -409,9 +416,9 @@ section .service-offers{
     /* font-weight: ; */
 }
 .box p{
-    font-size: calc(1vw + 2.5px);
-    /* width: 50%; */
+    font-size: calc(1.5vw + .5px);
     text-transform: capitalize;
+    font-weight: 500;
     /* text-align: center; */
     /* margin: auto; */
 }
