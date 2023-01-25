@@ -239,9 +239,10 @@ header li {
         gap: .5rem;
 
     }
-    .icon{
+    .desc-icon{
         margin: auto;
         text-align: center;
+        /* margin-bottom: 2.5rem; */
     }
     .send-money{
         padding: 1rem;
@@ -249,7 +250,7 @@ header li {
         /* border: 1px solid tomato; */
         width: 70%;
         font-size: calc(1.5vw + 2.5px);
-        margin: auto;
+        margin: 2.5rem auto;
     }
     .send-money h2 {
         display: flex;
@@ -272,7 +273,7 @@ section .how-it-works{
     height: 80vh;
 }
 .how-it-works h2 {
-    font-size: calc(2.5vw + 2.5px);
+    font-size: calc(4.5vw + 2.5px);
     margin: auto;
     text-align: center;
     padding: 5rem;
@@ -329,7 +330,7 @@ section .how-it-works{
 @media (min-width:200px) and (max-width: 600px){
     .decsription-container{
         display: block;
-        padding: 5rem;
+        padding:2.5rem 10rem;
     }
     .description-box-h-i-w{
         width: 100%;
@@ -355,7 +356,7 @@ section .service-offers{
 }
 .heading{
     /* border: 2px solid tomato; */
-    padding: 2.5rem;
+    /* padding: 2.5rem; */
 }
 .heading h2 {
     font-size: calc(1.7vw + 2.5px);
@@ -377,25 +378,24 @@ section .service-offers{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    margin: auto;
+    /* gap: 1rem; */
     /* border: 2px solid tomato; */
-    padding: calc(5vw + .25rem);
+    /* padding: calc(5vw + .25rem); */
 }
 .left, .right{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
-    /* border: 2px solid tomato; */
+    justify-content: center;
+    margin:auto;
     padding: 1rem;
-    width: 50%;
 }
 .box{
-    width: clamp(400px,30vw,35vw);
-    height: clamp(420px,35vh,40vh);
+    width: clamp(300px,30vw,32vw);
+    height: clamp(320px,35vh,37vh);
     border: 2px solid tomato;
-    padding: 5rem;
+    padding: 0 2.5rem;
 }
 .icon {
     width: clamp(50px,5vw,15vw);
@@ -403,15 +403,14 @@ section .service-offers{
     border: 2px solid tomato;
 }
 .box h2{
-    padding: calc(1.8vw + .25rem) 0;
-    font-size: calc(1.7vw + 2.5px);
+    padding: calc(1.5vw + .25rem) 0;
+    font-size: calc(2.5vw + 2.5px);
     color:black;
     /* font-weight: ; */
 }
 .box p{
     font-size: calc(1vw + 2.5px);
-    width: 50%;
-    /* padding-bottom: calc(1.8vw + .25rem); */
+    /* width: 50%; */
     text-transform: capitalize;
     /* text-align: center; */
     /* margin: auto; */
@@ -420,17 +419,24 @@ section .service-offers{
 @media (min-width:200px) and (max-width: 600px){
     .offers-container{
         flex-direction: column;
+        width: 100%;
         /* margin: auto; */
     }
     .left, .right{
         margin: auto;
-        width: 100%;
+        width: 70%;
         justify-content: space-evenly;
+    }
+    .box {
+        width: fit-content;
+        padding: 2.5rem;
     }
     .box h2{
     padding: calc(1.8vw + .25rem) 0;
     font-size: calc(5vw + 2.5px);
     color:black;
-    /* font-weight: ; */
-}
+    }
+    .box p{
+        font-size: 2.5rem;
+    }
 }
