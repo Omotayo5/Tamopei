@@ -1,0 +1,57 @@
+@media only screen and (max-width: 850px) {
+          *{
+                    padding: 0;
+                    margin: 0;
+                    /* overflow: hidden; */
+          }
+          .banner-column{
+                    display: none;
+          }
+       
+          .form-column{
+                    width: 100%;
+          padding: 30px 15px;
+          background: rgba(0,0,0,.75);
+
+          }
+          .form-column input{
+                    width: 85%;
+                    box-sizing: border-box;
+          }
+          .form-column select{
+                    width: 85%;
+                    box-sizing: border-box;
+
+          }
+          .checkme p{
+            color: white;        
+          }
+          .bottom p{
+            color: white;        
+
+          }
+          .mobile-background{
+                    margin: 0;
+                    /* padding: 10px; */
+                    background: url(./Rectangle\ 522.jpg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    width: 100%;
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
