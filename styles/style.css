@@ -409,7 +409,7 @@ section .service-offers{
     /* font-weight: ; */
 }
 .box p{
-    font-size: calc(2vw + 2.5px);
+    font-size: calc(1vw + 2.5px);
     width: 50%;
     /* padding-bottom: calc(1.8vw + .25rem); */
     text-transform: capitalize;
