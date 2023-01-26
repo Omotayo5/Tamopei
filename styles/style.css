@@ -269,7 +269,7 @@ header li {
         height: fit-content;
     }
     .send-money {
-        height: fit-content;
+        height: 400px;
     }
 }
 
