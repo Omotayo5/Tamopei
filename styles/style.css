@@ -311,17 +311,13 @@ section .how-it-works{
     text-align: left;
     margin-left: 1rem;
     width: 70%;
-    /* box-shadow: 2px 1px 5px black; */
 }
 
 .description-box-h-i-w p {
     font-size: calc(1.2vw + 2.5px);
     padding: calc(1.8vw + .25rem) .75rem;
-    /* text-justify: distribute; */
-    /* border: 2px solid black; */
     word-spacing: 1rem;
     font-weight: 600;
-    /* box-shadow: 2px 1px 2.5px #5EA536; */
     border-radius: 2px;
 }
 
@@ -357,10 +353,7 @@ section .service-offers{
     background-color: white;
     padding: calc(1.8vw + .25rem) .75rem;
 }
-.heading{
-    /* border: 2px solid tomato; */
-    /* padding: 2.5rem; */
-}
+
 .heading h2 {
     font-size: calc(1.7vw + 2.5px);
     text-align: center;
@@ -397,7 +390,8 @@ section .service-offers{
 .box{
     width: clamp(300px,30vw,32vw);
     height: clamp(320px,35vh,37vh);
-    border: 2px solid tomato;
+    box-shadow: 2px 1px 3px #5EA536;
+    border-radius: .5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -409,11 +403,11 @@ section .service-offers{
     width: clamp(50px,5vw,15vw);
     height: clamp(50px,5vw,15vw);
     align-self: flex-start;
-    border: 2px solid tomato;
-    margin-left:0 ;
+    box-shadow: 2px 1px 3px #5EA536;
+    margin:auto ;
 }
 .box h2{
-    padding: calc(1.5vw + .25rem) 0;
+    padding: calc(1vw + .25rem) 0;
     font-size: calc(2.5vw + 2.5px);
     color:black;
     /* font-weight: ; */
@@ -422,11 +416,20 @@ section .service-offers{
     font-size: calc(1.5vw + .5px);
     text-transform: capitalize;
     font-weight: 500;
-    /* text-align: center; */
+    text-align: center;
+    padding: .5rem 0;
     /* margin: auto; */
 }
 
 @media (min-width:200px) and (max-width: 600px){
+    .heading h2{
+        font-size: 2.5rem;
+    }
+    .heading p {
+        font-size: 1.5rem;
+        padding: 2.5rem;
+        font-weight: 500;
+    }
     .offers-container{
         flex-direction: column;
         width: 100%;
@@ -440,6 +443,7 @@ section .service-offers{
     .box {
         width: fit-content;
         padding: 2.5rem;
+        
     }
     .box h2{
     padding: calc(1.8vw + .25rem) 0;
@@ -451,6 +455,8 @@ section .service-offers{
     }
 }
 /* ________________________________ */
+
+
 
 /* SECTION FAQ */
 .faq{
@@ -464,7 +470,7 @@ section .service-offers{
 }
 
 .mobile {
-    border: 2px solid tomato;
+    /* border: 2px solid tomato; */
     padding-top: 5rem;
 }
 .mobile img{
@@ -478,9 +484,7 @@ section .service-offers{
 
 @media (min-width:200px) and (max-width: 600px){
     .faq{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
-    .faq-box{
-        flex: 1;
-    }
+    
 }
