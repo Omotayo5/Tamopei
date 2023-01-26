@@ -264,7 +264,14 @@ header li {
         text-justify: distribute;
     }
 }
-
+@media (min-width: 768px) and (max-width: 1024px){
+    .summary{
+        height: 50vh;
+    }
+    .send-money {
+        height: fit-content;
+    }
+}
 
 /* Main section How it works */
 section .how-it-works{
@@ -348,8 +355,11 @@ section .how-it-works{
 
 /* Media Query for Tablets Ipads portrait mode */
 @media (min-width: 768px) and (max-width: 1024px){
-    .description-box-h-i-w{
+    .send-money {
         height: fit-content;
+    }
+    .description-box-h-i-w{
+        height: fit-content     ;
     }
 }
 
@@ -460,7 +470,15 @@ section .service-offers{
     }
 }
 
-
+@media (min-width: 768px) and (max-width: 1024px){
+    .box ,.description-box-h-i-w{
+        height: fit-content;
+        padding: 2.5rem, 0;
+    }
+    /* {
+        height: fit-content     ;
+    } */
+}
 /* ________________________________ */
 
 
