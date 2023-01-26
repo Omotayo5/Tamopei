@@ -346,7 +346,12 @@ section .how-it-works{
     }
 }
 
-
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+    .description-box-h-i-w{
+        height: fit-content;
+    }
+}
 
 /* SERVICE OFFER SECTION */
 section .service-offers{
@@ -420,7 +425,7 @@ section .service-offers{
     
 }
 
-@media (min-width:200px) and (max-width: 600px){
+@media (min-width:200px) and (max-width: 600px) and (orientation:landscape) {
     .heading h2{
         font-size: 2.5rem;
     }
@@ -454,6 +459,8 @@ section .service-offers{
         font-size: 2.5rem;
     }
 }
+
+
 /* ________________________________ */
 
 
@@ -486,5 +493,7 @@ section .service-offers{
     .faq{
         flex-direction: column-reverse;
     }
-    
+    .mobile img{
+
+    }
 }
