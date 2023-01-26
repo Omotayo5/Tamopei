@@ -359,7 +359,7 @@ section .how-it-works{
         height: fit-content;
     }
     .description-box-h-i-w{
-        height: fit-content     ;
+        height: fit-content;
     }
 }
 
@@ -471,13 +471,14 @@ section .service-offers{
 }
 
 @media (min-width: 768px) and (max-width: 1024px){
-    .box ,.description-box-h-i-w{
+    .box {
         height: fit-content;
         padding: 2.5rem, 0;
     }
-    /* {
-        height: fit-content     ;
-    } */
+
+    .description-box-h-i-w{
+        
+    }
 }
 /* ________________________________ */
 
