@@ -326,7 +326,7 @@ section .how-it-works{
 @media (min-width:200px) and (max-width: 600px){
     .decsription-container{
         display: block;
-        padding:2.5rem 10rem;
+        padding:2.5rem 7.5rem;
     }
     .description-box-h-i-w{
         width: 100%;
@@ -348,7 +348,7 @@ section .how-it-works{
 
 
 
-/* SERVICE OFFER SECTION  */
+/* SERVICE OFFER SECTION */
 section .service-offers{
     background-color: white;
     padding: calc(1.8vw + .25rem) .75rem;
@@ -359,15 +359,15 @@ section .service-offers{
     text-align: center;
     color: #5EA536;
     padding:calc(1.8vw + .25rem) 0 0;
-    /* border: 2px solid tomato; */
 }
+
+
 .heading P{
     font-size: calc(1.2vw + 2.5px);
     padding-bottom: calc(1.8vw + .25rem);
     text-transform: capitalize;
     text-align: center;
     margin: auto;
-    /* border: 2px solid tomato; */
 }
 
 .offers-container{
@@ -375,10 +375,9 @@ section .service-offers{
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    /* gap: 1rem; */
-    /* border: 2px solid tomato; */
-    /* padding: calc(5vw + .25rem); */
 }
+
+
 .left, .right{
     display: flex;
     flex-direction: column;
@@ -410,15 +409,15 @@ section .service-offers{
     padding: calc(1vw + .25rem) 0;
     font-size: calc(2.5vw + 2.5px);
     color:black;
-    /* font-weight: ; */
 }
+
 .box p{
     font-size: calc(1.5vw + .5px);
     text-transform: capitalize;
     font-weight: 500;
     text-align: center;
     padding: .5rem 0;
-    /* margin: auto; */
+    
 }
 
 @media (min-width:200px) and (max-width: 600px){
@@ -433,8 +432,9 @@ section .service-offers{
     .offers-container{
         flex-direction: column;
         width: 100%;
-        /* margin: auto; */
     }
+
+
     .left, .right{
         margin: auto;
         width: 70%;
