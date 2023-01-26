@@ -436,7 +436,7 @@ section .service-offers{
     
 }
 
-@media (min-width:200px) and (max-width: 600px) and (orientation:landscape) {
+@media (min-width:200px) and (max-width: 600px) {
     .heading h2{
         font-size: 2.5rem;
     }
