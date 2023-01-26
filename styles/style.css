@@ -359,7 +359,8 @@ section .how-it-works{
         height: fit-content;
     }
     .description-box-h-i-w{
-        height: fit-content;
+        height: 20vh;
+        
     }
 }
 
