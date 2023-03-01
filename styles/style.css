@@ -26,40 +26,48 @@ header li {
 }
 
 .logo,.login-reg,.quest{
-    /* border: 1px solid tomato; */
     padding: 1rem;
     margin: 1rem;
 }
+
 .login-reg {
     /* border: 1px solid tomato; */
     padding: 1.5rem;
     margin: 0 1.5rem;
 }
+li a {
+    margin-right: .5rem;
+    display: block;
+    width: auto;
+    height: 100%;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.linkTxt:hover{
+    color: white;
+    transition: all .25s;
+    background-color: #3E8914;
+}
 .logo {
     width: clamp(20vw,25vw,30vw);
 }
-/* Buttons green and white */
-.greenBtn {
+
+
+.whiteBtn,.greenBtn{
     border-radius:2.5rem;
     background-color: #5EA536;
     color: white;
-    padding: 1rem 2.5rem;
-    text-decoration: none;
-    font-size: 1.5rem;
-    margin: 0 1rem;
-}
-.whiteBtn{
-    border-radius:2.5rem;
-    border:1px solid #5EA536;
-    background-color: white;
-    color: black;
     padding: 1rem 2.5rem;
     font-weight: 800;
     text-decoration: none;
     font-size: 1.5rem;
     margin: 0 1rem;
 }
-
+.whiteBtn:hover, .greenBtn:hover{
+    transition: all .25s;
+    background-color: #3E8914;
+    color: white;
+}
 @media (min-width:200px) and (max-width: 50rem) {
     header{
         display: inline-block;
@@ -97,27 +105,7 @@ header li {
         margin: 0;
         padding: 0;
     }
-    /* .greenBtn {
-        border-radius:2.5rem;
-        background-color: #5EA536;
-        color: white;
-        padding: .5rem 1.5rem;
-        font-weight: 800;
-        text-decoration: none;
-        font-size: 1.2rem;
-        margin: 0 1rem;
-    }
-    .whiteBtn{
-        border-radius:2.5rem;
-        border:1px solid #5EA536;
-        ;
-        background-color: white;
-        color: black;
-        padding: .5rem 1.5rem;
-        font-weight: 800;
-        text-decoration: none;
-        font-size: 1.2 rem;
-    } */
+     
     .banner{
         display: flex;
         flex-direction: column;
@@ -157,6 +145,13 @@ header li {
     align-items: center;
     flex-direction: column;
 }
+
+
+.btnpadd{
+    margin: 1rem;
+}
+
+
 .textAndBtnArrange{
     /* border: 1px solid black; */
     display: flex;
@@ -199,16 +194,22 @@ header li {
 .send-money{
     width: clamp(20vw,30vw,400px);
     height: clamp(25vh,40vh,45vh);
-    padding: calc(2vw+1rem);
+    padding: 2.5rem;
     border-radius: .5rem;
     box-shadow: 2px 1px 3px #5EA536;
+    background-color: #3f89146f;
     margin: 1rem;
+}
+.send-money:hover{
+    transition: all.25s;
+    background-color: #27560c7c;
 }
 .send-money h2{
     color: white;
     font-size: calc(2.5vw + 2.5px);
     padding: 1rem 0;
     display: flex;
+    text-align: center;
     /* border: 1px solid tomato; */
     /* box-shadow: 2px 1px 5px #5EA536; */
 }
@@ -217,7 +218,7 @@ header li {
     /* border: 1px solid tomato; */
     padding: .5rem;
     height: fit-content;
-    text-align: left;
+    text-align: center;
     font-size: calc(1.2vw + 2.5px);
     text-justify: distribute;
     word-spacing: 1rem;
@@ -306,6 +307,13 @@ section .how-it-works{
     padding:.5rem;
     box-shadow: 2px 1px 3px #5EA536;
 }
+.description-box-h-i-w:hover{
+    transition: all .75s;
+    transform:translateZ(1.5);
+    background-color: #102b0113;
+    color: black;
+}
+
 .num{
     padding: 1.5rem .5rem;
     font-size: calc(1.5vw + 2.5px);
@@ -346,6 +354,8 @@ section .how-it-works{
     }
     .description-box-h-i-w h1{
         font-size: 2.5rem;
+        text-align: center;
+        margin: auto;
     }
     .description-box-h-i-w p{
         font-size: 1.5rem;
@@ -414,6 +424,12 @@ section .service-offers{
     padding: 0 2.5rem;
     margin-bottom: 2.5rem;
 }
+.box:hover {
+    transition: all .75s;
+    transform:translateZ(1.5);
+    background-color: #102b0113;
+    color: black;
+}
 .icon {
     width: clamp(50px,5vw,15vw);
     height: clamp(50px,5vw,15vw);
@@ -479,9 +495,9 @@ section .service-offers{
         padding: 2.5rem, 0;
     }
 
-    .description-box-h-i-w{
+    /* .description-box-h-i-w{
         
-    }
+    } */
 }
 /* ________________________________ */
 
@@ -515,9 +531,9 @@ section .service-offers{
     .faq{
         flex-direction: column-reverse;
     }
-    .mobile img{
+    /* .mobile img{
 
-    }
+    } */
 }
 
 /* 
