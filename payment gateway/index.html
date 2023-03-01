@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
       rel="stylesheet">
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="stylesheet" href="/style/addmoney.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/addmoney.css">
     <title>Tamopie Home</title>
 </head>
 <body>
@@ -385,20 +385,23 @@
                             </select>
                         </div>
                     </div>
-                    <p>Fund via Bank transfer</p>
-
-                    <div class="wallet-balance">
+                    
+                    <div class="wallet-balance none">
+                        <p>Fund via Bank transfer</p>
                         <!-- Bank details and etc -->
                         <!-- if wallet selected is nigeria, it should only display the account number -->
                         <!-- if wallet selected is not nigeria it should display card options -->
                         Account Number: 234-5642-8796
                     </div>
-
+                    <div class="buttons">
+                        <button type="submit" class="form-btn">Bank Transfer</button>
+                        <button type="submit" class="form-btn">p2p</button>
+                    </div>
                     <!-- Fund via p2p options too will be here -->
 
 
                     
-                    <div class="deposits">
+                    <!-- <div class="deposits">
                         <div class="d-top">
                             <p>Amount to deposit</p>
                         </div>
@@ -410,9 +413,11 @@
                             </div>
 
                             <div class="cards amount"></div>
-
-                            <button type="submit" class="form-btn">PROCEED</button>
-                        </form>
+                            <div class="buttons">
+                                <button type="submit" class="form-btn">PROCEED</button>
+                                <button type="submit" class="form-btn">p2p</button>
+                            </div>
+                        </form> -->
                     </div>
                 </div>
 

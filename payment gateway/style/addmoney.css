@@ -25,6 +25,7 @@ body{
 }
 
 .add-money-modal{
+    display: none;
     position: absolute;
     display: grid;
     width: 100%;
@@ -135,4 +136,9 @@ option{
     text-align: justify;
     border: none;
     outline: none;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
 }
