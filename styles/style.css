@@ -3,8 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 62.5%;
-    font-family: ;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body {
     font-family:'lato','Roboto', sans-serif; ;
@@ -14,7 +14,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
 }
 header ul {
     display: flex;
@@ -26,33 +26,600 @@ header li {
 }
 
 .logo,.login-reg,.quest{
-    border: 1px solid tomato;
     padding: 1rem;
     margin: 1rem;
 }
+
 .login-reg {
+    /* border: 1px solid tomato; */
     padding: 1.5rem;
     margin: 0 1.5rem;
 }
-
-/* Buttons green and white */
-.greenBtn {
-    border-radius:2.5rem;
-    background-color: green;
+li a {
+    margin-right: .5rem;
+    display: block;
+    width: auto;
+    height: 100%;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.linkTxt:hover{
     color: white;
-    padding: 1rem 2rem;
+    transition: all .25s;
+    background-color: #3E8914;
+}
+.logo {
+    width: clamp(20vw,25vw,30vw);
+}
+
+
+.whiteBtn,.greenBtn{
+    border-radius:2.5rem;
+    background-color: #5EA536;
+    color: white;
+    padding: 1rem 2.5rem;
+    font-weight: 800;
     text-decoration: none;
     font-size: 1.5rem;
     margin: 0 1rem;
 }
-.whiteBtn{
-    border-radius:2.5rem;
-    border:1px solid green;
-    background-color: white;
-    color: black;
-    padding: 1rem 2rem;
+.whiteBtn:hover, .greenBtn:hover{
+    transition: all .25s;
+    background-color: #3E8914;
+    color: white;
+}
+@media (min-width:200px) and (max-width: 50rem) {
+    header{
+        display: inline-block;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        /* border: 2px solid tomato; */
+        width: 100%;
+    }
+    header li{
+        margin: .5rem;
+        /* border: 2px solid tomato; */
+    }
+    .login-reg{
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: auto;
+        width: clamp();
+    }
+    .logo{
+        margin:0 auto;
+        padding: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .quest{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border: 2px solid tomato; */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+     
+    .banner{
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-image{
+        width: 100%;
+        margin: auto;
+    }
+}
+
+/* __________________________ */
+
+
+/* Header center container link font size */
+.linkTxt {
+    font-size: 2rem;
     font-weight: 800;
     text-decoration: none;
-    font-size: 1.5rem;
+    color: black;
 }
-/* __________________________ */
+
+
+
+/* Main section for banner */
+.banner{
+    display: flex;
+    width: 98%;
+    margin: auto;
+    padding: 5rem;
+}
+
+
+.hero-text {
+    /* border: 1px solid black; */
+    min-width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.btnpadd{
+    margin: 1rem;
+}
+
+
+.textAndBtnArrange{
+    /* border: 1px solid black; */
+    display: flex;
+    margin: auto;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 1rem; */
+}
+.hero-image{
+    /* border: 1px solid tomato; */
+    width: 60%;
+}
+
+/* ___________________ */
+
+
+
+/* Main section for summary */
+.summary{
+    /* border: 1px solid black; */
+    background: url(/Tamopei/images/Rectangle2.jpg);
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.description-box{
+    /* border: 2px solid white; */
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.send-money{
+    width: clamp(20vw,30vw,400px);
+    height: clamp(25vh,40vh,45vh);
+    padding: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 2px 1px 3px #5EA536;
+    background-color: #3f89146f;
+    margin: 1rem;
+}
+.send-money:hover{
+    transition: all.25s;
+    background-color: #27560c7c;
+}
+.send-money h2{
+    color: white;
+    font-size: calc(2.5vw + 2.5px);
+    padding: 1rem 0;
+    display: flex;
+    text-align: center;
+    /* border: 1px solid tomato; */
+    /* box-shadow: 2px 1px 5px #5EA536; */
+}
+.send-money p {
+    color: white;
+    /* border: 1px solid tomato; */
+    padding: .5rem;
+    height: fit-content;
+    text-align: center;
+    font-size: calc(1.2vw + 2.5px);
+    text-justify: distribute;
+    word-spacing: 1rem;
+}
+
+/* Media Queries */
+@media (min-width:200px) and (max-width: 600px) {
+    .summary{
+        height: fit-content;
+    }
+    .description-box{
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        margin-top: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+
+    }
+    .desc-icon{
+        margin: auto;
+        text-align: center;
+        /* margin-bottom: 2.5rem; */
+    }
+    .send-money{
+        padding: 1rem;
+        height: max-content;
+        /* border: 1px solid tomato; */
+        width: 70%;
+        font-size: calc(1.5vw + 2.5px);
+        margin: 2.5rem auto;
+    }
+    .send-money h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: auto;
+    }
+    .send-money p {
+        font-size: 1.5rem;
+        text-align: center;
+        text-justify: distribute;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .summary{
+        height: fit-content;
+    }
+    .send-money {
+        height: 400px;
+    }
+}
+
+/* Main section How it works */
+section .how-it-works{
+    width: 100%;
+    height: 80vh;
+}
+.how-it-works h2 {
+    font-size: calc(4.5vw + 2.5px);
+    margin: auto;
+    text-align: center;
+    padding: 5rem;
+    color: #5EA536;
+    background-color: #E7E7E7;
+}
+.decsription-container{
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: stretch;
+    /* padding: 2.5rem 2.5rem; */
+    background-color: #E7E7E7;
+}
+
+.description-box-h-i-w{
+    width: clamp(20vw,30vw,400px);
+    height: clamp(25vh,40vh,45vh);
+    padding: calc(2vw+1rem);
+    /* border: 2px solid black; */
+    border-radius: .5rem;
+    margin: 1.5rem;
+    background-color: white;
+    padding:.5rem;
+    box-shadow: 2px 1px 3px #5EA536;
+}
+.description-box-h-i-w:hover{
+    transition: all .75s;
+    transform:translateZ(1.5);
+    background-color: #102b0113;
+    color: black;
+}
+
+.num{
+    padding: 1.5rem .5rem;
+    font-size: calc(1.5vw + 2.5px);
+    font-weight: 800;
+}
+
+.description-box-h-i-w h1 {
+    font-size: calc(1.7vw + 2.5px);
+    color: #5EA536;
+    text-align: left;
+    margin-left: 1rem;
+    width: 70%;
+}
+
+.description-box-h-i-w p {
+    font-size: calc(1.2vw + 2.5px);
+    padding: calc(1.8vw + .25rem) .75rem;
+    word-spacing: 1rem;
+    font-weight: 600;
+    border-radius: 2px;
+}
+
+
+/* Media Queries */
+@media (min-width:200px) and (max-width: 600px){
+    .decsription-container{
+        display: block;
+        padding:2.5rem 7.5rem;
+    }
+    .description-box-h-i-w{
+        width: 100%;
+        margin: 1rem auto;
+        text-align: center;
+    }
+    .num {
+        font-size: 5rem;
+        text-align: center;
+    }
+    .description-box-h-i-w h1{
+        font-size: 2.5rem;
+        text-align: center;
+        margin: auto;
+    }
+    .description-box-h-i-w p{
+        font-size: 1.5rem;
+        word-spacing: normal;
+    }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+    .send-money {
+        height: fit-content;
+    }
+    .description-box-h-i-w{
+        height: fit-content;
+        
+    }
+}
+
+/* SERVICE OFFER SECTION */
+section .service-offers{
+    background-color: white;
+    padding: calc(1.8vw + .25rem) .75rem;
+}
+
+.heading h2 {
+    font-size: calc(1.7vw + 2.5px);
+    text-align: center;
+    color: #5EA536;
+    padding:calc(1.8vw + .25rem) 0 0;
+}
+
+
+.heading P{
+    font-size: calc(1.2vw + 2.5px);
+    padding-bottom: calc(1.8vw + .25rem);
+    text-transform: capitalize;
+    text-align: center;
+    margin: auto;
+}
+
+.offers-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+}
+
+
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    padding: 1rem;
+}
+.box{
+    width: clamp(300px,30vw,32vw);
+    height: clamp(320px,35vh,37vh);
+    box-shadow: 2px 1px 3px #5EA536;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.box:hover {
+    transition: all .75s;
+    transform:translateZ(1.5);
+    background-color: #102b0113;
+    color: black;
+}
+.icon {
+    width: clamp(50px,5vw,15vw);
+    height: clamp(50px,5vw,15vw);
+    align-self: flex-start;
+    box-shadow: 2px 1px 3px #5EA536;
+    margin:auto ;
+}
+.box h2{
+    padding: calc(1vw + .25rem) 0;
+    font-size: calc(2.5vw + 2.5px);
+    color:black;
+}
+
+.box p{
+    font-size: calc(1.5vw + .5px);
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: center;
+    padding: .5rem 0;
+    
+}
+
+@media (min-width:200px) and (max-width: 600px) {
+    .heading h2{
+        font-size: 2.5rem;
+        padding: 0 1rem ;
+    }
+    .heading p {
+        font-size: 1.5rem;
+        padding: 1rem  2.5rem;
+        font-weight: 500;
+    }
+    .offers-container{
+        display: block;
+        margin: auto;
+        width: 100%;
+    }
+
+
+    .left, .right{
+        margin: auto;
+        width: 70%;
+        justify-content: space-evenly;
+    }
+    .box {
+        width: fit-content;
+        padding: 2.5rem;
+        
+    }
+    .box h2{
+    padding: calc(1.8vw + .25rem) 0;
+    font-size: calc(5vw + 2.5px);
+    color:black;
+    }
+    .box p{
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .box {
+        height: fit-content;
+        padding: 2.5rem, 0;
+    }
+
+    /* .description-box-h-i-w{
+        
+    } */
+}
+/* ________________________________ */
+
+
+
+/* SECTION FAQ */
+.faq{
+    width: 100%;
+    height: auto;
+    background: #3E8914;
+    /* padding: 5rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mobile {
+    /* border: 2px solid tomato; */
+    padding-top: 5rem;
+}
+.mobile img{
+    height: clamp(30vh,80vh,70vh);
+}
+
+.faq-box{
+    border: 2px solid tomato;
+    padding: 5rem;
+}
+
+@media (min-width:200px) and (max-width: 600px){
+    .faq{
+        flex-direction: column-reverse;
+    }
+    /* .mobile img{
+
+    } */
+}
+
+/* 
+
+ For Desktop View 
+@media screen and (min-width: 1024px) {
+    .gfg-div {
+      background-color: #63c971;
+      color: #fff;
+    }
+  }
+   
+  /* For Tablet View 
+  @media screen and (min-device-width: 768px)
+  and (max-device-width: 1024px) {
+    .gfg-div {
+      width: 400px;
+      height: 400px;
+      background-color: orange;
+      color: black;
+    }
+  }
+   
+  /* For Mobile Portrait View 
+  @media screen and (max-device-width: 480px)
+  and (orientation: portrait) {
+    .gfg-div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      color: #fff;
+    }
+  }
+   
+  /* For Mobile Landscape View 
+  @media screen and (max-device-width: 640px)
+  and (orientation: landscape) {
+    .gfg-div {
+      width: 400px;
+      height: 200px;
+      background-color: cyan;
+      color: black;
+    }
+  }
+   
+  /* For Mobile Phones Portrait or Landscape View 
+  @media screen and (max-device-width: 640px) {
+    .gfg-div {
+      width: 400px;
+      height: 200px;
+      background-color: chartreuse;
+      color: black;
+    }
+  }
+   
+  /* For iPhone 4 Portrait or Landscape View 
+  @media screen and (min-device-width: 320px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .gfg-div {
+      width: 400px;
+      height: 400px;
+      background-color: brown;
+      color: black;
+    }
+  }
+   
+  /* For iPhone 5 Portrait or Landscape View 
+  @media (device-height: 568px) and (device-width: 320px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .gfg-div {
+      width: 400px;
+      height: 400px;
+      background-color: cornflowerblue;
+      color: black;
+    }
+  }
+   
+  /* For iPhone 6 and 6 plus Portrait or Landscape View 
+  @media (min-device-height: 667px) and (min-device-width: 375px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .gfg-div {
+      width: 400px;
+      height: 400px;
+      background-color: darkgoldenrod;
+      color: black;
+    }
+  }
+
+*/
