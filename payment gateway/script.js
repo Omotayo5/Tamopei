@@ -158,4 +158,40 @@ sendSellectOpt.addEventListener("click",(e)=>{
     }
 })
 
+
+
+// sending money to a bank account
+document.querySelector("#forms-to-bank").setAttribute("class","none")
+document.querySelector("#send-to-bank").addEventListener("click",(e)=>{
+    console.log(e.target.value)
+
+    switch (e.target.value) {
+      case "Naira":
+        console.log("selected from send to bank")
+        document.querySelector("#forms-to-bank").removeAttribute("class","none");
+        document.querySelector("#api-box").setAttribute("class","none");
+        //the rest of the logic the value should perform will be written here.
+        break;
+      case "Cedi":
+        console.log("selected from send to cedi")
+        document.querySelector("#forms-to-bank").setAttribute("class","none");
+        document.querySelector("#api-box").removeAttribute("class","none");
+        break;
+    case "Dollar":
+        document.querySelector("#forms-to-bank").setAttribute("class","none");
+        document.querySelector("#api-box").removeAttribute("class","none");
+        break;
+    case "Yuen":
+        document.querySelector("#forms-to-bank").setAttribute("class","none");
+        document.querySelector("#api-box").removeAttribute("class","none");
+        break;
+    case "select-wallet":
+        document.querySelector("#forms-to-bank").setAttribute("class","none");
+        document.querySelector("#api-box").setAttribute("class","none");
+        console.log(e.target.classList)
+        console.log("selected from send to select wallet")
+        break;
+    }
+})
+
 console.log("all good at the moment")

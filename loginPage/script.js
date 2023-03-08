@@ -11,8 +11,8 @@ function addMoney(){
 }
 
 function deduct(){
-    var newBalance = balance - parseInt(paid);
-    return parseFloat(newBalance);
+    var newBalance = balance - parseFloat(paid);
+    return newBalance;
 }
 
 function add(){
@@ -22,7 +22,7 @@ function add(){
 
 function ret(){
   balance = ad + send;
-  return parseFloat(balance);
+  return balance;
 
 }
 var receiver = deduct();
@@ -47,7 +47,11 @@ if (parseFloat(paid) > balance) {
     console.log("You receied ",send, "New balance is", received+send);
   } else if(q.toLocaleLowerCase()== "no") {
     console.log("not received");
-  }else if(q.toLocaleLowerCase() == "conflict"){
+  }else if(q.toLocaleLowerCase()== "no" && received+send){
+
+    console.log(`fraud alert ${""}`)
+  }
+  else if(q.toLocaleLowerCase() == "conflict"){
     console.log("You receied ",received);
     console.log(send ,"is held by the system")
     console.log("Your account balance is",ad)
@@ -56,3 +60,4 @@ if (parseFloat(paid) > balance) {
 }
 console.log(`new balance update is ${parseFloat(balance)}`)
 
+inpu

@@ -464,6 +464,7 @@
                             <h2></h2>
                             <p>To fund wallet choose available options</p>
                         </div>
+                        
                     </div>
                     
                 </div>
@@ -487,7 +488,7 @@
                     <div class="add-container-body-top">
                         <div class="fund-wallet">
                             <h2></h2>
-                            <p>Total <span></span> wallet available balance </p>
+                            <p>Total <span>  </span> wallet available balance </p>
                             <!-- check if the wallet balance is grater than the entered amount
                             if yes, then continue to the transaction if no, then return a message of insufficient balance -->
                         </div>
@@ -524,6 +525,18 @@
                             show a bank transfer modal box where bank can be selected, account number entered,
                             amount entered, narration entered, confirmation screen then the procced btn click, 
                             account password to confirm transaction -->
+                            <label for="select">
+                                Select Wallet
+                                <div class="sel-cont">
+                                    <select class="to-bank" id="send-to-bank">
+                                        <option value="select-wallet">Select Wallet</option>
+                                        <option value="Naira">Naira Wallet</option>
+                                        <option value="Cedi">Cedi wallet</option>
+                                        <option value="Dollar">Dollar Wallet</option>
+                                        <option value="Yuen">Yuen wallet</option>
+                                    </select>
+                                </div>
+                            </label>
                         </div>
                     </div>
                     <div class="d-top">
@@ -531,16 +544,48 @@
                     </div>
 
                     <!-- Paymeny gateway lists -->
-                    <form action="" class="forms">
-                        <div class="cards amount">
-                           
+                    <!-- Bank details and etc -->
+                    <!-- if wallet selected is nigeria, it should only display the account number -->
+                    <!-- if wallet selected is not nigeria it should display card options -->
+                    <form action="" class="forms-to-bank" id="forms-to-bank">
+                        
+                        <div class="to-b">
+                            <label for="e">Bank Name
+                                <div class="inpt">
+                                    <input type="text" id="e" placeholder="Select Bank">
+                                </div>
+                            </label>
+                            <label for="e">Account Number
+                                <div class="inpt">
+                                    <input type="text" id="e" placeholder="Account Number">
+                                </div>
+                            </label>
+                            <label for="e">Amount
+                                <div class="inpt">
+                                    <input type="text" id="e" placeholder="minimum 100">
+                                </div>
+                            </label>
+                            <label for="e">Narration
+                                <div class="inpt">
+                                    <input type="text" id="e" placeholder="e.g for school fee">
+                                </div>
+                            </label>
                         </div>
+                        <button type="submit" class="send-form-btn wallet-to-bank">Confirm</button>
                     </form>
+
+                    <div class="cards box" id="api-box">
+                        <h3>Bank Name :<span>UBA Bank</span></h3>
+                        <div class="account-number">
+                            Account Number: 234-5642-8796
+                           </div> 
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <script src="./script.js"   ></script>
+    <script src="./script.js"></script>
+    <script src="./user.js"></script>
 </body>
 </html>
