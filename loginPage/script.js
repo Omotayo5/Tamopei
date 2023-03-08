@@ -2,7 +2,6 @@ var balance = 10.0;
 
 var received = 3.0;
 
-
 var paid = prompt("Enter amount to send")
 
 function addMoney(){
@@ -56,3 +55,4 @@ if (parseFloat(paid) > balance) {
   }
 }
 console.log(`new balance update is ${parseFloat(balance)}`)
+
