@@ -11,7 +11,7 @@
 :root{
     --primaryColor :rgb(60, 245, 208);
     --black:rgb(0, 0, 0);
-    --carton:#BDC3C7;
+    --carton:#bdc3c77b;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
@@ -59,11 +59,12 @@ h3{
 }
 
 aside{
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     color: white;
     padding: 1rem;
+    
 }
 .top{
     display: flex;
@@ -76,10 +77,11 @@ aside .sidebar{
     position: relative;
     height: 80vh;
     gap: 2rem;
-   
+   z-index: 20;
     flex-direction: column;
     padding: 2rem .5rem;
     border: 2px solid var(--carton);
+    background-color:#bdc3c77b;
     /* background-color: aqua; */
     width: 100%;
 }
@@ -89,7 +91,7 @@ aside .sidebar{
     align-items: center;
     height: 3.5rem;
     position: inherit;
-    color: white;
+    color: black;
     transition: all 300s ease-in;
     gap: 1rem;
 
@@ -133,6 +135,11 @@ main{
     border: 2px solid var(--carton);
     padding: 1rem;
 }
+
+.main-full{
+    width: 90vw;
+    margin: auto;
+}
 .firstheading{
     display: flex;
     align-items: center;
@@ -154,7 +161,7 @@ main .h2{
     margin-top: 2.5rem;
     width: fit-content;
     padding: .5rem;
-    background-color: var(--carton);
+    background-color: #bdc3c77b;
 }
 .hr{
     border-bottom: 2.5px solid black;
@@ -166,16 +173,32 @@ main .h2{
     justify-content: space-evenly;
     padding: 2.5rem;
     flex-wrap: wrap;
-    background-color: var(--carton);
+    background-color: #bdc3c77b;
     border-radius: .15rem;
-    box-shadow: .05rem .05rem .5rem .05rem #a3dff8;
-    transition: all 300s ease-in;
+    box-shadow: .05rem .5rem 5rem .25rem #080808b8;
+    transition: all .3s ease-in;
 }
 .color-bg{
     background-color: var(--primaryColor);
 }
 .none{
     display: none;
+    transform-origin: center;
+    animation: appear ease .1s;
+}
+@keyframes appear{
+    0%{
+        opacity: 0;
+    } 
+    25%{
+        opacity: .5;
+    }
+    50%{
+        opacity: .75;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .insights{
     display: flex;
@@ -186,21 +209,24 @@ main .h2{
     border-radius: .15rem;
     padding: 1rem;
     margin: 1rem 0;
-    box-shadow: .05rem .05rem .05rem .1rem #4D8FAC;
+    box-shadow: .05rem .05rem .25rem .1rem #0808087d;
+    /* box-shadow: .5rem .5rem 5rem .1rem #0808087d; */
     /* background-color: aquamarine; */
 }
 
 .insights-off{
     display: flex;
-    align-items: center;
+    
     justify-content: space-between;
     width: fit-content;
-    border: 2px solid #4D8FAC;
+    flex-direction: column;
     border-radius: .15rem;
     padding: 1rem;
+    background-color:#bdc3c77b;
+    font-weight: 600;
+    color: white;
     margin: 1rem 0;
-    box-shadow: .05rem .05rem .25rem .05rem #b0e2f8;
-    /* background-color: aquamarine; */
+    box-shadow: .05rem .05rem .25rem .1rem #0808087d;
 }
 .off{
     border: none;
@@ -212,6 +238,7 @@ main .h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .green{
@@ -375,13 +402,14 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     border-radius: .25rem;
-    background: linear-gradient(to top, rgba(255, 255, 0, 0.61),rgba(117, 117, 248, 0.418),rgba(172, 255, 47, 0.555));
-    box-shadow: .05rem .05rem .25rem .05rem #b0e2f8;
+    background: #bdc3c77b;
+    box-shadow: .05rem .5rem 5rem .25rem #080808b8;
+
     width: 100%;
   }
   
   td, th {
-    border: 1px solid white;
+    border: 1px solid black;
     
     text-align: left;
     padding: .8rem;
@@ -390,7 +418,7 @@ table {
     font-weight: 600;
   }
   
-  tr:nth-child(even) {
+  tr:nth-child(odd) {
     background-color:var(#6C7A89);
   }
   .more{

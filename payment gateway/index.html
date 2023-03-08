@@ -8,11 +8,12 @@
       rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/addmoney.css">
+    <link rel="stylesheet" href="./style/sendmoney.css">
     <title>Tamopie Home</title>
 </head>
 <body>
     <div class="container">
-        <aside>
+        <aside class="">
             <div class="top">
                 <div class="logo">
                     <h2>Tamo <span>pei</span></h2>
@@ -69,13 +70,12 @@
                 </a>
             </div>
         </aside>
-
         <!-- MAIN -->
         <main>
             <div class="firstheading">
                 <h2 class="h2 hr">Olatunde Badiru Ekehinde</h2>
                 <div class="profile">
-                    <img src="/img/COB-BOB-IRT-enroll_tractor.jpg" alt="">
+                    <img src="./img/COB-BOB-IRT-enroll_tractor.jpg" alt="">
                 </div>
             </div>
             <div class="heading">
@@ -108,6 +108,7 @@
                                 <h3>USD Balance <span class="material-icons-sharp">
                                     visibility
                                     </span></h3>
+                                    <hr>
                                 <h2><span>$</span> 15,000 
                                 </h2>
                 
@@ -147,7 +148,7 @@
                 </div>
             </div>
 <!-- HEADING TWO                                  -->
-            <div class="heading none">
+            <div class="heading none" id="currency-overflow">
                 <div class="insights">
                     <div class="stat">
                         <!-- <span class="circle material-icons-sharp">
@@ -269,29 +270,34 @@
             </div>
             
             <div class="dashboard hr">
+                <div>
+                    <a href="" class=" insights-off" id="add-btn">
+                        <div >
+                            <div class="dash stat">
+                                <span class="material-icons-sharp">
+                                    add
+                                </span>
+                                Add  
+                            </div>
+                        </div>
+                    </a>
 
-                <a href="#add-money-modal" class="insights-off green">
-                    <div >
-                        <div class="dash stat">
-                            <span class="material-icons-sharp">
-                                add
-                            </span>
-                            Add  
-                        </div>
-                    </div>
-                </a>
+                </div>
                 
-                <a href="" class="insights-off light-green">
-                    <div>
-                        <div class="dash stat">
-                            <span class="material-icons-sharp">
-                                call_made
-                            </span>
-                            Send
+                <div>
+                    <a href="" class="insights-off" id="send-btn">
+                        <div>
+                            <div class="dash stat">
+                                <span class="material-icons-sharp">
+                                    call_made
+                                </span>
+                                Send
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a href="" class="insights-off purple">
+                    </a>
+                </div>
+                
+                <a href="" class="insights-off" id="pair-to-pair">
                     <div>
                         <div class="dash stat">
                             <span class="material-icons-sharp">
@@ -357,72 +363,185 @@
 
 
         <!-- Modals -->
-        <div class="add-money-modal" id="add-money-modal">
+        <div class="add-money-modal none" id="add-money-modal">
             <div class="blank"></div>
 
             <div class="add-container">
                 <div class="add-container-top">
-                    <div class="back-link">
-                        <a href="">Go back</a>
-                    </div>
+                    <!-- <div class="back-link">
+                        <a href="">Add</a>
+                    </div> -->
                     <div class="close-btn">
                         X
                     </div>
+                    Add to wallet
                 </div>
                 <div class="add-container-body">
                     <div class="add-container-body-top">
                         <div class="fund-wallet">
-                            <h2>Fund Wallet</h2>
+                            <h2>Fund <span></span> Wallet</h2>
                             <p>To fund wallet provide the datails below</p>
                         </div>
                         <div class="select">
                             Select Wallet
-                            <select name="" id="">
-                                <option value="">ACCOUNT 1</option>
-                                <option value="">ACCOUNT 2</option>
-                                <option value="">ACCOUNT 3</option>
-                                <option value="">ACCOUNT 4</option>
+                            <select name="" id="select">
+                                <option value="select-wallet">Select Wallet</option>
+                                <option value="Naira">Naira Wallet</option>
+                                <option value="Cedi">Cedi wallet</option>
+                                <option value="Dollar">Dollar Wallet</option>
+                                <option value="Yuen">Yuen wallet</option>
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="wallet-balance none">
-                        <p>Fund via Bank transfer</p>
-                        <!-- Bank details and etc -->
-                        <!-- if wallet selected is nigeria, it should only display the account number -->
-                        <!-- if wallet selected is not nigeria it should display card options -->
-                        Account Number: 234-5642-8796
+                    <div class="banks none">
+                        
+                        <!-- select button to choose wether the transaction will be done by bank transfer or card deposit -->
+
+
+                        <p>Fund <span>Naira</span> wallet via Bank transfer</p>
+                        <div class="wallet-balance">
+                            <div class="cards amount">
+                                <!-- Bank details and etc -->
+                                <!-- if wallet selected is nigeria, it should only display the account number -->
+                                <!-- if wallet selected is not nigeria it should display card options -->
+                                <h3>Bank Name :<span>UBA Bank</span></h3>
+                                <div class="account-number">
+                                    Account Number: 234-5642-8796
+                                   </div> 
+                            </div>
+                        </div>
+                        <div class="wallet-balance">
+                            <!-- Bank account informations -->
+                            <div class="cards amount">
+                                <!-- Bank details and etc -->
+                                <!-- if wallet selected is nigeria, it should only display the account number -->
+                                <!-- if wallet selected is not nigeria it should display card options -->
+                                <h3>Bank Name :<span>Access Bank</span></h3>
+                               <div class="account-number">
+                                Account Number: 234-5642-8796
+                               </div> 
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="buttons">
-                        <button type="submit" class="form-btn">Bank Transfer</button>
+                    <div class="buttons" id="buttons">
+                        <button type="submit" class="form-btn bank-transfer">Bank Transfer</button>
                         <button type="submit" class="form-btn">p2p</button>
                     </div>
+
+
+
                     <!-- Fund via p2p options too will be here -->
-
-
-                    
-                    <!-- <div class="deposits">
+                    <div class="deposits none">
                         <div class="d-top">
-                            <p>Amount to deposit</p>
+                            <p>Choose a Payment gateway for <span>Cedi</span></p>
                         </div>
                         <form action="" class="forms">
-                            <input type="number" required placeholder="s" class="amount">
-
                             <div class="cards amount">
                                 <button type="radio"></button>
                             </div>
-
-                            <div class="cards amount"></div>
-                            <div class="buttons">
-                                <button type="submit" class="form-btn">PROCEED</button>
-                                <button type="submit" class="form-btn">p2p</button>
-                            </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
 
             </div>
         </div>
+
+        <div  id="send-money-modal">
+            <div class="blank"></div>
+            <div class="send-container">
+                <div class="send-container-top">
+                    <!-- <div class="back-link">
+                        <a href="">Send</a>
+                    </div> -->
+                    <div class="send-close-btn">
+                        X
+                    </div>
+                    Send from wallet
+                </div>
+                <div class="w-to-w">
+                    <div class="add-container-body-top">
+                        <div class="fund-wallet">
+                            <h2></h2>
+                            <p>To fund wallet choose available options</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="send-form-btn wallet-to-wallet">Wallet to wallet</button>
+                    <button type="submit" class="send-form-btn wallet-to-bank">Wallet to bank</button>
+                </div>
+                <div class="select " id="wallet">
+                    
+                    <label for="select">
+                        Select Wallet
+                        <select name="" id="send-select">
+                            <option value="">Select Wallet</option>
+                            <option value="Naira">Naira Wallet</option>
+                            <option value="Cedi">Cedi wallet</option>
+                            <option value="Dollar">Dollar Wallet</option>
+                            <option value="Yuen">Yuen wallet</option>
+                        </select>
+
+                    </label>
+                    <div class="add-container-body-top">
+                        <div class="fund-wallet">
+                            <h2></h2>
+                            <p>Total <span></span> wallet available balance </p>
+                            <!-- check if the wallet balance is grater than the entered amount
+                            if yes, then continue to the transaction if no, then return a message of insufficient balance -->
+                        </div>
+                    </div>
+                    <div class="send-inputs">
+                        <label for="beneficiary-name">
+                            Username
+                            <input type="text">
+                        </label>
+
+                        <label for="user-amount">
+                            Enter Amount
+                            <input type="text" name="user-amount" class="amount" value="N" maxlength="6">
+                        </label>
+                    </div>
+                    <div class="confirm-details">
+                        <p>Confirm Receiver information </p>
+                        <div class="details">
+
+                        </div>
+
+                    </div>
+                    <!-- if confirm button is clicked, check if the entered username is inside the database
+                     then open a modal to enter password for the user to confirm the transaction. -->
+                    <button type="submit" class="form-btn">Confirm</button>
+                </div>
+
+                <div class="deposits" id="bank-deposit">
+                    <div class="add-container-body-top">
+                        <div class="fund-wallet">
+                            <h2></h2>
+                            <p>To send money from wallet to bank account</p>
+                            <!-- open a wallet select options,
+                            show a bank transfer modal box where bank can be selected, account number entered,
+                            amount entered, narration entered, confirmation screen then the procced btn click, 
+                            account password to confirm transaction -->
+                        </div>
+                    </div>
+                    <div class="d-top">
+                        <p>Amount to deposit</p>
+                    </div>
+
+                    <!-- Paymeny gateway lists -->
+                    <form action="" class="forms">
+                        <div class="cards amount">
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
+    <script src="./script.js"   ></script>
 </body>
 </html>
