@@ -66,21 +66,15 @@ aside{
     /* border: 2px solid rebeccapurple; */
     
 }
-.logo{
-    color:  rgb(76, 76, 76);
-    color: white;
-    margin: auto;
+.logo h2 {
+    margin: auto 0;
 }
 .top{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 2rem;
-    
-    background-color: rgb(46, 204, 113);
     padding: 1rem 0;
-    /* margin: 2rem o; */
-    /* border: 2px solid rebeccapurple; */
 }
 aside .sidebar{
     display: flex;
@@ -102,6 +96,8 @@ aside .sidebar{
     gap: 1rem;
 
 }
+
+
 .b{
     font-size: 1.75rem;
     color:  rgb(76, 76, 76);
