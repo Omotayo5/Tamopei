@@ -57,6 +57,7 @@ width: 100%;
 .send-container{
     background-color: var(--carton);
     padding: 1rem;
+    color: rgb(76, 76, 76);
     margin-top: 2.5rem;
     height: fit-content;
     display: flex;

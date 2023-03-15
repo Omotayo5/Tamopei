@@ -22,7 +22,7 @@ body{
     overflow-x: hidden;
     font-size: 62.5%;
     font-family:'lato','Roboto', sans-serif;
-    background-color: #264348;
+    background-color: rgb(236, 240, 241);
     
 }
 a{
@@ -66,11 +66,21 @@ aside{
     padding: 1rem;
     
 }
+.logo{
+    color:  rgb(76, 76, 76);
+    color: white;
+    margin: auto;
+}
 .top{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 2rem;
+    
+    background-color: rgb(46, 204, 113);
+    padding: 1rem 0;
+    /* margin: 2rem o; */
+    /* border: 2px solid rebeccapurple; */
 }
 aside .sidebar{
     display: flex;
@@ -81,7 +91,7 @@ aside .sidebar{
     flex-direction: column;
     padding: 2rem .5rem;
     border: 2px solid var(--carton);
-    background-color:#bdc3c77b;
+    /* background-color:#bdc3c77b; */
     /* background-color: aqua; */
     width: 100%;
 }
@@ -112,7 +122,7 @@ aside .sidebar{
     content: " ";
     width: .5rem;
     height: inherit;
-    background-color: black;
+    /* background-color: black; */
 }
 
 aside .sidebar a.active span{
@@ -161,11 +171,15 @@ main .h2{
     margin-top: 2.5rem;
     width: fit-content;
     padding: .5rem;
-    background-color: #bdc3c77b;
+    border: 2px solid #4D8FAC;
+    color: rgb(76, 76, 76);
+    /* background-color: rgb(206, 190, 97); */
 }
 .hr{
     border-bottom: 2.5px solid black;
     margin-left: .5rem;
+    border: 2px solid #4D8FAC;
+    background-color: rgb(206, 190, 97);
 }
 .heading{
     display: flex;
@@ -173,9 +187,9 @@ main .h2{
     justify-content: space-evenly;
     padding: 2.5rem;
     flex-wrap: wrap;
-    background-color: #bdc3c77b;
+    /* background-color: #bdc3c77b; */
     border-radius: .15rem;
-    box-shadow: .05rem .5rem 5rem .25rem #080808b8;
+    /* box-shadow: .05rem .5rem 5rem .25rem #080808b8; */
     transition: all .3s ease-in;
 }
 .color-bg{
@@ -205,28 +219,25 @@ main .h2{
     align-items: center;
     justify-content: space-between;
     width: fit-content;
-    /* border: 2px solid #4D8FAC; */
+    border: 2px solid #4D8FAC;
+    /* background-color: rgb(206, 190, 97); */
     border-radius: .15rem;
     padding: 1rem;
     margin: 1rem 0;
-    box-shadow: .05rem .05rem .25rem .1rem #0808087d;
-    /* box-shadow: .5rem .5rem 5rem .1rem #0808087d; */
-    /* background-color: aquamarine; */
 }
 
 .insights-off{
     display: flex;
-    
     justify-content: space-between;
     width: fit-content;
     flex-direction: column;
     border-radius: .15rem;
     padding: 1rem;
-    background-color:#bdc3c77b;
+    border: 2px solid #4D8FAC;
+    /* background-color: rgb(206, 190, 97); */
     font-weight: 600;
-    color: white;
+    color: rgb(76, 76, 76);
     margin: 1rem 0;
-    box-shadow: .05rem .05rem .25rem .1rem #0808087d;
 }
 .off{
     border: none;
@@ -242,15 +253,15 @@ main .h2{
 }
 
 .green{
-    background-color: rgba(45, 237, 45, 0.719);
+    background-color: rgb(46, 204, 113);
 }
 
 .orange{
-    background-color: rgba(251, 172, 26, 0.834);
+    background-color: rgb(231, 76, 60);
 }
 
-.light-green{
-    background-color: greenyellow;
+.blue{
+    background-color: rgb(52, 152, 219);
 }
 
 .purple{
@@ -292,6 +303,7 @@ a.white{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: rgb(76, 76, 76);
 }
 .left h2 span{
     font-size: 2rem;
@@ -299,7 +311,7 @@ a.white{
 .left h3{
     display: flex;
     align-items: center;
-    
+    color:  rgb(76, 76, 76);
     justify-content: space-between;
     /* border: 2px solid red; */
 }
@@ -307,6 +319,8 @@ a.white{
     width: fit-content;
     margin-left: .5rem;
     /* border: 2px solid red; */
+    font-size: 1rem;
+    color: rgb(46, 204, 113);
 
 }
 /* mani.dsahboard */
@@ -394,7 +408,7 @@ main.last{
 
 .available-h2{
     padding: .5rem;
-    color: #BDC3C7;
+    color:  rgb(76, 76, 76);
 }
 
 /* available table */
@@ -403,7 +417,7 @@ table {
     border-collapse: collapse;
     border-radius: .25rem;
     background: #bdc3c77b;
-    box-shadow: .05rem .5rem 5rem .25rem #080808b8;
+    /* box-shadow: .05rem .5rem 5rem .25rem #080808b8; */
 
     width: 100%;
   }
@@ -413,7 +427,7 @@ table {
     
     text-align: left;
     padding: .8rem;
-    color: white;
+    color: rgb(76, 76, 76);
     font-size: 1rem;
     font-weight: 600;
   }

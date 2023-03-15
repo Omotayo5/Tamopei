@@ -60,13 +60,13 @@ body{
     align-items: center;
     width: fit-content;
     height: fit-content;
-    box-shadow: .05rem .05rem .25rem .1rem #0808087d;
+    /* box-shadow: .05rem .05rem .25rem .1rem #0808087d; */
     padding: .5rem;
 }
 .send-close-btn:hover,.close-btn:hover{
 
     animation: ease-in-out .5s;
-    background-color: rgb(250, 45, 45);
+    /* background-color: rgb(250, 45, 45); */
 }
 
 .blank{
@@ -91,12 +91,13 @@ width: 100%;
 }
 .add-container{
     margin-top: 2.5rem;
-    background-color: #bdc3c7f2;
+    border: 2px solid #4D8FAC;
+    background-color: rgb(206, 190, 97);
     padding: .5rem;
     height: fit-content;
     display: flex;
+    color: rgb(76, 76, 76);
     flex-direction: column;
-    border: 2px solid grey;
     transition: appear ease 5s;
     box-shadow: .05rem .05rem .25rem .1rem #0808087d;
 
@@ -182,7 +183,8 @@ width: 100%;
 .form-btn{
     width: 100%;
     margin: auto;
-    /* border-radius: .5rem; */
+    border: 2px solid rgb(76, 76, 76);;
+    border-radius: .25rem;
     /* background-color: #3E8914; */
     font-weight: 600;
     font-size: 1rem;
@@ -193,9 +195,10 @@ width: 100%;
 }
 .form-btn:hover{
     transition: ease-in-out .25s;
-    transform: scaleY(1.1);
-    background-color: black;
-    color: white;
+    /* transform: scaleY(1.1); */
+    background-color: rgb(168, 168, 168);
+    /* border-inline: 1px solid black; */
+    color: black;
 }
 /* ________________________ */
 .select{

@@ -1,3 +1,7 @@
+
+//MODAL BOXES Design.
+
+
 const body = document.querySelector(".container");
 const selectOpt = document.querySelector("#select");
 const sendSellectOpt = document.querySelector("#send-select")
@@ -16,12 +20,14 @@ const pairToPairbtn = document.querySelector("#pair-to-pair");
 const CurNameFundWallet = document.querySelector(".fund-wallet h2 span");
 const walletToBank = document.querySelector("#bank-deposit");
 const walletToBankBtn = document.querySelector(".wallet-to-bank");
-
 const walletTowalletBtn = document.querySelector(".wallet-to-wallet");
 const walletTowallet = document.querySelector("#wallet");
 
+//initial state of the button
 walletToBank.classList.add("none");
 walletTowallet.classList.add("none");
+
+//wallet to wallet modal
 walletTowalletBtn.addEventListener("click", (e)=>{
     console.log(e.target)
     walletTowallet.classList.toggle("none");
@@ -29,11 +35,13 @@ walletTowalletBtn.addEventListener("click", (e)=>{
     walletToBankBtn.classList.toggle("none");
 })
 
+//wallet to bank
 walletToBankBtn.addEventListener("click",()=>{
     walletTowallet.classList.add("none");
     walletToBank.classList.toggle("none");
     walletTowalletBtn.classList.toggle("none");
 })
+
 //By default the modal boxes should not be displayed should 
 sendMoneyModal.classList.add("none")
 modalBox.setAttribute("class","none");
@@ -79,20 +87,6 @@ bankTransferBtn.addEventListener("click",()=>{
     bankTransferBtn.classList.add("none");
 })
 
-// when body is clicked the modal box should disappear
-
-// body.addEventListener("click",(e)=>{
-//     if(e.target==e.target.parentElement){
-//         modalBox.setAttribute("class", "none");
-//         sendMoneyModal.setAttribute("class","none");
-//     }
-//     console.log(e.target.parentElement)
-// })
-
-
-
-
-
 /*_____________________________________________*/
 //The select option for the send modal box.
 selectOpt.addEventListener("click",(e)=>{
@@ -107,7 +101,7 @@ selectOpt.addEventListener("click",(e)=>{
 
         //the rest of the logic the value should perform will be written here.
         break;
-      case "Cedi":
+      case "Pounds":
         payGateways.classList.remove("none");
         accountDisplay.classList.add("none");
         CurNameFundWallet.innerHTML = e.target.value;
@@ -134,8 +128,6 @@ selectOpt.addEventListener("click",(e)=>{
     }
 })
 
-
-
 // the select option for the fund wallet.
 const walletAvailable = document.querySelector(".fund-wallet p span");
 sendSellectOpt.addEventListener("click",(e)=>{
@@ -143,10 +135,13 @@ sendSellectOpt.addEventListener("click",(e)=>{
         case "Naira":
             walletAvailable.innerHTML = e.target.value;
             break;
-        case "Cedi":
+        case "Pounds":
             walletAvailable.innerHTML = e.target.value;
             break;
         case "Dollar":
+            walletAvailable.innerHTML = e.target.value;
+            break;
+        case "Euro":
             walletAvailable.innerHTML = e.target.value;
             break;
         case "Yuen":
@@ -170,6 +165,7 @@ document.querySelector("#send-to-bank").addEventListener("click",(e)=>{
         console.log("selected from send to bank")
         document.querySelector("#forms-to-bank").removeAttribute("class","none");
         document.querySelector("#api-box").setAttribute("class","none");
+        document.querySelector("#dollar-modal").classList.add("none");
         //the rest of the logic the value should perform will be written here.
         break;
       case "Cedi":
@@ -179,7 +175,8 @@ document.querySelector("#send-to-bank").addEventListener("click",(e)=>{
         break;
     case "Dollar":
         document.querySelector("#forms-to-bank").setAttribute("class","none");
-        document.querySelector("#api-box").removeAttribute("class","none");
+        // document.querySelector("#api-box").removeAttribute("class","none");
+        document.querySelector("#dollar-modal").classList.remove("none");
         break;
     case "Yuen":
         document.querySelector("#forms-to-bank").setAttribute("class","none");
