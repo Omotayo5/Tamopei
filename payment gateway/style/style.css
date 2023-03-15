@@ -22,7 +22,7 @@ body{
     overflow-x: hidden;
     font-size: 62.5%;
     font-family:'lato','Roboto', sans-serif;
-    background-color: rgb(236, 240, 241);
+    /* background-color: rgb(236, 240, 241); */
     
 }
 a{
@@ -170,27 +170,29 @@ main .h2{
     margin-top: 2.5rem;
     width: fit-content;
     padding: .5rem;
-    /* border: 2px solid #4D8FAC; */
-    color: rgb(76, 76, 76);
-    /* background-color: rgb(206, 190, 97); */
+    color: rgb(46, 204, 113);
 }
-/* .hr{
-    border-bottom: 2.5px solid black;
-    margin-left: .5rem;
-    border: 2px solid #4D8FAC;
-    background-color: rgb(206, 190, 97);
-} */
 .heading{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding: 2.5rem;
     flex-wrap: wrap;
-    /* background-color: #bdc3c77b; */
     border-radius: .15rem;
-    /* box-shadow: .05rem .5rem 5rem .25rem #080808b8; */
     transition: all .3s ease-in;
 }
+
+.minus{
+    margin-top: -5rem;
+}
+.expand{
+    /* border: 2px solid rgb(46, 204, 113); */
+    padding: .5rem 1rem;
+    background-color: aliceblue;
+    font-size: 2.5rem;
+    color: #6C7A89;
+}
+
 .color-bg{
     background-color: var(--primaryColor);
 }
@@ -218,8 +220,8 @@ main .h2{
     align-items: center;
     justify-content: space-between;
     width: fit-content;
-    border: 2px solid #4D8FAC;
-    /* background-color: rgb(206, 190, 97); */
+    /* border: 2px solid #4D8FAC; */
+    background-color:  aliceblue;
     border-radius: .15rem;
     padding: 1rem;
     margin: 1rem 0;
@@ -231,7 +233,7 @@ main .h2{
     width: fit-content;
     border-radius: .15rem;
     padding: 1rem 4rem;
-    border: 2px solid #4D8FAC;
+    /* border: 2px solid #4D8FAC; */
     font-weight: 600;
     color: white;
     margin: 1rem 0;
