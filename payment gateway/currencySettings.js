@@ -2,7 +2,7 @@
 const domStrings = {
   select: document.querySelector("#send-select"),
   valueToSend: document.querySelector("#sentVal"),
-  confiemBtn: document.querySelector("#confirm-send"),
+  confiemBtn: document.querySelector("#naira-confirm-send"),
   bankName: document.querySelector("#bank-name"),
   accntNumb: document.querySelector("#acc-num"),
   narration: document.querySelector("#trans-narr"),
@@ -140,6 +140,7 @@ function safe() {
   xaf cameroon
   */
 
+  //Select the value from the select options.
   document.querySelector("#send-to-bank").addEventListener("click", (e) => {
     //the values from the option box will be set as the name of the currency.
     domStrings.confiemBtn.addEventListener("click", (ef) => {
@@ -154,6 +155,7 @@ function safe() {
 
       //Pass the value from the input box into the send money function.
       money.send(e.target.value, parseFloat(domStrings.valueToSend.value));
+      //set the values of the input boxes back to empty.
       domStrings.valueToSend.value = "";
       domStrings.bankName.value = "";
       domStrings.accntNumb.value = "";

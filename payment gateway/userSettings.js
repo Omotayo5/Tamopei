@@ -11,7 +11,7 @@ function createUserAccount() {
           _userName = newUsername;
           return true;
         } else {
-          console.log("Username length too short")
+          // console.log("Username length too short")
           return false;
         }
       },
@@ -20,7 +20,7 @@ function createUserAccount() {
           _password = encryptPass(newPassword);
           return true;
         } else {
-          console.log("Password length too short");
+          // console.log("Password length too short");
           return false;
         }
       },
@@ -73,5 +73,5 @@ function createUserAccount() {
   const email = userAccount.getPass();
   const pass = userAccount.getEmail();
   
-  console.log(pass,email,Name);
+  // console.log(pass,email,Name);
   

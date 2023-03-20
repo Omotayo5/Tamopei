@@ -523,27 +523,30 @@
                             if yes, then continue to the transaction if no, then return a message of insufficient balance -->
                         </div>
                     </div>
-                    <div class="send-inputs">
-                        <label for="beneficiary-name">
-                            Username
-                            <input type="text">
-                        </label>
+                    <form action="" id="p2p-form">
 
-                        <label for="user-amount">
-                            Enter Amount
-                            <input type="text" name="user-amount" class="amount" value="N" maxlength="6">
-                        </label>
-                    </div>
-                    <div class="confirm-details">
-                        <p>Confirm Receiver information </p>
-                        <div class="details">
-
+                        <div class="send-inputs">
+                            <label for="beneficiary-name">
+                                Username
+                                <input type="text">
+                            </label>
+    
+                            <label for="user-amount">
+                                Enter Amount
+                                <input type="text" name="user-amount" class="amount" value="N" maxlength="6">
+                            </label>
                         </div>
-
-                    </div>
-                    <!-- if confirm button is clicked, check if the entered username is inside the database
-                     then open a modal to enter password for the user to confirm the transaction. -->
-                    <button type="submit" class="form-btn">Confirm</button>
+                        <div class="confirm-details">
+                            <p>Confirm Receiver information </p>
+                            <div class="details">
+    
+                            </div>
+    
+                        </div>
+                        <!-- if confirm button is clicked, check if the entered username is inside the database
+                         then open a modal to enter password for the user to confirm the transaction. -->
+                        <button type="submit" class="form-btn">Confirm</button>
+                    </form>
                 </div>
 
                 <div class="deposits" id="bank-deposit">
@@ -578,36 +581,44 @@
                     <!-- Bank details and etc -->
                     <!-- if wallet selected is nigeria, it should only display the account number -->
                     <!-- if wallet selected is not nigeria it should display card options -->
-                    <form action="" class="forms-to-bank" id="forms-to-bank">
 
-                        <div class="to-b">
-                            <label for="e">Bank Name
-                                <div class="inpt">
-                                    <input type="text" id="bank-name" placeholder="Select Bank">
-                                </div>
-                            </label>
-                            <label for="e">Account Number
-                                <div class="inpt">
-                                    <input type="text" id="acc-num" placeholder="Account Number">
-                                </div>
-                            </label>
-                            <label for="e">Amount
-                                <div class="inpt">
-                                    <input type="text" id="sentVal" placeholder="minimum 100">
-                                </div>
-                            </label>
 
-                            <label for="e">Narration
-                                <div class="inpt">
-                                    <input type="text" id="trans-narr" placeholder="e.g for school fee">
-                                </div>
-                            </label>
-                        </div>
-                        <button type="submit" class="send-form-btn wallet-to-bank" id="confirm-send">Confirm</button>
-                    </form>
-                    <div class="dollar-container">
+                    <div id="forms-to-bank">
+
+                        <form id="naira-form">
+    
+                            <div class="to-b">
+                                <label for="e">Bank Name
+                                    <div class="inpt">
+                                        <input type="text" id="bank-name" name="bank-name" placeholder="Select Bank">
+                                    </div>
+                                </label>
+                                <label for="e">Account Number
+                                    <div class="inpt">
+                                        <input type="text" id="acc-num" name="acc-num" placeholder="Account Number">
+                                    </div>
+                                </label>
+                                <label for="e">Amount
+                                    <div class="inpt">
+                                        <input type="text" id="sentVal" name="sentVal" placeholder="minimum 100">
+                                    </div>
+                                </label>
+    
+                                <label for="e">Narration
+                                    <div class="inpt">
+                                        <input type="text" id="trans-narr" name="trans-narr" placeholder="e.g for school fee">
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- the id for the button is going to be for the naira account -->
+                            <button type="submit" class="send-form-btn wallet-to-bank" id="naira-confirm-send">Confirm</button>
+                        </form>
+                    </div>
+
+
+                    <div class="dollar-container forms-to-bank none" id="dollar-modal">
                         How much do you want to send?
-                        <form action="" class="forms-to-bank none" id="dollar-modal">
+                        <form action="" id="dollar-form">
 
                             <div class="to-b">
                                 <label for="e">Bank Name
@@ -680,6 +691,7 @@
 
         </div>
     </div>
+    <script src="./forms.js"></script>
     <script src="./userSettings.js"></script>
     <script src="./script.js"></script>
     <script src="./currencySettings.js"></script>
