@@ -1,0 +1,55 @@
+*{
+          padding: 0;
+          margin: 0;
+}
+#currency{
+          background-color: var(aliceblue);
+}
+.main-head input{
+          padding: .5rem;
+          background-color: var(--input);
+          border: 2px solid var(--main-color);
+          outline: 1px solid var(--main-color);
+          border-radius: .47rem;
+          /* width: 20%; */
+}
+.enter, .price, input{
+          width: 90%;
+}
+select{
+          padding: .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
