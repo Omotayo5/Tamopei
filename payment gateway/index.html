@@ -17,10 +17,10 @@
         <aside class="">
             <div class="top">
                 <div class="logo">
-                    
+
                     <h2><a href="">
-                        <img src="./img/colorLogo.png" alt="">
-                    </a></h2>
+                            <img src="./img/colorLogo.png" alt="">
+                        </a></h2>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@
 
 
                 </div> -->
-                
+
                 <div class=" off-back off">
                     <a href="">
                         <span class="expand material-icons-sharp">
@@ -305,7 +305,7 @@
                             <span class="material-icons-sharp">
                                 add
                             </span>
-                            
+
                         </div>
                     </a>
 
@@ -314,7 +314,7 @@
                 <div>
                     <a href="" class="insights-off orange" id="send-btn">
                         <div>
-                            
+
                             <div class="dash stat">
                                 Send
                             </div>
@@ -498,14 +498,14 @@
 
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="send-form-btn wallet-to-wallet">Wallet to wallet</button>
-                    <button type="submit" class="send-form-btn wallet-to-bank">Wallet to bank</button>
+                    <button type="submit" class="send-form-btn wallet-to-wallet">Send to wallet</button>
+                    <button type="submit" class="send-form-btn wallet-to-bank">Send to bank</button>
                 </div>
                 <div class="select " id="wallet">
 
                     <label for="select">
                         Select Wallet
-                        <select name="" id="send-select">
+                        <select name="" class="wallet-select" id="send-select">
                             <option value="">Select Wallet</option>
                             <option value="Naira">Naira Wallet</option>
                             <option value="Dollar">Cedi wallet</option>
@@ -528,20 +528,20 @@
                         <div class="send-inputs">
                             <label for="beneficiary-name">
                                 Username
-                                <input type="text">
+                                <input type="text" class="bottom-border">
                             </label>
-    
+
                             <label for="user-amount">
                                 Enter Amount
-                                <input type="text" name="user-amount" class="amount" value="N" maxlength="6">
+                                <input type="text" name="user-amount" class=" bottom-border" maxlength="6">
                             </label>
                         </div>
                         <div class="confirm-details">
                             <p>Confirm Receiver information </p>
                             <div class="details">
-    
+
                             </div>
-    
+
                         </div>
                         <!-- if confirm button is clicked, check if the entered username is inside the database
                          then open a modal to enter password for the user to confirm the transaction. -->
@@ -573,48 +573,39 @@
                             </label>
                         </div>
                     </div>
-                    <div class="d-top">
-                        <p>Amount to deposit</p>
-                    </div>
-
-                    <!-- Paymeny gateway lists -->
-                    <!-- Bank details and etc -->
-                    <!-- if wallet selected is nigeria, it should only display the account number -->
-                    <!-- if wallet selected is not nigeria it should display card options -->
-
-
+                    
                     <div id="forms-to-bank">
 
                         <form id="naira-form">
-    
                             <div class="to-b">
                                 <label for="e">Bank Name
                                     <div class="inpt">
-                                        <input type="text" id="bank-name" name="bank-name" placeholder="Select Bank">
+                                        <input type="text" id="bank-name" class=" bottom-border" name="bank-name" placeholder="Select Bank">
                                     </div>
                                 </label>
                                 <label for="e">Account Number
                                     <div class="inpt">
-                                        <input type="text" id="acc-num" name="acc-num" placeholder="Account Number">
+                                        <input type="text" id="acc-num" class=" bottom-border" name="acc-num" placeholder="Account Number">
                                     </div>
                                 </label>
                                 <label for="e">Amount
                                     <div class="inpt">
-                                        <input type="text" id="sentVal" name="sentVal" placeholder="minimum 100">
+                                        <input type="text" id="sentVal" class=" bottom-border" name="sentVal" placeholder="minimum 100">
                                     </div>
                                 </label>
-    
+
                                 <label for="e">Narration
                                     <div class="inpt">
-                                        <input type="text" id="trans-narr" name="trans-narr" placeholder="e.g for school fee">
+                                        <input type="text" id="trans-narr" name="trans-narr" 
+                                            placeholder="e.g for school fee">
                                     </div>
                                 </label>
                             </div>
                             <!-- the id for the button is going to be for the naira account -->
-                            <button type="submit" class="send-form-btn wallet-to-bank" id="naira-confirm-send">Confirm</button>
+                            <button type="submit" class=" form-btn send-form-btn wallet-to-bank"
+                                id="naira-confirm-send">Confirm</button>
                         </form>
                     </div>
-
 
                     <div class="dollar-container forms-to-bank none" id="dollar-modal">
                         How much do you want to send?
@@ -657,7 +648,7 @@
                                         <input type="text" id="acc-name" placeholder="minimum 100">
                                     </div>
                                 </label>
-    
+
                                 <label for="e">Bank routing number/Sort code
                                     <div class="inpt">
                                         <input type="text" id="trans-narr" placeholder="e.g for school fee">
@@ -668,24 +659,25 @@
                                         <input type="text" id="sentVal" placeholder="minimum 100">
                                     </div>
                                 </label>
-    
+
                                 <label for="e">Description
                                     <div class="inpt">
                                         <input type="text" id="trans-narr" placeholder="e.g for school fee">
                                     </div>
                                 </label>
                             </div>
-                            <button type="submit" class="send-form-btn wallet-to-bank" id="confirm-send">Confirm</button>
+                            <button type="submit" class="send-form-btn wallet-to-bank"
+                                id="confirm-send">Confirm</button>
                         </form>
-    
+
 
                     </div>
-                    <div class="cards box" id="api-box">
+                    <!-- <div class="cards box" id="api-box">
                         <h3>Bank Name :<span>UBA Bank</span></h3>
                         <div class="account-number">
                             Account Number: 234-5642-8796
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
