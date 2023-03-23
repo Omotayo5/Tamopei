@@ -16,9 +16,37 @@
 .enter, .price, input{
           width: 90%;
 }
-select{
-          padding: .5rem;
-}
+select {
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          background-color: var(--select);
+          color: #333;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          /* Add your custom styles here */
+        }
+        
+        select:focus {
+          outline: none;
+        }
+        
+        select option {
+          background-color: var(--white);
+          color: #333;
+        }
+        select option:hover{
+          background: var(--main-color);
+          color: var(--white);
+        }
+        
+        select option:checked {
+          background-color: var(--main-color);
+          color: var(--white);
+        }
+        
 
 
 
