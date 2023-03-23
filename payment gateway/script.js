@@ -16,6 +16,7 @@ const modalBox = document.querySelector("#add-money-modal");
 const pairToPairbtn = document.querySelector("#pair-to-pair");
 const CurNameFundWallet = document.querySelector(".fund-wallet h2 span");
 const walletToBank = document.querySelector("#bank-deposit");
+const dollarModal = document.querySelector(".dollar-container");
 const walletToBankBtn = document.querySelector(".wallet-to-bank");
 const walletTowalletBtn = document.querySelector(".wallet-to-wallet");
 const walletTowallet = document.querySelector("#wallet");
@@ -116,7 +117,7 @@ selectOpt.addEventListener("click", (e) => {
       payGateways.classList.add("none");
       accountDisplay.classList.add("none");
       buttonHide.setAttribute("class", "buttons");
-      CurNameFundWallet.innerHTML = "";
+      dollarModal.classList.add("none")
       break;
   }
 });
@@ -148,6 +149,7 @@ sendSellectOpt.addEventListener("click", (e) => {
 
 // sending money to a bank account
 document.querySelector("#forms-to-bank").setAttribute("class", "none");
+document.querySelector("#dollar-modal").setAttribute("class","none");
 document.querySelector("#send-to-bank").addEventListener("click", (e) => {
   // console.log(e.target.value)
 
@@ -176,6 +178,7 @@ document.querySelector("#send-to-bank").addEventListener("click", (e) => {
     case "select-wallet":
       document.querySelector("#forms-to-bank").setAttribute("class", "none");
       document.querySelector("#api-box").setAttribute("class", "none");
+      document.querySelector("#dollar-modal").classList.add("none");
       console.log(e.target.classList);
       console.log("selected from send to select wallet");
       break;
