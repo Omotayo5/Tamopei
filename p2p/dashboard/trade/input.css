@@ -2,22 +2,37 @@
           padding: 0;
           margin: 0;
 }
+.switch input {
+  display: none;
+}
+input:checked + .slider {
+  background-color: var(--off);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
 #currency{
           background-color: var(aliceblue);
 }
-.main-head input{
-          padding: .5rem;
+.check input{
+          padding: .4rem;
           background-color: var(--input);
-          border: 2px solid var(--main-color);
-          outline: 1px solid var(--main-color);
+          border: 1px solid var(--main-color);
+          outline: none;
           border-radius: .47rem;
-          /* width: 20%; */
+}
+.check input:focus{
+  border-bottom: 1px solid var(--main-color);
 }
 .enter, .price, input{
           width: 90%;
 }
+.check label{
+  text-align: center;
+}
 select {
-          padding: 10px 20px;
+          padding: 10px 60px;
           font-size: 16px;
           border: none;
           border-radius: 5px;
@@ -26,7 +41,6 @@ select {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
-          /* Add your custom styles here */
         }
         
         select:focus {
@@ -36,6 +50,8 @@ select {
         select option {
           background-color: var(--white);
           color: #333;
+          font-size: 1.3rem;
+          
         }
         select option:hover{
           background: var(--main-color);

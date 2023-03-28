@@ -11,12 +11,24 @@
 .banner-center span ,i, label, input{
           font-size: 1.5rem;
 }
-.card h3, .fees h6{
+td{
+          font-size: .8rem;
+}
+th Span{
+          background-color: var(--main-color);
+          padding: .2rem;
+          border-radius: .37rem;
+          color: var(--white);
+}
+.fees h6{
           font-size: 1.2rem;
           line-height: 2.3rem;
 }
-.card h3 i{
-          font-size: 1rem;
+th {
+          font-size: .8rem;
+}
+td h3 i{
+          font-size: .6rem;
 }
 .modal-head h3{
           font-size: 1rem;
