@@ -20,7 +20,6 @@ function currency() {
     }
   }
 
-  //initializing the total amount.
   let total = 0;
 
   // where to save the lists of the currency.
