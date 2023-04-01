@@ -58,7 +58,36 @@ td h3 i{
           font-size: 2rem;
 }
 
+@media only screen and (max-width: 1000px){
 
+
+          .banner-center span ,i, label, input{
+                    font-size: .8rem;
+          }
+        
+          td{
+            font-size: .4rem;
+  }
+  th Span{
+    display: none;
+            background-color: var(--main-color);
+            padding: .1rem;
+            border-radius: .37rem;
+            color: var(--white);
+  }
+ 
+  th {
+            font-size: .5rem;
+            padding: 1rem 0;
+  }
+  td h3 i{
+            font-size: .4rem;
+  }
+        
+        
+        
+        
+        }
 
 
 

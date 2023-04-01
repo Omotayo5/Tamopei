@@ -90,7 +90,7 @@
 }
 #cancel{
           padding: 1rem;
-          font-size: 1.5rem;
+          font-size: 1rem;
           background-color: var(--fail);
           color: var(--white);
           border: none;
@@ -98,11 +98,46 @@
           cursor: pointer;
           border-radius: .47rem;
 }
+#proof-btn{
+  padding: .7rem;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: .47rem;
+  color: white;
+  width: 15%;
+  cursor: pointer;
+}
+.dispute-btn{
+  padding: .5rem;
+  background-color: var(--dispute);
+  border: none;
+  border-radius: .2rem;
+  color: var(--white);
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.btn-proceed a button{
+  width: 100%;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 1000px){
+
+
+  .pick-btn{
+    font-size: .6rem;
+  }
+
+  #modal-btn {
+    padding: .3rem .4rem;
+    font-size: .7rem;
+    margin: 0;
+  }
 
 
 
 
-
+}
 
 
 

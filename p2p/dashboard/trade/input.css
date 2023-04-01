@@ -25,6 +25,16 @@ input:checked + .slider:before {
 .check input:focus{
   border-bottom: 1px solid var(--main-color);
 }
+.check1 input{
+          padding: .4rem;
+          background-color: var(--input);
+          border: 1px solid var(--main-color);
+          outline: none;
+          border-radius: .47rem;
+}
+.check1 input:focus{
+  border-bottom: 1px solid var(--main-color);
+}
 .enter, .price, input{
           width: 90%;
 }
@@ -32,7 +42,7 @@ input:checked + .slider:before {
   text-align: center;
 }
 select {
-          padding: 10px 60px;
+          padding: 1rem 6rem;
           font-size: 16px;
           border: none;
           border-radius: 5px;
@@ -64,7 +74,39 @@ select {
         }
         
 
+        @media only screen and (max-width: 1000px){
 
+
+          .check input{
+            margin-top: .8rem;
+            padding: .4rem;
+            font-size: .9rem;
+            width: 50%;
+  }
+          .check1 input{
+            margin-top: .8rem;
+            padding: .4rem;
+            font-size: .9rem;
+            width: 60%;
+  }
+        
+  select {
+    padding: .8rem;
+    width: 100%;
+    font-size: .9rem;
+
+  }   
+  .check select{
+    width: 80%;
+  }
+  .check1 select{
+    width: 80%;
+  }
+        
+        
+        
+        }
+        
 
 
 
