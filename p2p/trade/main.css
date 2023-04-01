@@ -4,8 +4,8 @@
           box-sizing: border-box;
 }
 body{ 
-  /* font-family: 'Hind Siliguri', sans-serif; */
-          font-size: 62.5%;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 62.5%;
           background-color: var(--body);
           padding: 0;
           margin: 0;
