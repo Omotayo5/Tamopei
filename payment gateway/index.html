@@ -17,10 +17,10 @@
         <aside class="">
             <div class="top">
                 <div class="logo">
-                    
+
                     <h2><a href="">
-                        <img src="./img/colorLogo.png" alt="">
-                    </a></h2>
+                            <img src="./img/colorLogo.png" alt="">
+                        </a></h2>
                 </div>
             </div>
 
@@ -501,6 +501,9 @@
                     <button type="submit" class="send-form-btn wallet-to-wallet">Send to wallet</button>
                     <button type="submit" class="send-form-btn wallet-to-bank">Send to bank</button>
                 </div>
+
+
+
                 <div class="select " id="wallet">
 
                     <label for="select">
@@ -523,6 +526,7 @@
                             if yes, then continue to the transaction if no, then return a message of insufficient balance -->
                         </div>
                     </div>
+                    <!-- Wallet to wallet -->
                     <form action="" id="p2p-form">
 
                         <div class="send-inputs">
@@ -573,7 +577,16 @@
                             </label>
                         </div>
                     </div>
-                    
+                    <!-- <div class="d-top">
+                        <p>Amount to deposit</p>
+                    </div> -->
+
+                    <!-- Paymeny gateway lists -->
+                    <!-- Bank details and etc -->
+                    <!-- if wallet selected is nigeria, it should only display the account number -->
+                    <!-- if wallet selected is not nigeria it should display card options -->
+
+
                     <div id="forms-to-bank">
 
                         <form id="naira-form">
@@ -596,17 +609,21 @@
 
                                 <label for="e">Narration
                                     <div class="inpt">
-                                        <input type="text" id="trans-narr" name="trans-narr" placeholder="e.g for school fee">
+                                        <input type="text" id="trans-narr" name="trans-narr" 
+                                            placeholder="e.g for school fee">
                                     </div>
                                 </label>
                             </div>
                             <!-- the id for the button is going to be for the naira account -->
-                            <button type="submit" class="send-form-btn wallet-to-bank" id="naira-confirm-send">Confirm</button>
+                            <button type="submit" class=" form-btn send-form-btn wallet-to-bank"
+                                id="naira-confirm-send">Confirm</button>
                         </form>
                     </div>
 
-                    <div class="dollar-container forms-to-bank none" id="dollar-modal">
-                        How much do you want to send?
+
+
+                    <div class="dollar-container" id="dollar-modal">
+                       
                         <form action="" id="dollar-form">
 
                             <div class="to-b">
