@@ -67,7 +67,7 @@ button2.addEventListener("click", function() {
 
 button3.addEventListener("click", function() {
   button3.classList.add("active");
-  button4.classList.remove("active");
+  button4.classList.remove("active2");
   content1.style.display = "block";
   content2.style.display = "none";
   content3.style.display = "none";
@@ -76,7 +76,7 @@ button3.addEventListener("click", function() {
 });
 
 button4.addEventListener("click", function() {
-  button4.classList.add("active");
+  button4.classList.add("active2");
   button3.classList.remove("active");
   content2.style.display = "block";
   content1.style.display = "none";
@@ -86,7 +86,7 @@ button4.addEventListener("click", function() {
 });
 button0.addEventListener("click", function() {
   button0.classList.add("active1");
-  button01.classList.remove("active1");
+  button01.classList.remove("active2");
   wallet.style.display = "none";
   wallet1.style.display = "none";
   content2.style.display = "none";
@@ -95,7 +95,7 @@ button0.addEventListener("click", function() {
   content3.style.display = "block";
 });
 button01.addEventListener("click", function() {
-  button01.classList.add("active1");
+  button01.classList.add("active2");
   button0.classList.remove("active1");
   // bank1.style.display = "none";
   // bank2.style.display = "block";

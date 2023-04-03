@@ -59,6 +59,11 @@
           border-bottom: 3px solid var(--main-color);
 
 }
+.active2{
+          /* background-color: var(--main-color); */
+          border-bottom: 3px solid var(--secondary);
+
+}
 .small-button{
           padding: 1rem;
           border-radius: .6rem;
