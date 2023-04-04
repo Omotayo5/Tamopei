@@ -267,14 +267,21 @@ closeBtn5.addEventListener('click', closePopup5);
 
 
 
+// close 
+
+const closeinnerbtn = document.getElementById("cancel");
+const innerclose1 = document.getElementById("popup-container-inner4 ");
+
+
+closeinnerbtn.forEach((closeinnerbtn) => {
+  closeinnerbtn.addEventListener('click',closePopup);
+});
 
 
 
 
 
-
-
-
+ 
 
 
 
