@@ -269,13 +269,6 @@ closeBtn5.addEventListener('click', closePopup5);
 
 // close 
 
-const closeinnerbtn = document.getElementById("cancel");
-const innerclose1 = document.getElementById("popup-container-inner4 ");
-
-
-closeinnerbtn.forEach((closeinnerbtn) => {
-  closeinnerbtn.addEventListener('click',closePopup);
-});
 
 
 
@@ -377,12 +370,12 @@ paypibtn.addEventListener("click", function(){
 const paybankbtn1 = document.getElementById("bank-box-btn1");
 const paychipperbtn1 = document.getElementById("chipper-box-btn1");
 const paypibtn1 = document.getElementById("pi-box-btn1");
-const closingbtn = document.getElementsByClassName("close-btn5");
+// const closingbtn = document.getElementsByClassName("close-btn5");
 
 const paybank1 = document.getElementById("bank-box1")
 const paychipper1 = document.getElementById("chipper-box1");
 const paypi1 = document.getElementById("pi-box1");
-const closing = document.getElementsByClassName("popup-container4");
+// const closing = document.getElementsByClassName("popup-container4");
 
 
 
@@ -410,9 +403,7 @@ paypibtn1.addEventListener("click", function(){
   paychipper1.style.display = "none";
   paypi1.style.display = "block";
 });
-closingbtn.addEventListener("click", function(){
-  closing.style.display = "none";
-});
+
 
 
 
