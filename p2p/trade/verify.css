@@ -10,6 +10,9 @@ main{
   margin:1rem 5rem ;
   background-color: var(--white);
 }
+i{
+  font-size: 2rem;
+}
 .proof{
   padding: 1rem 0;
 }
@@ -29,9 +32,14 @@ main{
   text-align: center;
   margin: 1rem 0;
 }
-
+a{
+  color: black;
+}
 .proof-head{
           text-align: center;
+          display: flex;
+          justify-content: space-around;
+          width: 80%;
 }
 .proof-message{
           text-align: center;
@@ -167,8 +175,16 @@ main{
 .proof-upload p{
    font-size: 1rem;
 }
-
-
+i{
+  font-size: 1rem;
+}
+.proof-head{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  
+}
 
 
 

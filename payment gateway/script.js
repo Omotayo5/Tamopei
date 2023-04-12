@@ -20,6 +20,7 @@ const dollarModal = document.querySelector(".dollar-container");
 const walletToBankBtn = document.querySelector(".wallet-to-bank");
 const walletTowalletBtn = document.querySelector(".wallet-to-wallet");
 const walletTowallet = document.querySelector("#wallet");
+const popup = document.querySelector(".popup-container")
 
 //initial state of the button
 walletToBank.classList.add("none");
@@ -50,6 +51,7 @@ addBtn.addEventListener("click", (e) => {
   modalBox.classList.toggle("add-money-modal");
   // console.log(modalBox.classList);
   sendMoneyModal.setAttribute("class", "none");
+  popup.setAttribute("class", "block")
 });
 
 //closing the modal for adding money
@@ -185,4 +187,46 @@ document.querySelector("#send-to-bank").addEventListener("click", (e) => {
   }
 });
 
-console.log("all good at the moment");
+
+
+
+
+
+
+
+
+
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+const closemenubtn = document.getElementById("closemenu");
+
+
+menuBtn.addEventListener("click", function() {
+  if (menu.style.display === "none") {
+    menu.style.display = "block";
+  } else {
+    menu.style.display = "none";
+  }
+});
+
+closemenubtn.addEventListener("click", function() {
+menu.style.display = "none";
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

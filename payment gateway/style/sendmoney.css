@@ -80,10 +80,7 @@ width: 100%;
     font-size: 1rem;
 }
 
-.add-container-body{
-    /* padding: 5rem; */
-    /* border: 1px solid red; */
-}
+
 
 
 .fund-wallet{
@@ -265,3 +262,73 @@ input.bottom-border{
 input.bottom-border:focus{
     border-bottom: 2px solid rgb(46, 204, 113);
 }
+@media only screen and (max-width: 1000px){
+    .send-money-modal{
+        /* position: fixed; */
+        padding: 0;
+        position: absolute;
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.4); 
+        /* grid-template-columns:70% 27%;
+        animation: appear ease .25s;
+        border-radius: .25rem; */
+    }
+    .send-container{
+        background-color: white;
+        padding: 1rem;
+        color: rgb(76, 76, 76);
+        margin-top: 2.5rem;
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid grey;
+        animation: ease .5s;
+        transform-origin: center;
+        transform-style: preserve-3d;
+        /* justify-content: space-between; */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

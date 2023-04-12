@@ -131,7 +131,6 @@ section button{
 
   .table-info h4{
     margin-bottom: 1rem;
-    font-family: 'Work Sans', sans-serif;
     font-style: normal;
     font-weight: 650;
     font-size: 0.9rem;
@@ -154,6 +153,7 @@ section button{
     font-weight: 400;
     text-align: center;
     color: #FFFFFF;
+    margin:0 1rem;
   }
 .table-info{
   border: 1px solid #5EA536;
