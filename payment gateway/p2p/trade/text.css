@@ -24,8 +24,8 @@ td {
 
 th Span {
   background-color: var(--main-color);
-  padding: .2rem;
-  border-radius: .37rem;
+  padding: .5rem .25rem;
+  border-radius: .2rem;
   color: var(--white);
 }
 

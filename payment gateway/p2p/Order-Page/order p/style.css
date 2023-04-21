@@ -7,6 +7,7 @@
 }
 body{
   background-color: var(--body);
+  font-size: 62.5%;
 }
 
 main{
@@ -30,7 +31,7 @@ main{
     border: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 2rem;
     text-align: center;
     color: #5EA536;
     transition: 0.1s ease-in-out;
@@ -51,13 +52,13 @@ section.btn-o {
 section button{
     float: right;
     background: #5EA536;
-    border-radius: 50px;
-    width: 139px;
-    height: 44px;
+    border-radius: .25rem;
+    width: 13.9rem;
+    height: 3rem;
     border: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.25rem;
     text-align: center;
     color: #FFFFFF;
     transition: 0.1s ease-in-out;
@@ -86,7 +87,7 @@ section button{
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
     width: 20%;
   }
@@ -107,7 +108,7 @@ section button{
     
   }
   .table-section-o td{
-    font-size: 0.8rem;
+    font-size: 28rem;
   }
   
   .table-content {
@@ -118,9 +119,6 @@ section button{
   .table-content.show {
     display: block;
     text-align: left;
-    /* padding: 35px ; */
-    /* border: 1px solid rgba(62, 137, 20, 0.6); */
-    font-family: 'Work Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     background-color: #FFFFFF;
@@ -132,12 +130,13 @@ section button{
   .table-info h4{
     margin-bottom: 1rem;
     font-style: normal;
-    font-weight: 650;
-    font-size: 0.9rem;
+    font-weight: 400;
+    font-size: 1.25rem;
   }
 
   .table-info h4 span.green-text{
     color: #5EA536;
+    font-size: 1.25rem;
   }
 
   .table-info h4 span.text-faded{
