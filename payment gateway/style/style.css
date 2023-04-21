@@ -56,7 +56,9 @@ h3{
     gap: 1rem;
     grid-template-columns: 20rem auto;
 }
-
+.block{
+    display: block;
+}
 aside{
     width: 100%;
     display: flex;
@@ -140,7 +142,9 @@ main{
     border: 2px solid var(--carton);
     padding: 1rem;
 }
-
+#menu-btn{
+    display: none;
+}
 .main-full{
     width: 90vw;
     margin: auto;

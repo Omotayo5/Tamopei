@@ -20,7 +20,7 @@ const dollarModal = document.querySelector(".dollar-container");
 const walletToBankBtn = document.querySelector(".wallet-to-bank");
 const walletTowalletBtn = document.querySelector(".wallet-to-wallet");
 const walletTowallet = document.querySelector("#wallet");
-const popup = document.querySelector(".popup-container")
+const popup = document.querySelector(".popup-container");
 
 //initial state of the button
 walletToBank.classList.add("none");
@@ -51,7 +51,7 @@ addBtn.addEventListener("click", (e) => {
   modalBox.classList.toggle("add-money-modal");
   // console.log(modalBox.classList);
   sendMoneyModal.setAttribute("class", "none");
-  popup.setAttribute("class", "block")
+  popup.setAttribute("class", "block");
 });
 
 //closing the modal for adding money
@@ -119,7 +119,7 @@ selectOpt.addEventListener("click", (e) => {
       payGateways.classList.add("none");
       accountDisplay.classList.add("none");
       buttonHide.setAttribute("class", "buttons");
-      dollarModal.classList.add("none")
+      dollarModal.classList.add("none");
       break;
   }
 });
@@ -151,7 +151,7 @@ sendSellectOpt.addEventListener("click", (e) => {
 
 // sending money to a bank account
 document.querySelector("#forms-to-bank").setAttribute("class", "none");
-document.querySelector("#dollar-modal").setAttribute("class","none");
+document.querySelector("#dollar-modal").setAttribute("class", "none");
 document.querySelector("#send-to-bank").addEventListener("click", (e) => {
   // console.log(e.target.value)
 
@@ -187,46 +187,29 @@ document.querySelector("#send-to-bank").addEventListener("click", (e) => {
   }
 });
 
-
-
-
-
-
-
-
-
-
 const menuBtn = document.getElementById("menu-btn");
-const menu = document.getElementById("menu");
 const closemenubtn = document.getElementById("closemenu");
+const sideMenu = document.querySelector('aside');
+const container = document.querySelector('#big-container');
+const logo = document.querySelector('#logo');
+
+//Hide the logo by default
+logo.classList.add('none')
 
 
-menuBtn.addEventListener("click", function() {
-  if (menu.style.display === "none") {
-    menu.style.display = "block";
-  } else {
-    menu.style.display = "none";
-  }
+closemenubtn.addEventListener("click", ()=> {
+  container.classList.add('block');
+  sideMenu.style.display = 'none';
+  menuBtn.style.display='block';
+  logo.classList.remove('none');
+  console.log('clicked')
 });
 
-closemenubtn.addEventListener("click", function() {
-menu.style.display = "none";
-});
+menuBtn.addEventListener('click',()=>{
+  container.classList.add('container');
+  container.classList.remove('block');
+  sideMenu.style.display = 'block';
+  menuBtn.style.display='none'
+  logo.classList.add('none')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})

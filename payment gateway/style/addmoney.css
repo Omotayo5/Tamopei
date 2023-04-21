@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,52 +8,60 @@
 
 
 
-:root{
-    --primaryColor :rgb(60, 245, 208);
-    --black:rgb(0, 0, 0);
-    --carton:#bdc3c77b;
+:root {
+    --primaryColor: rgb(60, 245, 208);
+    --black: rgb(0, 0, 0);
+    --carton: #bdc3c77b;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     user-select: none;
     overflow-x: hidden;
     font-size: 62.5%;
-    font-family:'lato','Roboto', sans-serif;
+    font-family: 'lato', 'Roboto', sans-serif;
 }
 
-.add-money-modal{
-    
+.add-money-modal {
+
     position: fixed;
     position: absolute;
     display: grid;
     width: 100%;
     margin: 0 auto;
+    top: 2rem;
     /* gap: 1rem; */
-    grid-template-columns:70% 27%;
+    grid-template-columns: 70% 27%;
     background-color: transparent;
     animation: appear ease .25s;
-    
+
     /* padding: 1rem; */
-    
+
 }
-@keyframes appear{
-    0%{
+
+@keyframes appear {
+    0% {
         opacity: 0;
-    } 
-    25%{
+    }
+
+    25% {
         opacity: .5;
     }
-    50%{
+
+    50% {
         opacity: .75;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
-.send-close-btn,.close-btn{
+
+.send-close-btn,
+.close-btn {
     text-align: center;
     /* display: block; */
     width: 100%;
@@ -63,33 +71,40 @@ body{
     /* box-shadow: .05rem .05rem .25rem .1rem #0808087d; */
     padding: .5rem;
 }
-.send-close-btn:hover,.close-btn:hover{
+
+.send-close-btn:hover,
+.close-btn:hover {
 
     animation: ease-in-out .5s;
     /* background-color: rgb(250, 45, 45); */
 }
 
-.blank{
-height: inherit;
-width: 100%;
+.blank {
+    height: inherit;
+    width: 100%;
 
-/* background-color: aqua; */
+    /* background-color: aqua; */
 }
-@keyframes appear{
-    0%{
+
+@keyframes appear {
+    0% {
         opacity: 0;
-    } 
-    25%{
+    }
+
+    25% {
         opacity: .5;
     }
-    50%{
+
+    50% {
         opacity: .75;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
-.add-container{
+
+.add-container {
     margin-top: 2.5rem;
     border: 2px solid #4D8FAC;
     background-color: white;
@@ -104,7 +119,7 @@ width: 100%;
     /* justify-content: space-between; */
 }
 
-.add-container-top{
+.add-container-top {
     display: block;
     text-align: center;
     font-weight: 500;
@@ -117,39 +132,49 @@ width: 100%;
     margin: auto;
     font-size: 1rem;
 }
-.add-container{
-     transition: all .3s ease;
+
+.add-container {
+    transition: all .3s ease;
 }
-.add-container-body{
+
+.add-container-body {
     /* padding: 5rem; */
     /* border: 1px solid red; */
 }
-.fund-wallet{
+
+.fund-wallet {
     display: flex;
     margin: 1rem 0;
     flex-direction: column;
     /* border: 1px solid red; */
 }
-.add-container-body-top{
+
+.add-container-body-top {
     display: flex;
     margin: 1rem 0;
     align-items: center;
     justify-content: space-between;
-    
+
 }
-.fund-wallet, .wallet-balance{
+
+.fund-wallet,
+.wallet-balance {
     margin-top: .5rem;
     font-size: 1.5rem;
 }
 
-.add-container-body-top, .add-container-body p{
+.add-container-body-top,
+.add-container-body p {
     font-size: 1rem;
-    
+
 }
-.add-container-body, .wallet-balance p{
+
+.add-container-body,
+.wallet-balance p {
     padding: .5rem;
 }
-.amount{
+
+.amount {
     /* border: 2px solid var(--carton); */
     background-color: aliceblue;
     border-radius: .25rem;
@@ -159,54 +184,63 @@ width: 100%;
     font-size: 1.5rem;
     /* height: 1.5rem; */
 }
-.forms{
+
+.forms {
     display: flex;
     flex-direction: column;
     transition: appear ease 5s;
-    
+
 }
 
-@keyframes appear{
-    0%{
+@keyframes appear {
+    0% {
         opacity: 0;
-    } 
-    25%{
+    }
+
+    25% {
         opacity: .5;
     }
-    50%{
+
+    50% {
         opacity: .75;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
-.form-btn{
+
+.form-btn {
     width: 100%;
     margin: auto;
-    border: 2px solid rgb(76, 76, 76);;
+    border: 2px solid rgb(76, 76, 76);
+    ;
     border-radius: .25rem;
-    background-color:  rgb(46, 204, 113);
+    background-color: rgb(46, 204, 113);
     font-weight: 600;
     font-size: 1rem;
     /* color: white; */
     padding: 1rem;
     border: none;
-    outline: none; 
+    outline: none;
 }
-.form-btn:hover{
+
+.form-btn:hover {
     transition: ease-in-out .25s;
     /* transform: scaleY(1.1); */
     background-color: rgb(46, 204, 133);
     /* border-inline: 1px solid black; */
     color: black;
 }
+
 /* ________________________ */
-.select{
+.select {
     margin: 1rem;
     /* border: 1px solid red ; */
     text-align: center;
 }
-.select select{
+
+.select select {
     padding: .5rem;
     margin-bottom: 1rem;
     width: 100%;
@@ -214,13 +248,14 @@ width: 100%;
     border: none;
     outline: none;
 }
-option{
+
+option {
     text-align: justify;
     border: none;
     outline: none;
 }
 
-.buttons{
+.buttons {
     display: flex;
     gap: 1rem;
     /* box-shadow: .05rem .05rem .25rem .1rem #0808087d; */

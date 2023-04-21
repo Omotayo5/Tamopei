@@ -2,8 +2,11 @@
           padding: 0;
           margin: 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
      background-color: var(--body);     
+     font-family: 'lato','roboto';
+     font-size: 62.5%;
 }
 
 
@@ -35,8 +38,15 @@ main {
           justify-content: center;
 
 }
+/* rm */
+label,button{
+  font-size: 1.5rem;
+}
 
-
+.wallet-list-c1 p,span{
+  font-size: 1rem;
+}
+/* ____________________ */
 #buy{
   background-color: var(--white);
   width: 50%;
@@ -55,9 +65,9 @@ main {
 }
 .currency-c select {
           padding: 10px 60px;
-          font-size: 16px;
+          font-size: 1.5rem;
           border: none;
-          border-radius: 5px;
+          border-radius: .5rem;
           background-color: var(--select);
           color: #333;
           -webkit-appearance: none;
@@ -74,7 +84,7 @@ main {
         .label1-c  select option {
           background-color: var(--white);
           color: #333;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           
         }
         .label1-c  select option:hover{
@@ -93,7 +103,7 @@ main {
           outline: none;
           border-radius: .47rem;
           text-align: center;
-          font-size: 1rem;
+          font-size: 1.5rem;
           margin: 0;
           width: 40%;
 }
