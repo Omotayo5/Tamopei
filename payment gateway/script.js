@@ -66,16 +66,12 @@ sendModalClose.addEventListener("click", () => {
 });
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(sendMoneyModal.classList);
   sendMoneyModal.classList.toggle("send-money-modal");
   modalBox.setAttribute("class", "none");
 });
 
 pairToPairbtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.defaultPrevented) {
-    console.log("well behaved button");
-  }
+  
 });
 
 bankTransferBtn.addEventListener("click", () => {
