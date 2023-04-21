@@ -2,10 +2,12 @@
           padding: 0;
           margin: 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
           text-align: center;
           background-color: var(--body);
           box-sizing: border-box;
+          font-family: 'lato','roboto';
 }
 .active{
           border-bottom: 3px solid var(--main-color);
