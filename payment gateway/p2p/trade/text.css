@@ -19,13 +19,13 @@ input {
 }
 
 td {
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 th Span {
   background-color: var(--main-color);
-  padding: .5rem .25rem;
-  border-radius: .2rem;
+  padding: .2rem;
+  border-radius: .37rem;
   color: var(--white);
 }
 
@@ -35,7 +35,7 @@ th Span {
 }
 
 th {
-  font-size: .8rem;
+  font-size: 1.25rem;
 }
 
 td h3 i {

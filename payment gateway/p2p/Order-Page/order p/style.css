@@ -96,9 +96,9 @@ section button{
 
   .table-section-o th.active {
     background-color: #5EA536;
-    color: black;
+    color: white;
   }
-
+  
   .table-section-o table th i {
     margin-right: 10px;
   }

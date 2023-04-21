@@ -80,8 +80,8 @@ a {
 .proof-upload-file {
 
   margin: 1rem 0;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 2rem;
+  /* font-weight: 400; */
   color: #aaa;
   text-align: center;
   cursor: pointer;
