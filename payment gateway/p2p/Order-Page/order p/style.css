@@ -33,14 +33,14 @@ main{
     font-weight: 400;
     font-size: 2rem;
     text-align: center;
-    color: #5EA536;
+    color: rgb(46, 204, 113);
     transition: 0.1s ease-in-out;
     margin-bottom: 50px;
     border: 1px solid rgba(62, 137, 20, 0.6);
   }
   
   .button.active {
-    background-color: #5EA536;
+    background-color: rgb(46, 204, 113);
     color: #FFFFFF;
   }
 
@@ -51,7 +51,7 @@ section.btn-o {
 
 section button{
     float: right;
-    background: #5EA536;
+    background: rgb(46, 204, 113);
     border-radius: .25rem;
     width: 13.9rem;
     height: 3rem;
@@ -95,7 +95,7 @@ section button{
 
 
   .table-section-o th.active {
-    background-color: #5EA536;
+    background-color: rgb(46, 204, 113);
     color: white;
   }
   

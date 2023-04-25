@@ -163,7 +163,7 @@ function safe() {
     });
   });
 
-  money.getCurrency();
+  // money.getCurrency();
 }
 //Calling the init function;
 safe();
