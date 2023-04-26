@@ -150,20 +150,34 @@ main{
     margin: auto;
 }
 .firstheading{
+    /* border: 2px solid black; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 1rem;
 }
+.menu-show{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
 .profile{
     /* border: 2px solid black; */
-    /* border-radius: 50%; */
-    height: 5rem;
-    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap:.25rem;
+    height: 5.75rem;
+    width: 5.75rem;
+}
+#id{
+    font-size: 1rem;
+    color: rgb(46, 204, 113);
 }
 .profile img{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
+    margin: auto;
     border-radius: 50%;
 }
 main .h2{

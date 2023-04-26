@@ -23,4 +23,4 @@ confirmBtn.addEventListener('click', e => {
 });
 
 
-console.log(nairaform)
+// console.log(nairaform)

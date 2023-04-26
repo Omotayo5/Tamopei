@@ -59,11 +59,13 @@ body {
 
 .send-container {
     background-color: white;
-    padding: 1rem;
+    padding: .5rem;
     color: rgb(76, 76, 76);
     margin-top: 2.5rem;
     height: fit-content;
     display: flex;
+    align-items: center;
+    /* justify-content: center; */
     flex-direction: column;
     border: 2px solid grey;
     animation: ease .5s;
@@ -193,23 +195,26 @@ body {
 
 .send-inputs {
     /* border: 1px solid red; */
+    padding: 1.25rem;
+    margin: auto -2rem;
+    width: fit-content;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .send-inputs input {
     width: inherit;
     padding: .75rem;
-    margin: .5rem;
+    margin: auto;
     font-size: 1rem;
     border: none;
-    outline: none;
+    outline: .5rem var(--primaryColor);
 }
 
 .send-inputs .amount {
     width: 50%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 label {
