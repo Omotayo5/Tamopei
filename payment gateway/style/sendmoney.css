@@ -89,12 +89,19 @@ body {
 
 
 .fund-wallet {
+    width: 100%;
     display: flex;
+    /* border: 2px solid rebeccapurple; */
     margin: 1rem 0;
     flex-direction: column;
-    /* border: 1px solid red; */
 }
-
+.fund-wallet .w{
+    display: block;
+    border: 2px solid var(--carton);
+    padding: .5rem;
+    text-align: center;
+    background-color: aliceblue;
+}
 .add-container-body-top {
     display: flex;
     margin: 1rem 0;

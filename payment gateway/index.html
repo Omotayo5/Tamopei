@@ -519,43 +519,36 @@
                     <button type="submit" class="send-form-btn wallet-to-wallet">Send to wallet</button>
                     <button type="submit" class="send-form-btn wallet-to-bank">Send to bank</button>
                 </div>
-
-
-
-                <div class="select " id="wallet">
-
-                    <label for="select">
-                        Select Wallet
-                        <select name="" class="wallet-select" id="send-select">
-                            <option value="">Select Wallet</option>
-                            <option value="Naira">Naira Wallet</option>
-                            <option value="Dollar">Cedi wallet</option>
-                            <option value="Pounds">Dollar Wallet</option>
-                            <option value="Euro">Euro Wallet</option>
-                            <option value="Yuen">Yuen wallet</option>
-                        </select>
-
-                    </label>
-                    <div class="add-container-body-top">
-                        <div class="fund-wallet">
-                            <h2></h2>
-                            <p>Total <span> </span> wallet available balance </p>
-                            <!-- check if the wallet balance is grater than the entered amount
-                            if yes, then continue to the transaction if no, then return a message of insufficient balance -->
-                        </div>
-                    </div>
                     <!-- Wallet to wallet -->
-                    <form action="" id="p2p-form">
+                    <form id="p2p-form">
+                        <div class="select " id="wallet">
+                            <label for="select">
+                                Select Wallet
+                                <select name="select" class="wallet-select" id="send-select">                                
+                                    <option value="" id="available_curr">Select Wallet</option>
+                                    <!-- The available currency from database will be displayed here -->
+                                </select>
+                            </label>
 
+                            <div class="add-container-body-top">
+                                <div class="fund-wallet">
+                                    <div class="w">
+                                        <p><span> </span></p>
+                                        <!-- this is where the current selected wallet value will be displayed -->
+                                    </div>
+                                    <!-- check if the wallet balance is grater than the entered amount
+                                    if yes, then continue to the transaction if no, then return a message of insufficient balance -->
+                                </div>
+                            </div>
                         <div class="send-inputs">
                             <label for="beneficiary-name">
                                 Username
-                                <input type="text" class="bottom-border">
+                                <input type="text" class="bottom-border" name="user_name">
                             </label>
 
                             <label for="user-amount">
                                 Enter Amount
-                                <input type="text" name="user-amount" class=" bottom-border" maxlength="6">
+                                <input type="text" name="amount" class=" bottom-border" maxlength="8   ">
                             </label>
                         </div>
                         <div class="confirm-details">
@@ -574,6 +567,10 @@
                 <div class="deposits" id="bank-deposit">
                     <div class="add-container-body-top">
                         <div class="fund-wallet">
+                            <div class="w">
+                                <p><span> </span></p>
+
+                            </div>
                             <h2></h2>
                             <p>To send money from wallet to bank account</p>
                             <!-- open a wallet select options,
@@ -607,7 +604,7 @@
 
                     <div id="forms-to-bank">
 
-                        <form id="naira-form">
+                        <form id="naira-form" method="post">
                             <div class="to-b">
                                 <label for="e">Bank Name
                                     <div class="inpt">
@@ -642,7 +639,7 @@
 
                     <div class="dollar-container" id="dollar-modal">
                        
-                        <form action="" id="dollar-form">
+                        <form action="" id="dollar-form" method="post">
 
                             <div class="to-b">
                                 <label for="e">Bank Name
@@ -715,7 +712,7 @@
     <script src="./forms.js"></script>
     <script src="./userSettings.js"></script>
     <script src="./script.js"></script>
-    <!-- <script src="./currencySettings.js"></script> -->
+    <!-- <script src="./scripts/sendToDb.js"></script> -->
 </body>
 
 </html>

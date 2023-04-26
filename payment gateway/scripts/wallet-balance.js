@@ -1,25 +1,43 @@
+const domStrings = {
+  sendSellectOpt: document.querySelector("#send-select"),
+  totalBalContainer: document.querySelector("#total"),
+  walletBallance: document.querySelector(".wallet-bal"),
+  availableCurrencyDisplay: document.querySelector("#available_curr"),
+};
+
+/**/
 const balanceReq = new XMLHttpRequest();
 balanceReq.onload = function () {
   const data = JSON.parse(this.responseText);
-  // console.log(this.responseText)
+  console.log(this.responseText);
   for (const key in data) {
-   const curr = {
-    walletName : key,
-    walletValue:data[key]
-   }
+    const curr = {
+      walletName: key,
+      walletValue: data[key],
+    };
     var html =
-      '<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">%name<span class="material-icons-sharp">visibility</span></h3><h2><span">%logo</span><span id="amount">%value</span></h2></div></div></div></div>';
+      `<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">${curr.walletName}<span class="material-icons-sharp">
+      visibility</span></h3><h2><span">%logo</span><span id="amount">${curr.walletValue}</span></h2></div></div></div></div>`;
+    //will leave this because of the currency logo.
     var newHtml = html.replace("%name", curr.walletName);
     newHtml = newHtml.replace("%value", curr.walletValue);
 
+    var availableCurrOption = `<option value="${curr.walletName}" name="${curr.walletName}">${curr.walletName} Wallet</option>`;
+    // var enterDom = availableCurrOption.replace('%WALLETNAME',curr.walletName);
+    // enterDom = availableCurrOption.replace('%WALLETNAME',curr.walletName);
+    // enterDom = availableCurrOption.replace('%WALLETNAME',curr.walletName);
     //This array will collect all the value exchanged and sum it all to get the total exchange rate in a specific currency.
+
     const exchange = [];
     //Creating the exchange rate logic
     if (curr.walletName == "Naira") {
       newHtml = newHtml.replace("%logo", "₦");
       //Get the current exchange rate oƒ dollar
       const dollar = 730;
-      document.querySelector("#total").innerHTML = `$ ${exchangeRate(dollar,curr.walletValue)}`;
+      domStrings.totalBalContainer.innerHTML = exchangeRate(
+        dollar,
+        curr.walletValue
+      );
     } else if (curr.walletName == "Dollar") {
       newHtml = newHtml.replace("%logo", "$");
     } else if (curr.walletName == "Cedi") {
@@ -27,10 +45,46 @@ balanceReq.onload = function () {
     } else if (curr.walletName == "Rand") {
       newHtml = newHtml.replace("%logo", "₨");
     }
-    //adding the html stringśinto the dom.
+
+    //Wallet to Wallet
+    const walletAvailable = document.querySelector(".w p span");
+    domStrings.sendSellectOpt.addEventListener("click", (e) => {
+      switch (e.target.value) {
+        case "Naira":
+          walletAvailable.innerHTML = `₦${data[e.target.value]} in ${
+            e.target.value
+          } wallet`;
+          break;
+        case "Dollar":
+          walletAvailable.innerHTML = `$${data[e.target.value]} in ${
+            e.target.value
+          } wallet`;
+          break;
+        case "Cedi":
+          walletAvailable.innerHTML = `₡${data[e.target.value]} in ${
+            e.target.value
+          } wallet`;
+          break;
+        case "Rand":
+          walletAvailable.innerHTML = `₨${data[e.target.value]} in ${
+            e.target.value
+          } wallet`;
+          break;
+        default:
+          walletAvailable.innerHTML = "";
+          break;
+      }
+    });
+
+    //Wallet to Bank
+
+    //adding the html stringś into the dom.
+    domStrings.availableCurrencyDisplay.insertAdjacentHTML(
+      "afterend",
+      availableCurrOption
+    );
     document.querySelector(".insights").insertAdjacentHTML("afterend", newHtml);
   }
-  //   console.log(Object.keys(data));
 };
 balanceReq.open("GET", "./php/user-wallet.php"); //this can make us send both request and response on thesame page
 balanceReq.send();
