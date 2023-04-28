@@ -519,8 +519,12 @@
                     <button type="submit" class="send-form-btn wallet-to-wallet">Send to wallet</button>
                     <button type="submit" class="send-form-btn wallet-to-bank">Send to bank</button>
                 </div>
+
+
+
+
                     <!-- Wallet to wallet -->
-                    <form id="p2p-form">
+                    <form id="p2p-form" action="php/p2p-sell.php" method="post">
                         <div class="select " id="wallet">
                             <label for="select">
                                 Select Wallet
@@ -543,12 +547,12 @@
                         <div class="send-inputs">
                             <label for="beneficiary-name">
                                 Username
-                                <input type="text" class="bottom-border" name="user_name">
+                                <input type="text" class="bottom-border" name="user_name" id="user_name">
                             </label>
 
                             <label for="user-amount">
                                 Enter Amount
-                                <input type="text" name="amount" class=" bottom-border" maxlength="8   ">
+                                <input type="text" name="amount" class=" bottom-border" maxlength="8" id="amount_to_send">
                             </label>
                         </div>
                         <div class="confirm-details">
@@ -560,9 +564,11 @@
                         </div>
                         <!-- if confirm button is clicked, check if the entered username is inside the database
                          then open a modal to enter password for the user to confirm the transaction. -->
-                        <button type="submit" class="form-btn">Confirm</button>
+                        <button type="submit" class="form-btn" id="form_btn">Confirm User datails</button>
                     </form>
                 </div>
+
+
 
                 <div class="deposits" id="bank-deposit">
                     <div class="add-container-body-top">
@@ -712,7 +718,7 @@
     <script src="./forms.js"></script>
     <script src="./userSettings.js"></script>
     <script src="./script.js"></script>
-    <!-- <script src="./scripts/sendToDb.js"></script> -->
+    <script src="./scripts/sendToDb.js"></script>
 </body>
 
 </html>

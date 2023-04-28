@@ -15,8 +15,7 @@ balanceReq.onload = function () {
       walletName: key,
       walletValue: data[key],
     };
-    var html =
-      `<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">${curr.walletName}<span class="material-icons-sharp">
+    var html = `<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">${curr.walletName}<span class="material-icons-sharp">
       visibility</span></h3><h2><span">%logo</span><span id="amount">${curr.walletValue}</span></h2></div></div></div></div>`;
     //will leave this because of the currency logo.
     var newHtml = html.replace("%name", curr.walletName);
@@ -51,24 +50,16 @@ balanceReq.onload = function () {
     domStrings.sendSellectOpt.addEventListener("click", (e) => {
       switch (e.target.value) {
         case "Naira":
-          walletAvailable.innerHTML = `₦${data[e.target.value]} in ${
-            e.target.value
-          } wallet`;
+          walletAvailable.innerHTML = `Balance ₦${data[e.target.value]} `;
           break;
         case "Dollar":
-          walletAvailable.innerHTML = `$${data[e.target.value]} in ${
-            e.target.value
-          } wallet`;
+          walletAvailable.innerHTML = `Balance $${data[e.target.value]} `;
           break;
         case "Cedi":
-          walletAvailable.innerHTML = `₡${data[e.target.value]} in ${
-            e.target.value
-          } wallet`;
+          walletAvailable.innerHTML = `Balance ₡${data[e.target.value]} `;
           break;
         case "Rand":
-          walletAvailable.innerHTML = `₨${data[e.target.value]} in ${
-            e.target.value
-          } wallet`;
+          walletAvailable.innerHTML = `Balance ₨${data[e.target.value]} `;
           break;
         default:
           walletAvailable.innerHTML = "";

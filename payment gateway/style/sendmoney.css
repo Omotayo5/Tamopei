@@ -97,10 +97,10 @@ body {
 }
 .fund-wallet .w{
     display: block;
-    border: 2px solid var(--carton);
+    /* border: 2px solid var(--carton); */
     padding: .5rem;
     text-align: center;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 .add-container-body-top {
     display: flex;

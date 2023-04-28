@@ -1,20 +1,49 @@
+const userName = document.querySelector('#user_name');
+const amount = document.querySelector('#amount_to_send');
+const formBtn = document.querySelector('#form_btn');
+const selected = document.querySelector('#send-select');
+
+
+formBtn.disabled = true;
+
+//Input data verification
+amount.addEventListener("input",()=>{
+    const inputValue = amount.value.trim();
+    if(/^\d+$/.test(inputValue)){
+       console.log("value is a number")
+       formBtn.disabled = false;
+       formBtn.style.backgroundColor = "rgb(46, 204, 113)";
+    }else{
+        formBtn.disabled = true;
+        formBtn.style.backgroundColor = "red";
+    }
+})
+
+formBtn.addEventListener("click",()=>{
+
+    
+})
+
 const form = document.getElementById('p2p-form');
 form.addEventListener('submit', e => {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', './php/Submit.php');
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      console.log(xhr.responseText);
+    // e.preventDefault();
+    if(amount.value == ""){
+        window.alert('Value cannot be empty')
+        formBtn.disabled = false;
     }
-  };
-  // Convert the form data to a URL-encoded string
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData)
-  xhr.send(urlEncodedData);
+    else{
+            // fetch('./php/p2p-sell.php')
+            // .then(response=>response.json())
+            // .then(data=>{
+            //     console.log(data);
+            // })
+            // .catch(error=>{
+            //     console.error("error",error)
+            // });
+    }
+    amount.value = "";
+    userName.value="";
 //   xhr.send(formData);
 });
 
-  
+ 
