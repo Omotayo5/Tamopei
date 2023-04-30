@@ -19,31 +19,38 @@ amount.addEventListener("input",()=>{
     }
 })
 
-formBtn.addEventListener("click",()=>{
-
-    
-})
-
 const form = document.getElementById('p2p-form');
 form.addEventListener('submit', e => {
-    // e.preventDefault();
-    if(amount.value == ""){
-        window.alert('Value cannot be empty')
+    if(amount.value == "" || selected.value ==""){
+        e.preventDefault();
+        window.alert('One or more value cannot be empty')
         formBtn.disabled = false;
     }
     else{
-            // fetch('./php/p2p-sell.php')
-            // .then(response=>response.json())
-            // .then(data=>{
-            //     console.log(data);
-            // })
-            // .catch(error=>{
-            //     console.error("error",error)
-            // });
-    }
-    amount.value = "";
-    userName.value="";
-//   xhr.send(formData);
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET","./php/p2p-sell.php");//this can make us send both request and response on thesame page
+        xmlhttp.responseType = 'text';
+        xmlhttp.onload=function(){
+            if(xmlhttp.status === 200){
+                var responseText = xmlhttp.responseText;
+                // document.querySelector('notification').innerHTML = responseText;
+                console.log(responseText);
+            }else{
+                console.error('Request Failed, Returned status of ' + xmlhttp.status)
+            }
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+        }
+        xmlhttp.send();
+    };
+    // alert(userName.value, amount.value)
+
+    /*NOTE if this function runs it will prevent the values from getting posted to the php file hence the post datas inside the php will be empty.*/
+    // formBtn.addEventListener("click",()=>{
+    //     amount.value = "";
+    //     userName.value="";
+    // })
+//   xmlhttp.send(formData);
 });
 
  

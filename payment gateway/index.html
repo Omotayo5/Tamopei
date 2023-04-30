@@ -16,11 +16,11 @@
 
 <body>
     <div class="container" id="big-container">
-        
+
         <aside class="" id="menu">
             <i class="b fa-regular fa-circle-xmark" id="closemenu"></i>
             <div class="top">
-                
+
                 <div class="logo">
                     <h2><a href="">
                             <img src="./img/colorLogo.png" alt="">
@@ -29,7 +29,7 @@
             </div>
 
             <div class="sidebar">
-                
+
                 <!-- <i class="fa-regular fa-circle-xmark" id="closemenu"></i> -->
                 <a href="" class="active">
                     <span class="b material-icons-sharp">
@@ -46,7 +46,7 @@
                 </a>
                 <a href="../payment gateway/p2p/Order-Page/order p/transaction-history.html">
                     <span class=" b material-icons-sharp">
-                    swap_horiz
+                        swap_horiz
                     </span>
                     <h3 class="b">Orders</h3>
                     </span>
@@ -83,7 +83,7 @@
         <!-- MAIN -->
         <main>
             <div class="firstheading">
-                
+
                 <div class="menu-show">
                     <i class="b fa-sharp fa-solid fa-bars " id="menu-btn"></i>
                     <div class="logo" id="logo">
@@ -523,27 +523,27 @@
 
 
 
-                    <!-- Wallet to wallet -->
-                    <form id="p2p-form" action="php/p2p-sell.php" method="post">
-                        <div class="select " id="wallet">
-                            <label for="select">
-                                Select Wallet
-                                <select name="select" class="wallet-select" id="send-select">                                
-                                    <option value="" id="available_curr">Select Wallet</option>
-                                    <!-- The available currency from database will be displayed here -->
-                                </select>
-                            </label>
+                <!-- Wallet to wallet -->
+                <form id="p2p-form" action="php/p2p-sell.php" method="post">
+                    <div class="select " id="wallet">
+                        <label for="select">
+                            Select Wallet
+                            <select name="select" class="wallet-select" id="send-select">
+                                <option value="" id="available_curr">Select Wallet</option>
+                                <!-- The available currency from database will be displayed here -->
+                            </select>
+                        </label>
 
-                            <div class="add-container-body-top">
-                                <div class="fund-wallet">
-                                    <div class="w">
-                                        <p><span> </span></p>
-                                        <!-- this is where the current selected wallet value will be displayed -->
-                                    </div>
-                                    <!-- check if the wallet balance is grater than the entered amount
-                                    if yes, then continue to the transaction if no, then return a message of insufficient balance -->
+                        <div class="add-container-body-top">
+                            <div class="fund-wallet">
+                                <div class="w">
+                                    <p><span> </span></p>
+                                    <!-- this is where the current selected wallet value will be displayed -->
                                 </div>
+                                <!-- check if the wallet balance is grater than the entered amount
+                                if yes, then continue to the transaction if no, then return a message of insufficient balance -->
                             </div>
+                        </div>
                         <div class="send-inputs">
                             <label for="beneficiary-name">
                                 Username
@@ -552,7 +552,8 @@
 
                             <label for="user-amount">
                                 Enter Amount
-                                <input type="text" name="amount" class=" bottom-border" maxlength="8" id="amount_to_send">
+                                <input type="text" name="amount" class=" bottom-border" maxlength="8"
+                                    id="amount_to_send">
                             </label>
                         </div>
                         <div class="confirm-details">
@@ -565,153 +566,155 @@
                         <!-- if confirm button is clicked, check if the entered username is inside the database
                          then open a modal to enter password for the user to confirm the transaction. -->
                         <button type="submit" class="form-btn" id="form_btn">Confirm User datails</button>
+                </form>
+            </div>
+
+
+
+            <div class="deposits" id="bank-deposit">
+                <div class="add-container-body-top">
+                    <div class="fund-wallet">
+                        <div class="w">
+                            <p><span> </span></p>
+
+                        </div>
+                        <h2></h2>
+                        <p>To send money from wallet to bank account</p>
+                        <!-- open a wallet select options,
+                            show a bank transfer modal box where bank can be selected, account number entered,
+                            amount entered, narration entered, confirmation screen then the procced btn click, 
+                            account password to confirm transaction -->
+                        <label for="select">
+                            Select Wallet
+                            <div class="sel-cont">
+                                <select class="to-bank" id="send-to-bank">
+                                    <option value="select-wallet">Select Wallet</option>
+                                    <option value="Naira">Naira Wallet</option>
+                                    <option value="Dollar">Dollar wallet</option>
+                                    <option value="Pounds">Pounds Wallet</option>
+                                    <option value="Euro">Euro Wallet</option>
+                                    <option value="Yuen">Yuen wallet</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <!-- <div class="d-top">
+                        <p>Amount to deposit</p>
+                    </div> -->
+
+                <!-- Paymeny gateway lists -->
+                <!-- Bank details and etc -->
+                <!-- if wallet selected is nigeria, it should only display the account number -->
+                <!-- if wallet selected is not nigeria it should display card options -->
+
+
+                <div id="forms-to-bank">
+
+                    <form id="naira-form" method="post">
+                        <div class="to-b">
+                            <label for="e">Bank Name
+                                <div class="inpt">
+                                    <input type="text" id="bank-name" class=" bottom-border" name="bank-name"
+                                        placeholder="Select Bank">
+                                </div>
+                            </label>
+                            <label for="e">Account Number
+                                <div class="inpt">
+                                    <input type="text" id="acc-num" class=" bottom-border" name="acc-num"
+                                        placeholder="Account Number">
+                                </div>
+                            </label>
+                            <label for="e">Amount
+                                <div class="inpt">
+                                    <input type="text" id="sentVal" class=" bottom-border" name="sentVal"
+                                        placeholder="minimum 100">
+                                </div>
+                            </label>
+
+                            <label for="e">Narration
+                                <div class="inpt">
+                                    <input type="text" id="trans-narr" name="trans-narr"
+                                        placeholder="e.g for school fee">
+                                </div>
+                            </label>
+                        </div>
+                        <!-- the id for the button is going to be for the naira account -->
+                        <button type="submit" class=" form-btn send-form-btn wallet-to-bank"
+                            id="naira-confirm-send">Confirm</button>
                     </form>
                 </div>
 
 
 
-                <div class="deposits" id="bank-deposit">
-                    <div class="add-container-body-top">
-                        <div class="fund-wallet">
-                            <div class="w">
-                                <p><span> </span></p>
+                <div class="dollar-container" id="dollar-modal">
 
-                            </div>
-                            <h2></h2>
-                            <p>To send money from wallet to bank account</p>
-                            <!-- open a wallet select options,
-                            show a bank transfer modal box where bank can be selected, account number entered,
-                            amount entered, narration entered, confirmation screen then the procced btn click, 
-                            account password to confirm transaction -->
-                            <label for="select">
-                                Select Wallet
-                                <div class="sel-cont">
-                                    <select class="to-bank" id="send-to-bank">
-                                        <option value="select-wallet">Select Wallet</option>
-                                        <option value="Naira">Naira Wallet</option>
-                                        <option value="Dollar">Dollar wallet</option>
-                                        <option value="Pounds">Pounds Wallet</option>
-                                        <option value="Euro">Euro Wallet</option>
-                                        <option value="Yuen">Yuen wallet</option>
-                                    </select>
+                    <form action="" id="dollar-form" method="post">
+
+                        <div class="to-b">
+                            <label for="e">Bank Name
+                                <div class="inpt">
+                                    <input type="text" id="bank-name" placeholder="Select Bank">
+                                </div>
+                            </label>
+                            <label for="e">IBAN/Account Number
+                                <div class="inpt">
+                                    <input type="text" id="acc-num" placeholder="Account Number">
+                                </div>
+                            </label>
+                            <label for="e">Account name
+                                <div class="inpt">
+                                    <input type="text" id="acc-name" placeholder="minimum 100">
+                                </div>
+                            </label>
+                            <label for="e">Account type
+                                <!-- dropdown menu -->
+                                <div class="inpt">
+                                    <input type="text" id="acc-name" placeholder="minimum 100">
+                                </div>
+                            </label>
+                            <label for="e">Receipient's email
+                                <div class="inpt">
+                                    <input type="text" id="acc-name" placeholder="minimum 100">
+                                </div>
+                            </label>
+                            <label for="e">Receipient's address
+                                <div class="inpt">
+                                    <input type="text" id="acc-name" placeholder="minimum 100">
+                                </div>
+                            </label>
+                            <label for="e">Receipient's Postal code
+                                <div class="inpt">
+                                    <input type="text" id="acc-name" placeholder="minimum 100">
+                                </div>
+                            </label>
+
+                            <label for="e">Bank routing number/Sort code
+                                <div class="inpt">
+                                    <input type="text" id="trans-narr" placeholder="e.g for school fee">
+                                </div>
+                            </label>
+                            <label for="e">Swift code
+                                <div class="inpt">
+                                    <input type="text" id="sentVal" placeholder="minimum 100">
+                                </div>
+                            </label>
+
+                            <label for="e">Description
+                                <div class="inpt">
+                                    <input type="text" id="trans-narr" placeholder="e.g for school fee">
                                 </div>
                             </label>
                         </div>
-                    </div>
-                    <!-- <div class="d-top">
-                        <p>Amount to deposit</p>
-                    </div> -->
-
-                    <!-- Paymeny gateway lists -->
-                    <!-- Bank details and etc -->
-                    <!-- if wallet selected is nigeria, it should only display the account number -->
-                    <!-- if wallet selected is not nigeria it should display card options -->
+                        <button type="submit" class="send-form-btn wallet-to-bank" id="confirm-send">Confirm</button>
+                    </form>
 
 
-                    <div id="forms-to-bank">
-
-                        <form id="naira-form" method="post">
-                            <div class="to-b">
-                                <label for="e">Bank Name
-                                    <div class="inpt">
-                                        <input type="text" id="bank-name" class=" bottom-border" name="bank-name" placeholder="Select Bank">
-                                    </div>
-                                </label>
-                                <label for="e">Account Number
-                                    <div class="inpt">
-                                        <input type="text" id="acc-num" class=" bottom-border" name="acc-num" placeholder="Account Number">
-                                    </div>
-                                </label>
-                                <label for="e">Amount
-                                    <div class="inpt">
-                                        <input type="text" id="sentVal" class=" bottom-border" name="sentVal" placeholder="minimum 100">
-                                    </div>
-                                </label>
-
-                                <label for="e">Narration
-                                    <div class="inpt">
-                                        <input type="text" id="trans-narr" name="trans-narr" 
-                                            placeholder="e.g for school fee">
-                                    </div>
-                                </label>
-                            </div>
-                            <!-- the id for the button is going to be for the naira account -->
-                            <button type="submit" class=" form-btn send-form-btn wallet-to-bank"
-                                id="naira-confirm-send">Confirm</button>
-                        </form>
-                    </div>
-
-
-
-                    <div class="dollar-container" id="dollar-modal">
-                       
-                        <form action="" id="dollar-form" method="post">
-
-                            <div class="to-b">
-                                <label for="e">Bank Name
-                                    <div class="inpt">
-                                        <input type="text" id="bank-name" placeholder="Select Bank">
-                                    </div>
-                                </label>
-                                <label for="e">IBAN/Account Number
-                                    <div class="inpt">
-                                        <input type="text" id="acc-num" placeholder="Account Number">
-                                    </div>
-                                </label>
-                                <label for="e">Account name
-                                    <div class="inpt">
-                                        <input type="text" id="acc-name" placeholder="minimum 100">
-                                    </div>
-                                </label>
-                                <label for="e">Account type
-                                    <!-- dropdown menu -->
-                                    <div class="inpt">
-                                        <input type="text" id="acc-name" placeholder="minimum 100">
-                                    </div>
-                                </label>
-                                <label for="e">Receipient's email
-                                    <div class="inpt">
-                                        <input type="text" id="acc-name" placeholder="minimum 100">
-                                    </div>
-                                </label>
-                                <label for="e">Receipient's address
-                                    <div class="inpt">
-                                        <input type="text" id="acc-name" placeholder="minimum 100">
-                                    </div>
-                                </label>
-                                <label for="e">Receipient's Postal code
-                                    <div class="inpt">
-                                        <input type="text" id="acc-name" placeholder="minimum 100">
-                                    </div>
-                                </label>
-
-                                <label for="e">Bank routing number/Sort code
-                                    <div class="inpt">
-                                        <input type="text" id="trans-narr" placeholder="e.g for school fee">
-                                    </div>
-                                </label>
-                                <label for="e">Swift code
-                                    <div class="inpt">
-                                        <input type="text" id="sentVal" placeholder="minimum 100">
-                                    </div>
-                                </label>
-
-                                <label for="e">Description
-                                    <div class="inpt">
-                                        <input type="text" id="trans-narr" placeholder="e.g for school fee">
-                                    </div>
-                                </label>
-                            </div>
-                            <button type="submit" class="send-form-btn wallet-to-bank"
-                                id="confirm-send">Confirm</button>
-                        </form>
-
-
-                    </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
     <script src="./scripts/Home.js"></script>
     <script src="./scripts/wallet-balance.js"></script>
