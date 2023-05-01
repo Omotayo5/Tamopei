@@ -19,13 +19,13 @@ $accountOwner = $_SESSION['id'];
     
     //Initialized the message to be sent back to the javascript file to be handled
     //setting the content type for proper data handing in javaScript;
+
     header("Content-Type: application/json");
     $response = array(
     "Insufficient Balance"=>"",
     "user not found"=>"",
     "Succesfull"=>""
     );
-    
     // print_r($response);
     $stmt2 = $conn->prepare("SELECT {$select} FROM `wallet` WHERE user_id =?");
     $stmt2->bind_param('s',$accountOwner);
@@ -96,7 +96,7 @@ $accountOwner = $_SESSION['id'];
                 }else if($stmt3->num_rows<1){
                     //If user is not found inside the database.
                     $_SESSION['response']=$response["user not found"]= "User not found";
-                    echo json_encode($response['user not found']);
+                    // echo json_encode($response['user not found']);
                     header('location:notifications.php');
                 }
                 $stmt3->close();

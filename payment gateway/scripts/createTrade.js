@@ -1,20 +1,20 @@
-const form = document.getElementById('myForm');
+const form = document.querySelector('form');
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const formData = new FormData(form);
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'submit.php');
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      console.log(xhr.responseText);
-    }
-  };
-  // Convert the form data to a URL-encoded string
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData)
-  xhr.send(urlEncodedData);
-//   xhr.send(formData);
 });
 
-  
+console.log("From here 2");
+const xhr = new XMLHttpRequest();
+xhr.open('POST', "/php/active-trade.php");
+xhr.onload = () => {
+  if(xhr.status === 200){
+      var responseText = xhr.responseText;
+      console.log(responseText);
+      const data = JSON.parse(xhr.responseText);
+      console.log(data);
+  }else{
+      console.error('Request Failed, Returned status of ' + xhr.status)
+  }
+};
+// const urlEncodedData = new URLSearchParams(formData).toString();
+xhr.send();
