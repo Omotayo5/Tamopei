@@ -2,6 +2,8 @@
 include('server.php');
 // session_start();
 $userId= $_SESSION['id'];
+// echo $_SERVER['REQUEST_METHOD'];
+
 $sql = "SELECT Naira,Dollar,Cedi,Rand FROM wallet WHERE user_id = $userId";
 $userBal = mysqli_query($conn,$sql);
 $data = array();

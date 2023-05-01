@@ -13,6 +13,4 @@ xmlhttp.onload=function(){
 xmlhttp.open("GET","./php/Home.php");//this can make us send both request and response on thesame page
 xmlhttp.send()
 
-//jQuery
-// var el = $(".p");
-// console.log(el)
+// xmlhttp.open("GET","./php/active-trade.php")

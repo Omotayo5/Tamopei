@@ -24,7 +24,7 @@
       <button class="btn-c" id="buyc1">SELL</button>
     </div>
 
-    <form id="" method="POST" action="/php/active-trade.php">
+    <form id="trade_post" action="php/active-trade.php" method="POST">
       <main id="">
 
         <div class="content-c" id="buy">
@@ -63,7 +63,7 @@
           <div class="trade-ammount-c">
             <div class="ammount-c">
               <label for="">Total Amount To Buy</label>
-              <input type="tel" name="amount_for_sale" id="amount_to_buy" placeholder="$">
+              <input type="tel" name="amount_to_buy" id="amount_to_buy" placeholder="$">
             </div>
             <div class="swap-c">
               <i class="fa-solid fa-arrow-right-arrow-left"></i>
@@ -128,7 +128,7 @@
             </div>
           </div>
           <div class="post-btn">
-            <button type="submit" class="btn-1">POST</button>
+            <button type="submit" id="submit" class="btn-1">POST</button>
 
           </div>
 
@@ -259,7 +259,7 @@
       </div>
     </main>
   </section>
-  <script src="/payment gateway/scripts/createTrade.js"></script>
+  <script src="/payment gateway/create trade/new_trade.js"></script>
   <!-- <script src="/payment gateway/php/active-trade.php"></script> -->
   <script>
     const walletbtn3 = document.getElementById("dropbtn3");
