@@ -1,7 +1,8 @@
 <?php
 include('server.php');
 $response = $_SESSION['response'];
-// print_r($response);
+print_r($_SESSION['count']);
+// print_r($unique_id);
 if($response == "Insufficient Balance"){
     echo '<h3 class="Insufficient">
     <span class="close">close</span> Insufficient Balance 😥</h3>';
@@ -14,7 +15,7 @@ if($response == "Insufficient Balance"){
  $a = "";
  $b = "ok";
  if($a == "" && $b){
-    echo "one is empty";
+    echo $b;
  }
 ?>
 <!DOCTYPE html>
@@ -62,9 +63,6 @@ if($response == "Insufficient Balance"){
 </head>
 <body>
     <!-- <h2>Notification Page</h2> -->
-
-    <?php
-    ?>
 </body>
 </html>
 <script src="./scripts/sendToDb.js"></script>

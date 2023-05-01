@@ -1,8 +1,6 @@
 <?php
 include('server.php');
 $accountOwner = $_SESSION['id'];
-// if(isset($_POST['submit'])){
-
     $select = clean_Input($_POST['select']);
     $receiverName = clean_Input($_POST['user_name']);
     $sentAmount = clean_Input($_POST['amount']);
@@ -65,9 +63,20 @@ $accountOwner = $_SESSION['id'];
                     //remove value from the sender's
                     $removeValue = "UPDATE wallet SET {$select}  = {$select} - {$sentAmount} WHERE `user_id`=$accountOwner";
                     $removed = mysqli_query($conn,$removeValue);
-        
+                    
+
+                    //Generating a unique ID for transaction refrence
+                    $refrence = substr(md5(uniqid(rand(),true)),0,20);
+                    $UniqueRef = "SELECT COUNT(*) as count FROM transactions WHERE transaction_refrence = '$refrence'";
+                    $result = mysqli_query($conn,$UniqueRef);
+                    $row = mysqli_fetch_assoc($result);
+                    $count = $row['count'];
+                    $_SESSION['count']= $count;
+                    if($count >0){
+                        $refrence = substr(md5(uniqid(rand(),true)),0,20);
+                    }
                     //1.write the query for the database
-                    $sql = "INSERT INTO `transactions`(`sender_id`, `receiver_id`, `currency_wallet`, `amount`, `transaction_charge`) VALUES ('$accountOwner','$beneficiaryId','{$select}','$sentAmount','$charges')";
+                    $sql = "INSERT INTO `transactions`(`sender_id`, `receiver_id`, `currency_wallet`, `amount`, `transaction_charge`,`transaction_refrence`) VALUES ('$accountOwner','$beneficiaryId','{$select}','$sentAmount','$charges','$refrence')";
                     //2.connect the query and the database.
                     $result = mysqli_query($conn,$sql);
                     

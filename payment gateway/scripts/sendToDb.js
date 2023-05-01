@@ -24,7 +24,7 @@ form.addEventListener('submit', e => {
     if(amount.value == "" || selected.value ==""){
         e.preventDefault();
         window.alert('One or more value cannot be empty')
-        formBtn.disabled = false;
+        formBtn.disabled = true;
     }
     else{
         const xmlhttp = new XMLHttpRequest();

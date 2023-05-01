@@ -9,7 +9,7 @@ const domStrings = {
 const balanceReq = new XMLHttpRequest();
 balanceReq.onload = function () {
   const data = JSON.parse(this.responseText);
-  console.log(this.responseText);
+  // console.log(this.responseText);
   for (const key in data) {
     const curr = {
       walletName: key,
