@@ -67,8 +67,6 @@ balanceReq.onload = function () {
       }
     });
 
-    //Wallet to Bank
-
     //adding the html stringś into the dom.
     domStrings.availableCurrencyDisplay.insertAdjacentHTML(
       "afterend",

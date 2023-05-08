@@ -27,30 +27,18 @@ form.addEventListener('submit', e => {
         formBtn.disabled = true;
     }
     else{
+        //Select the form data and send it to the database as a full form.
+        const formData = new FormData(form);
         const xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","./php/p2p-sell.php");//this can make us send both request and response on thesame page
-        xmlhttp.responseType = 'text';
-        xmlhttp.onload=function(){
-            if(xmlhttp.status === 200){
-                var responseText = xmlhttp.responseText;
-                // document.querySelector('notification').innerHTML = responseText;
-                console.log(responseText);
-            }else{
-                console.error('Request Failed, Returned status of ' + xmlhttp.status)
-            }
+        xmlhttp.open("POST","./php/send_to_db.php");//this can make us send both request and response on thesame page
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = () => {
             const data = JSON.parse(this.responseText);
             console.log(data);
-        }
-        xmlhttp.send();
+          };
+          const urlEncodedData = new URLSearchParams(formData).toString();
+          console.log(formData);
+          xmlhttp.send(urlEncodedData);
     };
-    // alert(userName.value, amount.value)
-
-    /*NOTE if this function runs it will prevent the values from getting posted to the php file hence the post datas inside the php will be empty.*/
-    // formBtn.addEventListener("click",()=>{
-    //     amount.value = "";
-    //     userName.value="";
-    // })
-//   xmlhttp.send(formData);
+    
 });
-
- 

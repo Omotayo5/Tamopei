@@ -40,6 +40,8 @@ purchaseAmount.addEventListener("input", () => {
   receivedAmntDisplay.innerHTML = purchaseAmount.value * sellerRate.value;
 });
 
+
+
 function loadData() {
   //Use javascript to set the attribute of the form, both the me
   const formData = new FormData(form);
@@ -134,7 +136,7 @@ form2.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form2);
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "../php/disputedTrade.php");
+  xhr.open("POST", "../php/p2p-buy.php");
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onload = () => {
     const data = this.response;
