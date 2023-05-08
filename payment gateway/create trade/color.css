@@ -1,6 +1,6 @@
 :root{
 --body: #eee;
---main-color: #5ea536;
+--main-color: rgb(46, 204, 113);
 --secondary: #f95738;
 --done:green;
 --fail:red;

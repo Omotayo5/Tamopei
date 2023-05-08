@@ -10,7 +10,7 @@ $data = array();
 if($userBal){
     $row = mysqli_fetch_assoc($userBal);
     //turn the data received from the database into a session variable;
-    $_SESSION['wallet_balance']=json_encode($row);
+    $_SESSION['wallet_balance']=$row;
     echo json_encode($row);
     // print_r($row);
 }
