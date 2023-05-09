@@ -41,15 +41,15 @@ purchaseAmount.addEventListener("input", () => {
 });
 
 
-
-function loadData() {
+//Function to get and send data to and from database.
+function loadData(method,url,frm) {
   //Use javascript to set the attribute of the form, both the me
-  const formData = new FormData(form);
+  const formData = new FormData(frm);
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "../php/new_trade.php");
+  xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onload = function () {
-    const data = this.response;
+    const data = JSON.parse(this.response);
     console.log(data);
   };
   const urlEncodedData = new URLSearchParams(formData).toString();
@@ -107,7 +107,7 @@ form.addEventListener("submit", (e) => {
     alert("One or more value cannot be empty or unchecked");
     formBtn.disabled = true;
   } else {
-    loadData();
+    loadData("POST","../php/new_trade.php",form);
     console.log("From here 2");
   }
   //Checking if the values the user has is lower than the value the user wants to sell.
@@ -123,8 +123,6 @@ form.addEventListener("submit", (e) => {
   // console.log(parseInt(highLimit.value));
 });
 
-
-
 fetch("../php/user-wallet.php")
 .then((response) => response.json())
 .then((data) => useData(data))
@@ -134,17 +132,15 @@ fetch("../php/user-wallet.php")
 const form2 = document.querySelector("#trade_post_buy");
 form2.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = new FormData(form2);
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "../php/p2p-buy.php");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onload = () => {
-    const data = this.response;
-    console.log(data);
-  };
-  // Convert the form data to a URL-encoded string
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(formData);
-  xhr.send(urlEncodedData);
-  // xhr.send(formData);
+  if (
+    sellerRate.value == "" &&
+    Array.from(checked).some((boxes) => boxes.checked) == 0
+  ) {
+    e.preventDefault();
+    alert("One or more value cannot be empty or unchecked");
+    formBtn.disabled = true;
+  } else {
+    loadData("POST","../php/p2p-buy.php",form2);
+    console.log("From here 2");
+  }
 });
