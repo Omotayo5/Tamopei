@@ -4,8 +4,8 @@ $accountOwner = $_SESSION['id'];
 $accountOwnerName = $_SESSION['name'];
 $wallets=$_SESSION['wallet_balance'];
 header("Content-Type:application/json");
-$response = array("Succesfull"=>"");
-// print_r($_POST);
+$response = array("Succesfull"=>"","Seller rate"=>"",);
+// print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD']=== 'POST'){
     $selected = mysqli_real_escape_string($conn, $_POST['select']);
     $tradeType = mysqli_real_escape_string($conn, $_POST['Trade_Type']);

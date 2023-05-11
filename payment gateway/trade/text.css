@@ -2,7 +2,9 @@
   padding: 0;
   margin: 0;
 }
-
+body{
+  font-size: 62.5%;
+}
 .head-right-box h4 {
   font-size: 1.3rem;
 }
@@ -25,8 +27,9 @@ td {
 th Span {
   background-color: var(--main-color);
   padding: .2rem;
-  border-radius: .37rem;
+  /* border-radius: .37rem; */
   color: var(--white);
+  font-size: 1rem;
 }
 
 .fees h6 {

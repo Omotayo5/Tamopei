@@ -53,7 +53,7 @@ function loadData(method,url,frm) {
     console.log(data);
   };
   const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(formData);
+  console.log(urlEncodedData);
   xhr.send(urlEncodedData);
 }
 
@@ -119,8 +119,8 @@ form.addEventListener("submit", (e) => {
     alert("You cannot post a sell order higher than your balance 😥");
     e.preventDefault();
   }
-  // console.log(parseInt(walletAvailable.innerHTML.split(" ")[1]));
-  // console.log(parseInt(highLimit.value));
+  console.log(parseInt(walletAvailable.innerHTML.split(" ")[1]));
+  console.log(parseInt(highLimit.value),sellerRate.value,);
 });
 
 fetch("../php/user-wallet.php")
@@ -140,7 +140,9 @@ form2.addEventListener("submit", (e) => {
     alert("One or more value cannot be empty or unchecked");
     formBtn.disabled = true;
   } else {
-    loadData("POST","../php/p2p-buy.php",form2);
+    loadData("POST",'../php/p2p-buy.php',form2);
     console.log("From here 2");
   }
 });
+
+
