@@ -270,15 +270,6 @@ closeBtn5.addEventListener('click', closePopup5);
 // close 
 
 
-
-
-
-
- 
-
-
-
-
 // Display function
 function displayPopup2() {
   document.querySelector('.popup-container2').style.display = 'block';

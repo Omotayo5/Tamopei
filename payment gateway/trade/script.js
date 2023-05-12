@@ -1,7 +1,7 @@
 const buy_tableBody = document.querySelector(".buy_other_methods"),
-sell_tableBody = document.querySelector('.sell_other_methods');
-
-console.log(buy_tableBody);
+  sell_tableBody = document.querySelector(".sell_other_methods"),
+  popContainer = document.querySelector("popup-container4");
+// console.log(document.querySelector(".buy_other_methods").innerHTML)
 function loadData(method, url) {
   //Use javascript to set the attribute of the form, both the me
   // const formData = new FormData(frm);
@@ -54,27 +54,163 @@ function loadData(method, url) {
           </div>
         </td>
       </tr>`;
-      buy_tableBody.insertAdjacentHTML('afterend',html);
+
+      // for the modal box of each container
+      `<div class="transaction">
+      <div class="payment-method-head">
+        <h4>OTHER PAYMENT METHODS</h4>
+
+        <div class="showbox-btn" style="background-color: var(--input); margin: .7rem 0;">
+          <button class="pick-btn active" id="bank-box-btn" style="background: transparent;">BANK</button>
+          <button class="pick-btn " id="chipper-box-btn" style="background: transparent;">CHIPPER</button>
+          <button class="pick-btn" id="pi-box-btn" style="background: transparent;">PI NETWORK</button>
+        </div>
+      </div>
+
+      <!--if bank is available as a payment method then this html string will be appended to the mother container-->
+      <div class="payment-method-bank" id="bank-box">
+        <div class="name-details">
+          <h4>BANK NAME:</h4>
+          <p>SPRING BANK</p>
+        </div>
+        <div class="name-details">
+          <h4>ACCNT NAME:</h4>
+          <p>ADEJUYI SAMSON J</p>
+        </div>
+        <div class="name-details">
+          <h4>ACCOUNT NO:</h4>
+          <p>2187093564</p>
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE COST:</h4>
+          <p>₦74,000</p>
+        </div>
+        <div class="name-details">
+          <h4>FEE 1%:</h4>
+          <p>$1</p>
+        </div>
+        <div class="name-details">
+          <h4>RECEIVE AMOUNT:</h4>
+          <p>$99.00</p>
+        </div>
+        <div class="btn-proceed">
+
+          <a href="verify.html">
+            <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+          </a>
+
+          <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+        </div>
+      </div>
+
+      
+      <!--if Pi is available as a payment method-->
+      <div class="pi-box" id="pi-box" style="display: none;">
+        <div class="name-details">
+          <h4>METHOD NAME:</h4>
+          <p>PI NETWORK</p>
+        </div>
+        <div class="name-details">
+          <h4>WALLET ADDRESS:</h4>
+          <p>#2187093564</p>
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE COST:</h4>
+          <p>$100</p>
+        </div>
+        <div class="name-details">
+          <h4>FEE 1%:</h4>
+          <p>$1</p>
+        </div>
+        <div class="name-details">
+          <h4>RECEIVE AMOUNT:</h4>
+          <p>$99.00</p>
+        </div>
+        <div class="btn-proceed">
+          <button class="popup-confirm4">CONFIRM</button>
+          <button class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+        </div>
+      </div>
+
+      <!--  if chipper is available as a payment method-->
+      <div class="chipper-box" id="chipper-box" style="display: none;">
+        <div class="name-details">
+          <h4>METHOD NAME:</h4>
+          <p>CHIPPER CASH</p>
+        </div>
+        <div class="name-details">
+          <h4> USERNAME:</h4>
+          <p>@omotayocash</p>
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE COST:</h4>
+          <p>₦74,000</p>
+        </div>
+        <div class="name-details">
+          <h4>FEE 1%:</h4>
+          <p>$1</p>
+        </div>
+        <div class="name-details">
+          <h4>RECEIVE AMOUNT:</h4>
+          <p>$99.00</p>
+        </div>
+        <div class="btn-proceed">
+          <button class="popup-confirm4">CONFIRM</button>
+          <button class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+        </div>
+      </div>
+    </div>`
+
+
+
+      buy_tableBody.innerHTML += html;
     });
-    // console.log(datas);
+    // getting the element sent to the dom inside the dom and calling an eventListener on each of them.
+    buy_tableBody.querySelectorAll("tr").forEach((child) => {
+      child.lastElementChild
+        .querySelector(".card-buy button")
+        .addEventListener("click", (e) => {
+          //this function is gotten from main.js script.
+          displayPopup4();
+        });
+    });
   };
+  // .lastElementChild.querySelector('.card-buy button').addEventListener('click',(e)=>{
+  //   e.preventDefault();
+  //   console.log('button clicked')
+  // })
   xhr.send();
 }
+
+
+
+
+
+
+
+
 const method_buy = "POST",
   url_buy = "../php/order_buy.php";
 loadData(method_buy, url_buy);
 
-
-function loadData2(method,url) {
+function loadData2(method, url) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onload = function () {
     const datas = JSON.parse(this.response);
     console.log(datas);
-    datas.forEach(data=>{
-      const html =
-      `<tr>
+    datas.forEach((data) => {
+      const html = `<tr>
       <td>
         <div class="card-info1">
   
@@ -108,18 +244,18 @@ function loadData2(method,url) {
           <button class="btn2" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
         </div>
       </td>
-    </tr>`
-    sell_tableBody.insertAdjacentHTML('afterend',html);
-    })
+    </tr>`;
+      sell_tableBody.innerHTML += html;
+    });
   };
   // const urlEncodedData = new URLSearchParams(formData).toString();
   // console.log(formData);
   xhr.send();
 }
 
-
-const method_sell = "POST",url_sell = "../php/order_buy.php";
-loadData2(method_sell,url_sell);
+const method_sell = "POST",
+  url_sell = "../php/order_buy.php";
+loadData2(method_sell, url_sell);
 
 `amount
 : 
@@ -153,4 +289,4 @@ user_rate
 "659"
 wallet
 : 
-"Naira"`
+"Naira"`;
