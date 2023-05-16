@@ -1,5 +1,4 @@
-<?php
-// print_r($_SESSION['id']);
+<?php/*
 session_start();
 $accountOwner = $_SESSION['id'];
 $serverName = 'localhost';
@@ -20,7 +19,7 @@ if($conn){
     }
     $accType = $_POST;
     $_POST['bank'] = 'bank';
-    // if($_POST){
+    
         if($_POST['bank']){
             $bankName = clean_Input($_POST['bank_name']);
             $accountName = clean_Input($_POST['Account_name']);
@@ -57,7 +56,6 @@ if($conn){
         elseif($_POST['google_pay_acc']){
             print_r($accType);
         }
-    }
-// }
+    }*/
 
-?>
+    ?>

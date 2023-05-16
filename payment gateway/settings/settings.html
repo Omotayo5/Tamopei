@@ -22,7 +22,7 @@
                 <option name="pi" value="pi">Pi network</option>
                 <option name="paypal" value="paypal">PayPal</option>
                 <option name="skrill" value="skrill">Skrill</option>
-                <option name="cashApp" value="cashApp">Cash App</option>
+                <!-- <option name="cashApp" value="cashApp">Cash App</option> -->
                 <option name="googlepay" value="googlepay">Google pay</option>
             </select>
         </div>
@@ -41,7 +41,7 @@
                         <label for="">Bank</label>
                         <input type="text" name="bank_name">
                         <label for="">Account Number</label>
-                        <input type="email" name="account_number">
+                        <input type="text" name="account_number">
                         <button type="submit">Set Details</button>
 
                 </form>
@@ -106,11 +106,11 @@
                     <div>Add Skrill Details <span>Note: please use your own details</span></div>
                     <hr>
                     <label for="">Skrill Mail</label>
-                    <input type="email" name="account_number">
+                    <input type="email" name="skrill_mail">
                     <button type="submit">Set Skrill Address</button>
                 </form>
             </div>
-            <div class="form-container" id="cash">
+            <!-- <div class="form-container" id="cash">
                 <form id="cashApp_account_settings">
                     <input type="hidden" name="cashapp_acc" value="cashApp">
                     <div>Add Cash App Details <span>Note: please use your own details</span></div>
@@ -121,14 +121,14 @@
                     <input type="text" name="account_number">
                     <button type="submit">Set Details</button>
                 </form>
-            </div>
+            </div> -->
             <div class="form-container" id="google">
                 <form id="googlpay_account_settings">
                     <input type="hidden" name="google_pay_acc" value="googlepay">
                     <div>Add Google Pay Details <span>Note: please use your own details</span></div>
                     <hr>
                     <label for="">Google mail</label>
-                    <input type="text" name="google_mail">
+                    <input type="email" name="google_mail">
                     <button type="submit">Set google mail</button>
                 </form>
             </div>

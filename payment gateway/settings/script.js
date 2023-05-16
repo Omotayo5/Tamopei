@@ -18,7 +18,6 @@ const payments = [
   (pi = document.querySelector("#pi")),
   (payPal = document.querySelector("#paypal")),
   (skrill = document.querySelector("#skrill")),
-  (cash = document.querySelector("#cash")),
   (google = document.querySelector("#google")),
 ];
 
@@ -109,53 +108,53 @@ function loadData(method, url, frm) {
 
 nairaform.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',nairaform);
+    loadData('POST','../php/account/bank.php',nairaform);
     console.log('Posted naira');
 });
 
 Chipper.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',Chipper);
+    loadData('POST','../php/account/chipper.php',Chipper);
     console.log('Posted chipper');
 });
 
 applePay.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',applePay);
+    loadData('POST','../php/account/apple.php',applePay);
     console.log('Posted apple');
 });
 
 momoAcc.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',momoAcc);
+    loadData('POST','../php/account/momo.php',momoAcc);
     console.log('Posted momo');
 })
 
 googlePay.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',googlePay);
+    loadData('POST','../php/account/google.php',googlePay);
     console.log('Posted google');
 })
 
 piWallet.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',piWallet);
+    loadData('POST','../php/account/pi.php',piWallet);
     console.log('Posted pi');
 })
 
 Skrill.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',Skrill);
+    loadData('POST','../php/account/skrill.php',Skrill);
     console.log('Posted skrill');
 })
 
 PayPal.addEventListener('submit',(e)=>{
     e.preventDefault();
-    loadData('POST','../php/payment-options.php',PayPal);
+    loadData('POST','../php/account/paypal.php',PayPal);
     console.log('Posted payPal');
 })
 
-cashApp.addEventListener('submit',()=>{
-    e.preventDefault();
-    loadData('POST','../php/payment-options.php',cashApp)
-})
+// cashApp.addEventListener('submit',()=>{
+//     e.preventDefault();
+//     loadData('POST','../php/payment-options.php',cashApp)
+// })

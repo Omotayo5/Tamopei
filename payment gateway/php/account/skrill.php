@@ -7,7 +7,6 @@ $username = 'root';
 $password = 'password';
 $databaseName = 'tamopei payment options';
 $conn = new mysqli($serverName,$username,$password,$databaseName);
-
 function clean_Input($userInpt){
     $userInpt = trim($userInpt);
     $userInpt = strip_tags($userInpt);
@@ -17,11 +16,9 @@ function clean_Input($userInpt){
 }
 
 if($conn){
-    $bankName = clean_Input($_POST['bank_name']);
-    $accountName = clean_Input($_POST['Account_name']);
-    $accountNumber = clean_Input($_POST['account_number']);
-    $sql = "INSERT INTO `bank`(`user_id`, `bank_name`, `user_name`, `account_number`) VALUES ('$accountOwner','$bankName','$accountName','$accountNumber')";
-    $bank = mysqli_query($conn,$sql);
-    // print_r($accType);
+
+    $skrillmail = clean_Input($_POST['skrill_mail']);
+    $sql = "INSERT INTO `bank`(`user_id`, `email_address`) VALUES ('$accountOwner','$skrillmail')";
+    $skrill = mysqli_query($conn,$sql);
 }
 ?>
