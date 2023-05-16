@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel="stylesheet" href="/payment gateway/settings/style.css">
+    <link rel="stylesheet" href="../settings/style.css">
 </head>
 
 <body>
     <div class="container">
+        <h3>Set your payment receiving account details</h3>
         <div class="select-options">
             <select name="payment-method" id="select">
                 <option>Select method to set</option>
@@ -31,90 +32,91 @@
         </div>
         <div class="input_containers">
             <div class="form-container" id="bank">
-                <form id="bank_account_settings" name="bank">
+                <form id="bank_account_settings">
                     <div>Add Bank Details <span>Note: please use your own details</span></div>
-                    <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="Account_name">
-                    <label for="">Bank</label>
-                    <input type="text" name="bank_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="account_number">
-                    <button type="submit">Set Details</button>
+                    <input type="hidden" name="bank" value="bank">
+                        <hr>
+                        <label for="">Your Name</label>
+                        <input type="text" name="Account_name">
+                        <label for="">Bank</label>
+                        <input type="text" name="bank_name">
+                        <label for="">Account Number</label>
+                        <input type="email" name="account_number">
+                        <button type="submit">Set Details</button>
+
                 </form>
             </div>
             <div class="form-container" id="chipper">
                 <form id="chipper_account_settings">
+                    <input type="hidden" name="chipper_acc" value="chipper">
                     <div>Chipper cash Details <span>Note: please use your own details</span></div>
                     <hr>
                     <label for="">Your Name</label>
                     <input type="text" name="user_name">
                     <label for="">Account Number</label>
-                    <input type="text" name="account_number">
+                    <input type="email" name="chipper_mail">
                     <button type="submit">Set Details</button>
                 </form>
             </div>
             <div class="form-container" id="apple">
                 <form id="apple_pay_account_settings">
+                    <input type="hidden" name="apple_acc" value="applepay">
                     <div>Add Apple pay Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="account_number">
-                    <button type="submit">Set Details</button>
+                    <label for="">Apple mail</label>
+                    <input type="email" name="apple_mail">
+                    <button type="submit">Set Apple mail</button>
                 </form>
             </div>
             <div class="form-container" id="momo">
                 <form id="momo_account_settings">
+                    <input type="hidden" name="momo_acc" value="momo">
                     <div>Add Mobile money Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="account_number">
-                    <button type="submit">Set Details</button>
+                    <label for="">Momo Name</label>
+                    <input type="text" name="momo_name">
+                    <label for="">Momo Number</label>
+                    <input type="text" name="momo_number">
+                    <button type="submit">Set Momo Account</button>
                 </form>
             </div>
             <div class="form-container" id="pi">
                 <form id="pi_account_settings">
+                    <input type="hidden" name="pi_wallet" value="pi">
                     <div>Add Pi Network Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
+                    <label for="">Pi (π) Wallet Address</label>
                     <input type="text" name="wallet_address">
-                    <button type="submit">Set Details</button>
+                    <button type="submit">Set wallet Address</button>
                 </form>
             </div>
             <div class="form-container" id="paypal">
                 <form id="paypal_account_settings">
+                    <input type="hidden" name="paypal_acc" value="paypal">
                     <div>Add PayPal Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="email_address">
-                    <button type="submit">Set Details</button>
+                    <label for="">PayPal Email</label>
+                    <input type="email" name="paypal_email">
+                    <button type="submit">Set Paypal Address</button>
                 </form>
             </div>
             <div class="form-container" id="skrill">
                 <form id="skrill_account_settings">
+                    <input type="hidden" name="skrill_acc" value="skrill">
                     <div>Add Skrill Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="account_number">
-                    <button type="submit">Set Details</button>
+                    <label for="">Skrill Mail</label>
+                    <input type="email" name="account_number">
+                    <button type="submit">Set Skrill Address</button>
                 </form>
             </div>
             <div class="form-container" id="cash">
                 <form id="cashApp_account_settings">
+                    <input type="hidden" name="cashapp_acc" value="cashApp">
                     <div>Add Cash App Details <span>Note: please use your own details</span></div>
                     <hr>
                     <label for="">Your Name </label>
-                    <input type="text" name="user_name">
+                    <input type="text" name="cashapp_name">
                     <label for="">Account Number</label>
                     <input type="text" name="account_number">
                     <button type="submit">Set Details</button>
@@ -122,13 +124,12 @@
             </div>
             <div class="form-container" id="google">
                 <form id="googlpay_account_settings">
+                    <input type="hidden" name="google_pay_acc" value="googlepay">
                     <div>Add Google Pay Details <span>Note: please use your own details</span></div>
                     <hr>
-                    <label for="">Your Name</label>
-                    <input type="text" name="user_name">
-                    <label for="">Account Number</label>
-                    <input type="text" name="account_number">
-                    <button type="submit">Set Details</button>
+                    <label for="">Google mail</label>
+                    <input type="text" name="google_mail">
+                    <button type="submit">Set google mail</button>
                 </form>
             </div>
         </div>

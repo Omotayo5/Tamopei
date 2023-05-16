@@ -5,8 +5,8 @@ momoAcc = document.getElementById('momo_account_settings'),
 piWallet = document.getElementById('pi_account_settings'),
 PayPal = document.getElementById('paypal_account_settings'),
 Skrill = document.getElementById('skrill_account_settings'),
-cashApp = document.getElementById('cashApp_account_settings'),
-googlePay = document.getElementById('googlepay_account_settings');
+cashApp = document.getElementById('cashApp_account_settings')
+googlePay = document.getElementById('googlpay_account_settings')
 
 
 
@@ -57,10 +57,10 @@ const selected = document
       case "skrill":
         payments[6].style.display = "block";
         break;
-      case "cash":
+      case "cashApp":
         payments[7].style.display = "block";
         break;
-      case "google":
+      case "googlepay":
         payments[8].style.display = "block";
       default:
         break;
@@ -153,4 +153,9 @@ PayPal.addEventListener('submit',(e)=>{
     e.preventDefault();
     loadData('POST','../php/payment-options.php',PayPal);
     console.log('Posted payPal');
+})
+
+cashApp.addEventListener('submit',()=>{
+    e.preventDefault();
+    loadData('POST','../php/payment-options.php',cashApp)
 })

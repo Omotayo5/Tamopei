@@ -19,6 +19,12 @@ body {
     margin: 5rem auto;
     
 }
+.container h3{
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+    color: #4a49498e;
+}
 .select-options{
     text-align: center;
 }
@@ -28,12 +34,14 @@ select{
     font-size: 2rem;
     outline: none;
     background-color: aliceblue;
+    color: #3939398e;
 }
 option{
     padding: .5rem;
     font-size: 2rem;
     text-align: center;
     background-color: aliceblue;
+    color:  #393939bf;
     
 }
 .notice{
@@ -81,9 +89,15 @@ button{
     border: none;
     padding: 1.5rem;
     color: white;
+    font-weight: 600;
 }
 form div{
     margin: .5rem;
     text-align: center;
     font-size: 2.5rem;
+    color: #4a49498e;
+}
+form div span{
+    color: orange;
+    font-weight: 600;
 }
