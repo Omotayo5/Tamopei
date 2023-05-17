@@ -257,36 +257,14 @@ const method_sell = "POST",
   url_sell = "../php/order_buy.php";
 loadData2(method_sell, url_sell);
 
-`amount
-: 
-"76"
-date
-: 
-"0000-00-00 00:00:00"
-highest_rate
-: 
-"150"
-lowest_rate
-: 
-"10"
-payment_method_1
-: 
-"Bank"
-payment_method_2
-: 
-"Chipper"
-payment_method_3
-: 
-"Momo"
-user_id
-: 
-"1000121"
-user_name
-: 
-"Okikiola"
-user_rate
-: 
-"659"
-wallet
-: 
-"Naira"`;
+
+
+
+async function fetchAsync () {
+  let response = await fetch("../php/payment-options.php");
+  let data = await response.json();
+  console.log(data)
+  return data;
+}
+
+fetchAsync();

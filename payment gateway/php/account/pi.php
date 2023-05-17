@@ -17,7 +17,7 @@ function clean_Input($userInpt){
 }
 if($conn){
             $pi_Wallet = clean_Input($_POST['wallet_address']);
-            $sql = "INSERT INTO `pi_wallet`(`user_id`, `wallet_Address`) VALUES ('$accountOwner','$pi_wallet')";
+            $sql = "INSERT INTO `pi network`(`user_id`, `wallet_Address`) VALUES ('$accountOwner','$pi_Wallet')";
             $pi = mysqli_query($conn,$sql);
 
 }

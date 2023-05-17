@@ -5,7 +5,7 @@ momoAcc = document.getElementById('momo_account_settings'),
 piWallet = document.getElementById('pi_account_settings'),
 PayPal = document.getElementById('paypal_account_settings'),
 Skrill = document.getElementById('skrill_account_settings'),
-cashApp = document.getElementById('cashApp_account_settings')
+cashApp = document.getElementById('cashApp_account_settings'),
 googlePay = document.getElementById('googlpay_account_settings')
 
 
@@ -20,9 +20,6 @@ const payments = [
   (skrill = document.querySelector("#skrill")),
   (google = document.querySelector("#google")),
 ];
-
-
-
 
 payments.forEach((payment) => {
   payment.style.display = "none";
@@ -56,39 +53,41 @@ const selected = document
       case "skrill":
         payments[6].style.display = "block";
         break;
-      case "cashApp":
-        payments[7].style.display = "block";
-        break;
       case "googlepay":
-        payments[8].style.display = "block";
+        payments[7].style.display = "block";
       default:
         break;
     }
   });
 
-// sellerRate.addEventListener("input", () => {
-//   const inputValue = sellerRate.value.trim();
-//   if (/^\d+$/.test(inputValue)) {
-//     console.log("value is a number");
-//     formBtn.disabled = false;
-//     formBtn.style.backgroundColor = "rgb(46, 204, 113)";
-//   } else {
-//     formBtn.disabled = true;
-//     formBtn.style.backgroundColor = "red";
-//   }
-// });
-// purchaseAmount.addEventListener("input", () => {
-//   const inputValue = purchaseAmount.value.trim();
-//   if (/^\d+$/.test(inputValue)) {
-//     console.log("value is a number");
-//     formBtn.disabled = false;
-//     formBtn.style.backgroundColor = "rgb(46, 204, 113)";
-//   } else {
-//     formBtn.disabled = true;
-//     formBtn.style.backgroundColor = "red";
-//   }
-//   receivedAmntDisplay.innerHTML = purchaseAmount.value * sellerRate.value;
-// });
+function isNumber(inpt,formBtn,warning){
+  const inputValue = inpt.value.trim();
+  warning.style.display = 'none';
+  if (/^\d+$/.test(inputValue)) {
+    console.log("value is a number");
+    formBtn.disabled = false;
+    formBtn.style.backgroundColor = "rgb(46, 204, 113)";
+    warning.style.display = 'none';
+  } else {
+    formBtn.disabled = true;
+    warning.style.display = 'block'
+    formBtn.style.backgroundColor = "red";
+  }
+}
+const warning = document.querySelector('#warning');
+const bankwarning = document.querySelector('#acc_warning');
+const acc_btn = document.querySelector('#acc_btn');
+const momoBtn = document.querySelector('#momo_btn');
+const bankNum = document.querySelector('#acc_number')
+const number = document.querySelector('#number_momo')
+
+
+number.addEventListener('input',()=>{
+isNumber(number,momoBtn,warning);
+})
+bankNum.addEventListener('input',()=>{
+  isNumber(bankNum,acc_btn,bankwarning)
+})
 
 //Function to get and send data to and from database.
 function loadData(method, url, frm) {
@@ -154,7 +153,13 @@ PayPal.addEventListener('submit',(e)=>{
     console.log('Posted payPal');
 })
 
-// cashApp.addEventListener('submit',()=>{
-//     e.preventDefault();
-//     loadData('POST','../php/payment-options.php',cashApp)
-// })
+
+async function fetchAsync () {
+  let response = await fetch("../php/payment-options.php");
+  let data = await response.json();
+  //do something to the data
+  console.log(data[0])
+  return data;
+}
+
+fetchAsync();

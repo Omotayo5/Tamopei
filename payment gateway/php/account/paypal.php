@@ -17,8 +17,8 @@ function clean_Input($userInpt){
 
 if($conn){
 
-    $paypalmail = clean_Input($_POST['paypal_mail']);
-    $sql = "INSERT INTO `bank`(`user_id`, `email_address`) VALUES ('$accountOwner','$paypalmail')";
+    $paypalmail = clean_Input($_POST['paypal_email']);
+    $sql = "INSERT INTO `paypal`(`user_id`, `email_address`) VALUES ('$accountOwner','$paypalmail')";
     $paypal = mysqli_query($conn,$sql);
 }
 ?>

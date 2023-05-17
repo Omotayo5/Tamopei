@@ -18,7 +18,7 @@ function clean_Input($userInpt){
 if($conn){
 
     $skrillmail = clean_Input($_POST['skrill_mail']);
-    $sql = "INSERT INTO `bank`(`user_id`, `email_address`) VALUES ('$accountOwner','$skrillmail')";
+    $sql = "INSERT INTO `skrill`(`user_id`, `email_address`) VALUES ('$accountOwner','$skrillmail')";
     $skrill = mysqli_query($conn,$sql);
 }
 ?>

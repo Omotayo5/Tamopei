@@ -18,7 +18,7 @@ function clean_Input($userInpt){
 if($conn){
 
     $googlemail = clean_Input($_POST['google_mail']);
-    $sql = "INSERT INTO `bank`(`user_id`, `email_address`) VALUES ('$accountOwner','$googlemail')";
+    $sql = "INSERT INTO `google_pay`(`user_id`, `email_address`) VALUES ('$accountOwner','$googlemail')";
     $google = mysqli_query($conn,$sql);
 }
 ?>
