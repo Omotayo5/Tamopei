@@ -7,7 +7,6 @@ $stmt2 = "SELECT
 `user_id`,
 `user_name`,
 `wallet`,
-`amount`,
 `lowest_rate`,
 `highest_rate`,
 `user_rate`,
@@ -15,7 +14,7 @@ $stmt2 = "SELECT
 `payment_method_2`,
 `payment_method_3`,
 `date` FROM `p2p_posts_sell`
-ORDER BY `date`";
+ORDER BY `date` DESC";
 $result = mysqli_query($conn,$stmt2);
 
 //more like if(result.num_rows > 0) in js.

@@ -1,7 +1,7 @@
 <?php
 // session_start();
 include('server.php');
-$accountOwner = $_SESSION['id'];
+// $accountOwner = $_SESSION['id'];
 $wallets=$_SESSION['wallet_balance'];
 $stmt2 = "SELECT 
 `user_id`,
@@ -15,7 +15,7 @@ $stmt2 = "SELECT
 `payment_method_2`,
 `payment_method_3`,
 `date` FROM `p2p_posts_buy`
-ORDER BY `date`";
+ORDER BY date DESC";
 $result = mysqli_query($conn,$stmt2);
 
 //more like if(result.num_rows > 0) in js.

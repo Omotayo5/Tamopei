@@ -57,8 +57,6 @@ function loadData(method,url,frm) {
   xhr.send(urlEncodedData);
 }
 
-
-
 //Fetching the curency wallet values and using it on the page;
 const walletAvailable = document.querySelector(".value_display span");
 const useData = function (data) {
@@ -67,7 +65,7 @@ const useData = function (data) {
       walletName: key,
       walletValue: data[key]};
     // console.log(curr);
-    var availableCurrOption = `<option value="${curr.walletName}" name="${curr.walletName}">${curr.walletName} Wallet</option>`;
+    var availableCurrOption = `<option  name="${curr.walletName}" value="${curr.walletName}">${curr.walletName} Wallet</option>`;
     availableCurrencyDisplay.forEach((available) =>
       available.insertAdjacentHTML("afterend", availableCurrOption)
     );
@@ -145,4 +143,33 @@ form2.addEventListener("submit", (e) => {
   }
 });
 
+const paymentOptions = document.querySelector('#wallet4');
 
+fetch("../php/payment-options.php")
+  .then((response) => response.json())
+  .then((data) =>{
+    data.forEach((datas) => {
+      if(datas['apple_email']){
+        var html = ` <div class="symbol-c">
+        <p>APPLEPAY</p> <input type="checkbox" name="inputs[]" value="ApplePay" id="">
+      </div>`
+      paymentOptions.insertAdjacentHTML('afterbegin',html)
+      }
+      if(datas['bank_name']){
+        var html = `<div class="symbol-c">
+        <p>BANK </p> <input type="checkbox" name="inputs[]" id="" value="Bank">
+        </div>`
+          paymentOptions.insertAdjacentHTML('afterbegin',html)
+        console.log(datas['bank_name'])
+      }
+      if(datas['google_address']){
+        var html = `<div class="symbol-c">
+            <p>GOGGLEPAY</p> <input type="checkbox" name="inputs[]" value="Google pay" id="">
+        </div>`
+        paymentOptions.insertAdjacentHTML('afterbegin',html)
+      }
+    })
+    console.log(data)
+  }
+  )
+  .catch((err) => console.log(err));

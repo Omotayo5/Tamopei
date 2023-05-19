@@ -17,13 +17,13 @@ $appleresult = mysqli_query($conn,$apple);
 $bank = "SELECT bank_name, user_name, account_number FROM bank WHERE user_id = $accountOwner";
 $bankresult = mysqli_query($conn,$bank);
 
-$google = "SELECT email_address FROM google_pay WHERE user_id = $accountOwner";
+$google = "SELECT google_address FROM google_pay WHERE user_id = $accountOwner";
 $googleresult = mysqli_query($conn,$google);
 
-$paypal = "SELECT email_address FROM paypal WHERE user_id = $accountOwner";
+$paypal = "SELECT paypal_address FROM paypal WHERE user_id = $accountOwner";
 $paypalresult = mysqli_query($conn,$paypal);
 
-$skrill = "SELECT email_address FROM skrill WHERE user_id = $accountOwner";
+$skrill = "SELECT skrill_address FROM skrill WHERE user_id = $accountOwner";
 $skrillresult = mysqli_query($conn,$skrill);
 
 $pi = "SELECT wallet_Address FROM `pi network` WHERE user_id = $accountOwner";

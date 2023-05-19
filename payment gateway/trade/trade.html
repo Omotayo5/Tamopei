@@ -203,7 +203,7 @@
                   </div>
                 </td>
               </tr>
-              
+
             </tbody>
           </table>
           <div class="popup-container" style="display: none;">
@@ -856,110 +856,123 @@
 
               <div class="transaction">
                 <div class="payment-method-head">
-                  <H4>OTHER PAYMENT METHODS</H4>
+                  <H4>OTHER AVAILABLE PAYMENT METHODS</H4>
 
                   <div class="showbox-btn" style="background-color: var(--input); margin: .7rem 0;">
-                    <button class="pick-btn active" id="bank-box-btn" style="background: transparent;">BANK</button>
-                    <button class="pick-btn " id="chipper-box-btn" style="background: transparent;">CHIPPER</button>
-                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;">PI NETWORK</button>
+                    <button class="pick-btn active" id="bank-box-btn" style="background: transparent;" name="">BANK</button>
+                    <button class="pick-btn " id="chipper-box-btn" style="background: transparent;" name="">CHIPPER</button>
+                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;" name="">Skrill</button>
+                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;" name="">Google pay</button>
+                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;" name="">Mobile money</button>
+                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;" name="">Paypal</button>
+                    <button class="pick-btn" id="pi-box-btn" style="background: transparent;" name="">Apple pay</button>
                   </div>
                 </div>
-                <div class="payment-method-bank" id="bank-box">
-                  <div class="name-details">
-                    <h4>BANK NAME:</h4>
-                    <p>SPRING BANK</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>ACCNT NAME:</h4>
-                    <p>ADEJUYI SAMSON J</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>ACCOUNT NO:</h4>
-                    <p>2187093564</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE COST:</h4>
-                    <p>&#x20A6;74,000</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>FEE 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
 
-                    <a href="verify.html">
-                      <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
-                    </a>
+                <form  id="bank_details">
+                  <div class="payment-method-bank" id="bank-box">
+                    <div class="name-details">
+                      <h4>BANK NAME:</h4>
+                      <p>SPRING BANK</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>ACCNT NAME:</h4>
+                      <p>ADEJUYI SAMSON J</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>ACCOUNT NO:</h4>
+                      <p>2187093564</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE COST:</h4>
+                      <p>&#x20A6;74,000</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+                    <div class="btn-proceed">
 
-                    <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                  </div>
-                </div>
-                <div class="pi-box" id="pi-box" style="display: none;">
+                      <a href="verify.html">
+                        <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+                      </a>
 
-                  <div class="name-details">
-                    <h4>METHOD NAME:</h4>
-                    <p>PI NETWORK</p>
+                      <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
                   </div>
-                  <div class="name-details">
-                    <h4>WALLET ADDRESS:</h4>
-                    <p>#2187093564</p>
+
+                </form>
+                
+                <form id="apple_details">
+                  <div class="pi-box" id="pi-box" style="display: none;">
+                    <div class="name-details">
+                      <h4>METHOD</h4>
+                      <p>PI NETWORK</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>WALLET ADDRESS:</h4>
+                      <p>#2187093564</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE COST:</h4>
+                      <p>$100</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+                    <div class="btn-proceed">
+                      <button class="popup-confirm4">CONFIRM</button>
+                      <button type="reset" class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
                   </div>
-                  <div class="name-details">
-                    <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
+                </form>
+
+                <form >
+                  <div class="chipper-box" id="chipper-box" style="display: none;">
+                    <div class="name-details">
+                      <h4>METHOD</h4>
+                      <p>CHIPPER CASH</p>
+                    </div>
+                    <div class="name-details">
+                      <h4> USERNAME:</h4>
+                      <p>@omotayocash</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE COST:</h4>
+                      <p>&#x20A6;74,000</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+                    <div class="btn-proceed">
+                      <button class="popup-confirm4">CONFIRM</button>
+                      <button class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
                   </div>
-                  <div class="name-details">
-                    <h4>PURCHASE COST:</h4>
-                    <p>$100</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>FEE 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
-                    <button class="popup-confirm4">CONFIRM</button>
-                    <button class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                  </div>
-                </div>
-                <div class="chipper-box" id="chipper-box" style="display: none;">
-                  <div class="name-details">
-                    <h4>METHOD NAME:</h4>
-                    <p>CHIPPER CASH</p>
-                  </div>
-                  <div class="name-details">
-                    <h4> USERNAME:</h4>
-                    <p>@omotayocash</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE AMOUNT</h4> <input type="tel" placeholder=" $">
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE COST:</h4>
-                    <p>&#x20A6;74,000</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>FEE 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
-                    <button class="popup-confirm4">CONFIRM</button>
-                    <button class="close-btn4" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                  </div>
-                </div>
+                </form>
               </div>
 
             </div>
@@ -1328,10 +1341,9 @@
               </tr>
             </tbody>
           </table>
+
           <div class="popup-container5" id="popup-container5">
             <div class="popup-content">
-
-
               <div class="transaction">
                 <div class="payment-method-head">
                   <H4>OTHER PAYMENT METHODS</H4>
@@ -1382,7 +1394,7 @@
                 <div class="pi-box" id="pi-box1" style="display: none;">
 
                   <div class="name-details">
-                    <h4>METHOD NAME:</h4>
+                    <h4>METHOD</h4>
                     <p>PI NETWORK</p>
                   </div>
                   <div class="name-details">
@@ -1411,7 +1423,7 @@
                 </div>
                 <div class="chipper-box" id="chipper-box1" style="display: none;">
                   <div class="name-details">
-                    <h4>METHOD NAME:</h4>
+                    <h4>METHOD</h4>
                     <p>CHIPPER CASH</p>
                   </div>
                   <div class="name-details">
