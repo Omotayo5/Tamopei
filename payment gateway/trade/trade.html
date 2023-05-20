@@ -313,13 +313,6 @@
               </div>
             </div>
           </div>
-
-
-
-          <script>
-
-          </script>
-
       </section>
     </main>
     <main id="content2">
@@ -837,26 +830,86 @@
         <div class="ngn">
 
 
-          <table>
+          <table class="relative">
             <thead>
               <th>Advertiser <span>Trade</span></th>
               <th>Trades <span>Level</span></th>
               <th>Limits <span>Highest to Lowest</span></th>
               <th>Rate <span>High demand to Low</span></th>
               <th>Payment <span>Available Methods</span></th>
-              <th>Proceed</th>
+              <!-- <th>Proceed</th> -->
             </thead>
+
+
+            <!-- This container will remail shut until a payment method is clicked to open it -->
+            <!--               
+
+
+
+
+
+
+             -->
+            <!-- <div class="floating_container none" id="floating_container">
+              <div class="payment_receiving_methods">
+                <form  id="bank_details">
+                  <div class="payment-method-bank" id="bank-box">
+                    <div class="name-details">
+                      <h4>BANK NAME:</h4>
+                      <p>SPRING BANK</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>ACCNT NAME:</h4>
+                      <p>ADEJUYI SAMSON J</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>ACCOUNT NO:</h4>
+                      <p>2187093564</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE COST:</h4>
+                      <p>&#x20A6;74,000</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+                    <div class="btn-proceed">
+
+                      <a href="verify.html">
+                        <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+                      </a>
+
+                      <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div> -->
             <tbody class="buy_other_methods">
+
+              
               <!-- The p2p data from the database will be posted here -->
             </tbody>
+
+
+
+
+
           </table>
           <div class="popup-container4" id="popup-container4">
             <div class="popup-content">
-
-
               <div class="transaction">
                 <div class="payment-method-head">
-                  <H4>OTHER AVAILABLE PAYMENT METHODS</H4>
+                  <H4>PAYMENT METHODS</H4>
 
                   <div class="showbox-btn" style="background-color: var(--input); margin: .7rem 0;">
                     <button class="pick-btn active" id="bank-box-btn" style="background: transparent;" name="">BANK</button>
@@ -1467,6 +1520,7 @@
 
 
   <script src="main.js"></script>
+  <script src="safety.js"></script>
   <script src="script.js"></script>
 
 </body>
