@@ -239,7 +239,7 @@ header{
   padding: .6rem 3rem;
   margin: .5rem 0;
   cursor: pointer;
-  background-color: rgb(46, 204, 113);;
+  background-color: rgb(46, 204, 113);
   border: none;
   color: var(--white);
 }
@@ -296,12 +296,20 @@ header{
   /* top: 0; */
   /* right: 0; */
   
-  border: 2px solid red;
+  border: 2px solid rgb(46, 204, 113);
   /* display: block; */
   margin: auto;
   /* padding: 5rem; */
   position: absolute;
   z-index: 10;
+}
+.floating_container span{
+  font-size: 1rem;
+  color: #888;
+  margin-top: 1.5rem;
+}
+.floating_container span:first-child{
+  margin-left: 2rem;
 }
 .none{
   display: none;
@@ -321,8 +329,8 @@ header{
 .floating_container h3{
   text-align: center;
   margin: auto;
-  font-size: 1.5rem;
-  border: 2px solid red;
+  font-size: 1rem;
+  /* border: 2px solid red; */
 }
 .inline{
   display: inline-block;
