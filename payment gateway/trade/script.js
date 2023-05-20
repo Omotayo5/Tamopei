@@ -17,6 +17,54 @@ function loadData(method, url) {
     retrieved.push(datas);
     datas.forEach((data) => {
       const html = `
+      <div class="floating_container none" id="floating_container">
+      <span>${data.payment_method_1},</span>
+      <span>${data.payment_method_2},</span>
+      <span>${data.payment_method_3},</span>
+  <div class="payment_receiving_methods">
+  <h3> ${data.user_name}-- Id<span> ${data.user_id} </span></h3>
+  <hr>
+    <form  id="bank_details">
+      <div class="payment-method-bank" id="bank-box">
+        <div class="name-details">
+          <h4>BANK NAME:</h4>
+          <p>SPRING BANK</p>
+        </div>
+        <div class="name-details">
+          <h4>ACCNT NAME:</h4>
+          <p>ADEJUYI SAMSON J</p>
+        </div>
+        <div class="name-details">
+          <h4>ACCOUNT NO:</h4>
+          <p>2187093564</p>
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE COST:</h4>
+          <p>&#x20A6;74,000</p>
+        </div>
+        <div class="name-details">
+          <h4>FEE 1%:</h4>
+          <p>$1</p>
+        </div>
+        <div class="name-details">
+          <h4>RECEIVE AMOUNT:</h4>
+          <p>$99.00</p>
+        </div>
+        <div class="btn-proceed">
+
+          <a href="verify.html">
+            <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+          </a>
+
+          <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
       <tr>
         <td>
         <input type="tel" placeholder=" $" value="${data.user_id}" hidden>
@@ -65,54 +113,6 @@ function loadData(method, url) {
                 <button class="btn4" id="modal-btn"> <span>${data.payment_method_1}</span></button>
                 <button class="btn4" id="modal-btn"><span>${data.payment_method_2}</span></button>
                 <button class="btn4" id="modal-btn"> <span>${data.payment_method_3}</span></button>
-
-                <div class="floating_container none" id="floating_container">
-                <span>${data.payment_method_1},</span>
-                <span>${data.payment_method_2},</span>
-                <span>${data.payment_method_3},</span>
-            <div class="payment_receiving_methods">
-              <form  id="bank_details">
-                <div class="payment-method-bank" id="bank-box">
-                  <div class="name-details">
-                    <h4>BANK NAME:</h4>
-                    <p>SPRING BANK</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>ACCNT NAME:</h4>
-                    <p>ADEJUYI SAMSON J</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>ACCOUNT NO:</h4>
-                    <p>2187093564</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE COST:</h4>
-                    <p>&#x20A6;74,000</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>FEE 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
-
-                    <a href="verify.html">
-                      <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
-                    </a>
-
-                    <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
         </div>
         </div>
       </td>
@@ -139,6 +139,7 @@ function loadData(method, url) {
             console.log('working button')
             const floatingContainer = document.querySelector('#floating_container');
             floatingContainer.classList.toggle('none');
+            console.log(html);
             // floatingContainer.innerHTML = 'Good Morning 😂';
 
             // retrieved.forEach(retrieve=>{
@@ -161,7 +162,20 @@ function loadData(method, url) {
       var userID = item.parentElement.parentElement.parentElement.querySelector('td input').value;
       var paymentMethod1 = item.parentElement.parentElement.parentElement.querySelectorAll('td .methods span');
       var userName = item.parentElement.parentElement.parentElement.querySelector('td .card-info1 h3');
-      var paymentModal = item.parentElement.parentElement.parentElement.querySelector('td ')
+      
+      //mapping the available payment options to the modal boxes
+      
+
+      var paymentModal = document
+      .querySelector('#floating_container')
+      .querySelectorAll('span');
+      paymentModal[0].innerHTML = paymentMethod1[0].innerHTML;
+      paymentModal[1].innerHTML = paymentMethod1[1].innerHTML;
+      paymentModal[2].innerHTML = paymentMethod1[2].innerHTML;
+      
+
+      //Setting the name and id 
+      document.querySelector('#floating_container h3').innerHTML = `${userName.innerHTML} `;
       console.log(userID *1);
       console.log(paymentMethod1[0].innerHTML,paymentMethod1[1].innerHTML,paymentMethod1[2].innerHTML);
       console.log(userName);
@@ -172,9 +186,9 @@ function loadData(method, url) {
   }
   buy_tableBody.addEventListener('click',(e)=>{
     e.stopPropagation();
-    handleclick(e);
     if(e.target.tagName === "BUTTON"){
-       console.log('button clicked from the second function')
+      console.log('button clicked from the second function')
+      handleclick(e);
     }else{
       console.log('not a button')
     }
