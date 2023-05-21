@@ -12,64 +12,63 @@ function loadData(method, url) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  const html2 = `
+  <div class="floating_container" id="floating_container">
+  <!-- Receiving Acounts available will be shown here in this span-->
+  <span> </span>
+  <span> </span>
+  <span> </span>
+  <hr>
+<div class="payment_receiving_methods">
+  <h3> </span></h3>
+  <hr>
+  <form id="bank_details">
+      <div class="payment-method-bank" id="bank-box">
+      <div class="name-details">
+      <h4>BANK NAME:</h4>
+      <p>SPRING BANK</p>
+      </div>
+      <input type="text" placeholder="" name="wallet" hidden>
+        <div class="name-details">
+          <h4>ACCNT NAME:</h4>
+          <p>ADEJUYI SAMSON J</p>
+        </div>
+        <div class="name-details">
+          <h4>ACCOUNT NO:</h4>
+          <p>2187093564</p>
+        </div>
+        <div class="name-details" id="amount">
+          <h4>PURCHASE AMOUNT</h4><input type="text" placeholder="" name="buy_amount">
+        </div>
+        <div class="name-details">
+          <h4>PURCHASE COST:</h4>
+          <p>&#x20A6;74,000</p>
+        </div>
+        <div class="name-details">
+          <h4>FEE 1%:</h4>
+          <p>$1</p>
+        </div>
+        <div class="name-details">
+          <h4>RECEIVE AMOUNT:</h4>
+          <p>$99.00</p>
+        </div>
+        <div class="btn-proceed" id="proceed">
+
+      <a href="verify.html">
+        <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+      </a>
+      <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+  `
   xhr.onload = function () {
     const datas = JSON.parse(this.response);
     retrieved.push(datas);
     datas.forEach((data) => {
-      const html = `
-      <div class="floating_container none" id="floating_container">
-      <form>
-      <!-- Receiving Acounts available will be shown here in this span-->
-      <span> </span>
-      <span> </span>
-      <span> </span>
-      <hr>
-    <div class="payment_receiving_methods">
-      <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
-      <hr>
-      <form id="bank_details">
-          <div class="payment-method-bank" id="bank-box">
-          <div class="name-details">
-          <h4>BANK NAME:</h4>
-          <p>SPRING BANK</p>
-          </div>
-          <input type="text" placeholder="" name="wallet" hidden>
-            <div class="name-details">
-              <h4>ACCNT NAME:</h4>
-              <p>ADEJUYI SAMSON J</p>
-            </div>
-            <div class="name-details">
-              <h4>ACCOUNT NO:</h4>
-              <p>2187093564</p>
-            </div>
-            <div class="name-details">
-              <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder="" name="buy_amount">
-            </div>
-            <div class="name-details">
-              <h4>PURCHASE COST:</h4>
-              <p>&#x20A6;74,000</p>
-            </div>
-            <div class="name-details">
-              <h4>FEE 1%:</h4>
-              <p>$1</p>
-            </div>
-            <div class="name-details">
-              <h4>RECEIVE AMOUNT:</h4>
-              <p>$99.00</p>
-            </div>
-            <div class="btn-proceed">
-
-          <a href="verify.html">
-            <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
-          </a>
-          <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  </form>
-</div>
-      <tr>
+    const html=`<tr>
         <td>
         <input type="tel" placeholder=" $" value="${data.user_id}" hidden>
           <div class="card-info1">
@@ -112,32 +111,28 @@ function loadData(method, url) {
                   <button class="btn4" id="modal-btn"> Buy ${data.wallet}</button>
                 </div>
               </td>
-          <div class="methods">
-          <div class="inline">
-                <button class="btn4" id="modal-btn"> <span>${data.payment_method_1}</span></button>
-                <button class="btn4" id="modal-btn"><span>${data.payment_method_2}</span></button>
-                <button class="btn4" id="modal-btn"> <span>${data.payment_method_3}</span></button>
-        </div>
-        </div>
+
       </td>
         
     </tr>`;
       //Adding the html into the dom;
       buy_tableBody.innerHTML += html;
     });
-    
   };
 /////////////////The function that handles the click on individual container///////////////////////////
   function handleclick(event){
     var item = event.target;
     if(item.tagName === "BUTTON"){
-      console.log('Button clicked')
+      document.querySelector('.popup-container4').innerHTML = html2;
+      // console.log('Button clicked')
       //method to work on individual container clicked
-      var userID = item.parentElement.parentElement.parentElement.querySelector('td input').value;
+      var userID = item.parentElement.parentElement.parentElement.querySelector('td input');
       var paymentMethod1 = item.parentElement.parentElement.parentElement.querySelectorAll('td .methods span');
       var userName = item.parentElement.parentElement.parentElement.querySelector('td .card-info1 h3');
       var wallet = item.parentElement.parentElement.parentElement.querySelector('td .card-info2 .wallet span');
-      
+      var purchaseAmnt = document.querySelector(".payment-method-bank #amount input");
+      var proceedBtn = document.querySelector('.payment-method-bank #proceed a')
+
       //mapping the available payment options to the modal boxes
 
 
@@ -157,10 +152,12 @@ function loadData(method, url) {
       document.querySelector('#floating_container h3').innerHTML = `${userName.innerHTML} `;
       document.querySelector('#floating_container .payment_receiving_methods input').value = wallet.innerHTML;
       console.log(document.querySelector('#floating_container'));
-      console.log(userID *1);
+      
       console.log(paymentMethod1[0].innerHTML,paymentMethod1[1].innerHTML,paymentMethod1[2].innerHTML);
       console.log(userName);
       console.log(paymentModal);
+      // console.log(purchaseAmnt);
+      console.log(proceedBtn);
 
       //NOTE
       /* as this button is The user id will be taken and sent to the database to get the addresses of the user's available payment methods and be returned
@@ -170,11 +167,21 @@ function loadData(method, url) {
       /* Some datas will be taken and set as the value of a hidden input element
       and when the form is submitted those data will be sent to the database and retrieved back to finish the form process*/
 
+      proceedBtn.addEventListener('click',(e)=>{
+        // e.stopPropagation();
+        e.preventDefault();
+        // if(e.target.tagName === "INPUT"){
+        //   console.log(purchaseAmnt)
+        //   e.preventDefault();
+        // }
+        console.log('Confirm button worked',purchaseAmnt.value*1)
+        console.log(userID.value *1);
+      })
+
     }else{
       console.log('Not a button')
     }
   }
-
   /*When this container is clicked, it will look for an event that has a button name and if its found then the handleclick() function will run
   based on what the code inside it and get values pertaining to that specific container alone*/
   buy_tableBody.addEventListener('click',(e)=>{
@@ -183,7 +190,11 @@ function loadData(method, url) {
       handleclick(e);
       //The floating container button
       const floatingContainer = document.querySelector('#floating_container');
-      floatingContainer.classList.toggle('none');
+      const popUpContainer = document.querySelector('.popup-container4');
+      
+      console.log(popUpContainer);
+      //displaying the pop up container that the values will be inputed in
+      displayPopup4();
   })
 ////////////////////////////////////
   xhr.send();
