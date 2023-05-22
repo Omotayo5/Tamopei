@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
             '$inputs1',
             '$inputs2',
             '$inputs3')";
+            // Will later convert it to a bind statement for efficient data verification
             $sellentry = mysqli_query($conn,$sell);
             $response['Succesfull'] = "Sell order Posted succesfully";
             $response['seller rate'] = $sellerRate;

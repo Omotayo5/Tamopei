@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   var userI =  buy_tableBod.querySelectorAll(
     " tr td input"
   );
-  buy_tableBody.p
   buy_tableBod.querySelectorAll("tr").forEach((child) => {child.lastElementChild.querySelector(".card-buy button").addEventListener("click", (e) => {
         //Geting the inner html which will serve as the poster
         console.log(userI);
