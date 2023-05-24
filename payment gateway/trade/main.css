@@ -302,10 +302,10 @@ header{
 .floating_container span{
   font-size: 1rem;
   color: #474747;
-  margin-top: 1.5rem;
+  margin-top: .5rem;
 }
 .floating_container span:first-child{
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
 }
 .none{
   display: none;
@@ -315,6 +315,26 @@ header{
   height: inherit;
   padding: 1rem;
   right: 0;
+}
+.sp
+{border: #333 2px solid;
+text-align: center;}
+.sp span{
+  padding: .5rem;
+}
+.sp p{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.one{
+  /* background-color: rgb(46, 204, 113); */
+  /* padding: .5rem; */
+  
+}
+.one:not(:first-child){
+  margin-left: 1rem;
 }
 .flex{
   display: flex;
