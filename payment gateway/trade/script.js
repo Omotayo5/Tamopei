@@ -37,6 +37,10 @@ function loadData(method, url) {
       </div>
       <input type="text" placeholder="" name="wallet" hidden>
       <input type="text" placeholder="" name="user_id" hidden>
+      <input type="text" placeholder="" name="order_unit" hidden>
+      <input type="text" placeholder="" name="transaction_fee" hidden>
+      <input type="text" placeholder="" name="receive" hidden>
+      <input type="text" placeholder="" name="order_cost" hidden>
         <div class="name-details">
           <h4>Account name:</h4>
           <p>ADEJUYI SAMSON J</p>
@@ -137,6 +141,7 @@ function loadData(method, url) {
   /////////////////The function that handles the click on individual container///////////////////////////
   function handleclick(event) {
     var item = event.target;
+    const order = {};
     if (item.tagName === "BUTTON") {
       document.querySelector(".popup-container4").innerHTML = html2;
       // console.log('Button clicked')
@@ -162,23 +167,35 @@ function loadData(method, url) {
       const proceedBtn = document.querySelector(
         ".payment-method-bank #proceed a"
       );
-      const rate = item.parentElement.parentElement.parentElement.querySelector(
-        "td .card-info2 .wallet"
-      ).childNodes[0].textContent *1;
-      // console.log(rate)
-      
+      order.userID = userID.value;
+      order.wallet = wallet.innerHTML;
+      // order.purchaseAmnt = purchaseAmnt.value*1;
+      const orderUnitInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='order_unit']")
+      const orderCostInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='order_cost']")
+      const receveInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='receive']")
+      const transactionFee = document.querySelector("#floating_container .payment_receiving_methods input[name='transaction_fee']")
+      const rate = item.parentElement.parentElement.parentElement.querySelector("td .card-info2 .wallet").childNodes[0].textContent *1;    
 
+
+      
       //Updating the amount to receive as the input value is typed
       purchaseAmnt.addEventListener('input',()=>{
-        const orderCost = (purchaseAmnt.value * 1)*rate;
-        const transactionFee = (purchaseAmnt.value * 1)*rate - ((purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01);
-        const receiveAmnt = (purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01
-        document.querySelector('#floating_container .order_cost p').innerHTML = orderCost;
-        document.querySelector('#floating_container .fee p').innerHTML = transactionFee;
-        document.querySelector('#floating_container .receive p').innerHTML = receiveAmnt;
+        order.orderCost = (purchaseAmnt.value * 1)*rate;
+        order.transactionFee = (purchaseAmnt.value * 1)*rate - ((purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01);
+        order.receiveAmnt = (purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01
+        document.querySelector('#floating_container .order_cost p').innerHTML = order.orderCost;
+        document.querySelector('#floating_container .fee p').innerHTML = order.transactionFee;
+        document.querySelector('#floating_container .receive p').innerHTML = order.receiveAmnt;
       })
 
+      const userToDbID = document.querySelector(".payment_receiving_methods input[name='user_id']") ;
+      userToDbID.value = order.userID * 1;
+      const exchngRate = document.querySelector('#floating_container .rate p');
+      exchngRate.innerHTML = rate*1;
 
+      //Setting the name and id
+      document.querySelector("#floating_container h3").innerHTML = `${userName.innerHTML} `;
+      document.querySelector("#floating_container .payment_receiving_methods input").value = order.wallet;
 
       //mapping the available payment options to the modal boxes
 
@@ -186,32 +203,15 @@ function loadData(method, url) {
       /*Will remove modal box from its current position and replace some elements
       inside it with the dynamic element and insert it back into the dom because its current position is not good
       */
-     const style = {
-        textAlign: 'center',
-        border: '2px solid red'
-     }
-      var paymentModal = document
-        .querySelector("#floating_container")
-        .querySelector(".sp p");
-        // paymentModal.style.fontWeight='800';
-        // paymentModal.style.textAlign = 'center';
+
+      //Setting the payment method data into their container
+      var paymentModal = document.querySelector(".sp p");
       paymentModal.innerHTML += `<span class="one">${paymentMethod1[0].innerHTML}</span> `;
       paymentModal.innerHTML += `<span class="one">${paymentMethod1[1].innerHTML}</span> `;
       paymentModal.innerHTML += `<span class="one">${paymentMethod1[2].innerHTML}</span>`;
       
-
-      //Setting the name and id
-      document.querySelector(
-        "#floating_container h3"
-      ).innerHTML = `${userName.innerHTML} `;
-      document.querySelector(
-        "#floating_container .payment_receiving_methods input"
-      ).value = wallet.innerHTML;
-
-      const userToDbID = document.querySelector(".payment_receiving_methods input[name='user_id']") ;
-      userToDbID.value = userID.value * 1;
-      const exchngRate = document.querySelector('#floating_container .rate p');
-      exchngRate.innerHTML = rate*1;
+      
+      
       console.log(exchngRate);
 
       //NOTE
@@ -226,8 +226,34 @@ function loadData(method, url) {
       proceedBtn.addEventListener("click", (e) => {
         // e.stopPropagation();
         e.preventDefault();
+        orderUnitInpt.value = purchaseAmnt.value;
+        orderCostInpt.value = order.orderCost;
+        receveInpt.value = order.receiveAmnt;
+        transactionFee.value = order.transactionFee;
         console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
-        console.log(userID.value * 1,userToDbID.value*1);
+        console.log(order.userID * 1,userToDbID.value*1);
+        console.log(order,orderUnitInpt.value *1,orderCostInpt.value *1);
+
+        //the data will be fetched and sent to the database;
+        const apiKey = 'YOUR_API_KEY';
+        const endpoint = 'https://api.example.com/data';
+
+            fetch(endpoint, {
+                headers: {
+                  // 'Authorization': 'Bearer ' + apiKey,
+                  'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+              // Process the returned data
+              console.log(data);
+            })
+            .catch(error => {
+              // Handle any errors that occurred during the fetch request
+              console.error('Error:', error);
+            });
+
       });
     } else {
       console.log("Not a button");
