@@ -72,7 +72,7 @@ function loadData(method, url) {
         <div class="btn-proceed" id="proceed">
 
       <a href="verify.html">
-        <button class="close-btn4" id="cancel-inner"> CONFIRM</button>
+        <button type="submit" class="close-btn4" id="cancel-inner"> CONFIRM</button>
       </a>
       <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
     </div>
@@ -85,8 +85,8 @@ function loadData(method, url) {
   xhr.onload = function () {
     const datas = JSON.parse(this.response);
     retrieved.data = datas;
-
-    datas.forEach((data) => {
+    console.log(datas);
+    datas.one.forEach((data) => {
       const html = `<tr>
         <td>
         <input type="tel" placeholder=" $" value="${data.user_id}" hidden>
@@ -108,7 +108,7 @@ function loadData(method, url) {
         </td>
         <td>
           <div class="card-info2">
-            <h3>Limit: ${data.lowest_rate} - ${data.highest_rate}</h3>
+            <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
 
           </div>
         </td>
@@ -167,6 +167,8 @@ function loadData(method, url) {
       const proceedBtn = document.querySelector(
         ".payment-method-bank #proceed a"
       );
+      const lowLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1;
+      const highLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[1].innerHTML*1;
       order.userID = userID.value;
       order.wallet = wallet.innerHTML;
       // order.purchaseAmnt = purchaseAmnt.value*1;
@@ -184,8 +186,8 @@ function loadData(method, url) {
         order.transactionFee = (purchaseAmnt.value * 1)*rate - ((purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01);
         order.receiveAmnt = (purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01
         document.querySelector('#floating_container .order_cost p').innerHTML = order.orderCost;
-        document.querySelector('#floating_container .fee p').innerHTML = order.transactionFee;
-        document.querySelector('#floating_container .receive p').innerHTML = order.receiveAmnt;
+        document.querySelector('#floating_container .fee p').innerHTML = parseFloat((order.transactionFee*1).toFixed(2));
+        document.querySelector('#floating_container .receive p').innerHTML = parseFloat(order.receiveAmnt.toFixed(2));
       })
 
       const userToDbID = document.querySelector(".payment_receiving_methods input[name='user_id']") ;
@@ -212,7 +214,7 @@ function loadData(method, url) {
       
       
       
-      console.log(exchngRate);
+      console.log(item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1);
 
       //NOTE
       /* as this button is The user id will be taken and sent to the database to get the addresses of the user's available payment methods and be returned
@@ -225,35 +227,41 @@ function loadData(method, url) {
       //The proceed button inside the payment modal
       proceedBtn.addEventListener("click", (e) => {
         // e.stopPropagation();
-        e.preventDefault();
         orderUnitInpt.value = purchaseAmnt.value;
         orderCostInpt.value = order.orderCost;
         receveInpt.value = order.receiveAmnt;
-        transactionFee.value = order.transactionFee;
-        console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
-        console.log(order.userID * 1,userToDbID.value*1);
-        console.log(order,orderUnitInpt.value *1,orderCostInpt.value *1);
+        transactionFee.value = parseFloat((order.transactionFee*1).toFixed(2));
+        // console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
+        // console.log(order.userID * 1,userToDbID.value*1);
+        // console.log(order,orderUnitInpt.value *1,orderCostInpt.value *1);
 
         //the data will be fetched and sent to the database;
         const apiKey = 'YOUR_API_KEY';
-        const endpoint = 'https://api.example.com/data';
+        const endpoint = '../php/order_buy.php';
+        const form = document.querySelector('.payment_receiving_methods form');
 
+        form.addEventListener('submit',(e)=>{console.log(purchaseAmnt.value,lowLimit,highLimit)
+          const formData = new FormData(form);
+          if(orderUnitInpt.value.trim() !=='' && purchaseAmnt.value.trim()*1 >= lowLimit && purchaseAmnt.value.trim()*1<=highLimit){
+            e.preventDefault()
             fetch(endpoint, {
-                headers: {
-                  // 'Authorization': 'Bearer ' + apiKey,
-                  'Content-Type': 'application/json'
-                }
+                method:'POST',
+                body:formData
             })
             .then(response => response.json())
             .then(data => {
               // Process the returned data
-              console.log(data);
+              console.log(data.three);
             })
             .catch(error => {
               // Handle any errors that occurred during the fetch request
               console.error('Error:', error);
             });
-
+          }else{
+            e.preventDefault();
+            alert()
+          }
+        })
       });
     } else {
       console.log("Not a button");

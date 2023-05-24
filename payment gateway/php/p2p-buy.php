@@ -6,7 +6,6 @@ $wallets=$_SESSION['wallet_balance'];
 header("Content-Type:application/json");
 $response = array("Succesfull"=>"");
 // print_r($_POST);
-
 if($_SERVER['REQUEST_METHOD']==="POST"){
     $selected = mysqli_real_escape_string($conn, $_POST['select']);
     $tradeType = mysqli_real_escape_string($conn, $_POST['Trade_Type']);
