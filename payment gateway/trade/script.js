@@ -248,7 +248,7 @@ function loadData(method, url) {
                 xhr.open('POST', endpoint);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onload = function () {
-                  const datas = JSON.parse(this.response);
+                  const datas = this.response;
                   console.log(datas);
                 
                 }
