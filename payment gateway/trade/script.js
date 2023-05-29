@@ -14,7 +14,7 @@ function loadData(method, url) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  //The floating container form.
+  //The floating container form HTML string.
   const html2 = `
   <div class="floating_container" id="floating_container">
   
@@ -237,26 +237,24 @@ function loadData(method, url) {
 
         //the data will be fetched and sent to the database;
         const apiKey = 'YOUR_API_KEY';
-        const endpoint = '../php/order_buy.php';
+        const endpoint = '../php/order_request.php';
         const form = document.querySelector('.payment_receiving_methods form');
 
         form.addEventListener('submit',(e)=>{console.log(purchaseAmnt.value,lowLimit,highLimit)
           const formData = new FormData(form);
           if(orderUnitInpt.value.trim() !=='' && purchaseAmnt.value.trim()*1 >= lowLimit && purchaseAmnt.value.trim()*1<=highLimit){
-            e.preventDefault()
-            fetch(endpoint, {
-                method:'POST',
-                body:formData
-            })
-            .then(response => response.json())
-            .then(data => {
-              // Process the returned data
-              console.log(data.three);
-            })
-            .catch(error => {
-              // Handle any errors that occurred during the fetch request
-              console.error('Error:', error);
-            });
+            e.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', endpoint);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onload = function () {
+                  const datas = JSON.parse(this.response);
+                  console.log(datas);
+                
+                }
+                const urlEncodedData = new URLSearchParams(formData).toString();
+                console.log(urlEncodedData)
+                xhr.send(urlEncodedData);
           }else{
             e.preventDefault();
             alert()

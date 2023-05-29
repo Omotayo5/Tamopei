@@ -37,7 +37,6 @@ if ($result->num_rows > 0) {
   $response['Succesfull'] = "Buy order Posted succesfully";
   // $posts['Post'] = $_POST;
   $data['two'] = $response;
-  $data['three']= $_POST;
   
   echo json_encode($data);
   //close the database connection
