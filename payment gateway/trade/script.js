@@ -74,7 +74,7 @@ function loadData(method, url) {
       <a href="verify.html">
         <button type="submit" class="close-btn4" id="cancel-inner"> CONFIRM</button>
       </a>
-      <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+      <button type="reset" class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
     </div>
   </div>
 </form>
