@@ -405,27 +405,35 @@
             </div>
 
 
-            <div class="notifications-modal">
-                <center>Notifications</center>
-                <hr>
-                <div class="notifications">
-                    <form id="buy-trade-notification">
-                        <input type="text" name="trade_type" value="buy" hidden>
-                        <span class="type">Buy</span>
-
-                        <input type="text" name="wallet" value="" hidden>
-                        <span class="wallet">Dollar</span>
-
-                        <input type="text" name="unit_amount" value="" hidden>
-                        <span class="unit-amount">76</span>
-
-                        <input type="text" name="cost" value="" hidden>
-                        <span class="cost">46000</span>
-
-                        <button type="reset" class="buy-reset">Reject</button>
-                        <button type="submit" class="buy-submit">Release</button>
-                    </form>
+            <div class="notifications-modal" id="notifications-modal">
+                <div class="sticky">
+                    <div class="close">X</div>
+                    <hr>
                 </div>
+                <div class="items-box">
+                    <center>Notifications</center>
+                </div>
+                <a href="">
+                    <div class="notifications">
+                        <form id="buy-trade-notification">
+                            <input type="text" name="trade_type" value="buy" hidden>
+                            <span class="type">Buy</span>
+    
+                            <input type="text" name="wallet" value="" hidden>
+                            <span class="wallet">Dollar</span>
+    
+                            <input type="text" name="unit_amount" value="" hidden>
+                            <span class="unit-amount">76</span>
+    
+                            <input type="text" name="cost" value="" hidden>
+                            <span class="cost">46000</span>
+    
+                            <button type="reset" class="buy-reset">Reject</button>
+                            
+                            <button type="submit" class="buy-submit">Release</button>
+                        </form>
+                    </div>
+                </a>
 
                 <div class="notifications">
                     <form id="sell-trade-notification">

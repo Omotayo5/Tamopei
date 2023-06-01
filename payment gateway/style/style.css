@@ -87,6 +87,7 @@ aside .sidebar{
     flex-direction: column;
     padding: 2rem .5rem;
     width: 100%;
+    animation: appear ease .25s;
 }
 
 .sidebar a{
