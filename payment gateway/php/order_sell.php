@@ -1,4 +1,5 @@
 <?php
+//Connected to script.js in trade sell order request.
 // session_start();
 include('server.php');
 $accountOwner = $_SESSION['id'];

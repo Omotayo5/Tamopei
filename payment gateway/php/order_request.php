@@ -1,4 +1,5 @@
 <?php
+//Connected to script.js for buy trade order request
 include('server.php');
 // print_r($_POST);
 // session_start();
@@ -17,6 +18,8 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $wallet = clean_Input($_POST['wallet']);
     $order_unit = clean_Input($_POST['order_unit']);
     $receive_amount = clean_Input($_POST['receive']);
+    $exchange_rate = clean_Input($_POST['exchange_rate']);
+    $transaction_fee = clean_Input($_POST['transaction_fee']);
     $user_id = $user_id;
 
     $request = "INSERT INTO p2p_buy_order (
@@ -24,12 +27,16 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     `buyer_id`,
     `wallet`,
     `order_unit`,
+    `exchange_rate`,
+    `transaction_fee`,
     `receive_amount`)
     VALUES (
     '$user_id',
     '$accountOwner',
     '$wallet',
     '$order_unit',
+    '$exchange_rate',
+    '$transaction_fee',
     '$receive_amount')";
     $order = mysqli_query($conn,$request);
 

@@ -41,6 +41,7 @@ function loadData(method, url) {
       <input type="text" placeholder="" name="transaction_fee" hidden>
       <input type="text" placeholder="" name="receive" hidden>
       <input type="text" placeholder="" name="order_cost" hidden>
+      <input type="text" placeholder="" name="exchange_rate" hidden>
         <div class="name-details">
           <h4>Account name:</h4>
           <p>ADEJUYI SAMSON J</p>
@@ -167,6 +168,8 @@ function loadData(method, url) {
       const proceedBtn = document.querySelector(
         ".payment-method-bank #proceed a"
       );
+
+      //Getting each container innerHtml to set it as the values of the modal container when they are clicked individually.
       const lowLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1;
       const highLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[1].innerHTML*1;
       order.userID = userID.value;
@@ -176,6 +179,7 @@ function loadData(method, url) {
       const orderCostInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='order_cost']")
       const receveInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='receive']")
       const transactionFee = document.querySelector("#floating_container .payment_receiving_methods input[name='transaction_fee']")
+      const exchangeRate = document.querySelector("#floating_container .payment_receiving_methods input[name='exchange_rate']")
       const rate = item.parentElement.parentElement.parentElement.querySelector("td .card-info2 .wallet").childNodes[0].textContent *1;    
 
 
@@ -230,6 +234,7 @@ function loadData(method, url) {
         orderUnitInpt.value = purchaseAmnt.value;
         orderCostInpt.value = order.orderCost;
         receveInpt.value = order.receiveAmnt;
+        exchangeRate.value = rate *1;
         transactionFee.value = parseFloat((order.transactionFee*1).toFixed(2));
         // console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
         // console.log(order.userID * 1,userToDbID.value*1);
