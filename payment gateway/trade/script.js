@@ -1,5 +1,33 @@
 import { fetchAsync } from "./safety.js";
 
+var thisuserID = 0;
+
+
+
+
+
+
+
+
+//If the user id is thesame as the buyer id then the input box should be disabled and a message that you cannot buy your own trade post should be 
+//Thrown.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const buy_tableBody = document.querySelector(".buy_other_methods"),
   sell_tableBody = document.querySelector(".sell_other_methods"),
   popContainer = document.querySelector("popup-container4");
@@ -86,7 +114,8 @@ function loadData(method, url) {
   xhr.onload = function () {
     const datas = JSON.parse(this.response);
     retrieved.data = datas;
-    console.log(datas);
+    thisuserID = datas.one[0]['user_id'];
+    console.log(datas.one[0]);
     datas.one.forEach((data) => {
       const html = `<tr>
         <td>
@@ -144,6 +173,7 @@ function loadData(method, url) {
     var item = event.target;
     const order = {};
     if (item.tagName === "BUTTON") {
+      console.log(thisuserID);
       document.querySelector(".popup-container4").innerHTML = html2;
       // console.log('Button clicked')
       //method to work on individual container clicked
@@ -168,7 +198,10 @@ function loadData(method, url) {
       const proceedBtn = document.querySelector(
         ".payment-method-bank #proceed a"
       );
-
+        if(thisuserID == userID.value){
+          purchaseAmnt.disabled = true;
+        }
+        console.log(userID.value);
       //Getting each container innerHtml to set it as the values of the modal container when they are clicked individually.
       const lowLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1;
       const highLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[1].innerHTML*1;
@@ -237,7 +270,7 @@ function loadData(method, url) {
         exchangeRate.value = rate *1;
         transactionFee.value = parseFloat((order.transactionFee*1).toFixed(2));
         // console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
-        // console.log(order.userID * 1,userToDbID.value*1);
+        console.log(order.userID * 1,userToDbID.value*1);
         // console.log(order,orderUnitInpt.value *1,orderCostInpt.value *1);
 
         //the data will be fetched and sent to the database;
@@ -245,7 +278,8 @@ function loadData(method, url) {
         const endpoint = '../php/order_request.php';
         const form = document.querySelector('.payment_receiving_methods form');
 
-        form.addEventListener('submit',(e)=>{console.log(purchaseAmnt.value,lowLimit,highLimit)
+        form.addEventListener('submit',(e)=>{
+          console.log(purchaseAmnt.value,lowLimit,highLimit)
           const formData = new FormData(form);
           if(orderUnitInpt.value.trim() !=='' && purchaseAmnt.value.trim()*1 >= lowLimit && purchaseAmnt.value.trim()*1<=highLimit){
             e.preventDefault();
@@ -262,7 +296,7 @@ function loadData(method, url) {
                 xhr.send(urlEncodedData);
           }else{
             e.preventDefault();
-            alert()
+            
           }
         })
       });

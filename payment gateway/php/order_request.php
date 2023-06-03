@@ -6,7 +6,7 @@ include('server.php');
 $accountOwner = $_SESSION['id'];
 $data = [];
 $user_id=0;
-if($_SERVER['REQUEST_METHOD']==="POST"){
+if($_SERVER['REQUEST_METHOD']==="POST" && $_POST['order_unit']){
     function clean_Input($userInpt){
         $userInpt = trim($userInpt);
         $userInpt = strip_tags($userInpt);

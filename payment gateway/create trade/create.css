@@ -115,7 +115,9 @@ label {
   width: fit-content;
   align-items: center;
 }
-
+.none{
+  display: none;
+}
 
 .exchange_rate,.payment{
   background-color: rgb(46, 204, 113);

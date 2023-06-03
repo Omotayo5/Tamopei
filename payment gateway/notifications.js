@@ -14,6 +14,8 @@ const sellRejectBtn = document.querySelector('#sell-trade-notification .sell-res
 
 notificationModal.style.display = 'none';
 
+const xhr = new XMLHttpRequest();
+
 /*Modal open and close*/
 notificationModalBtn.addEventListener('click',(e)=>{
   e.preventDefault();
@@ -23,7 +25,8 @@ notificationModalBtn.addEventListener('click',(e)=>{
 
     //The form box cancel button to cancel the trade and in that process send a notification to the 
     //buyer that the trade has been cancelled then the specific notification will be removed from the stack.
-    container.querySelector('.buy-reset').addEventListener('click',(e)=>{
+    container.querySelector('.buy-submit').addEventListener('click',(e)=>{
+      e.preventDefault();
       const formData = new FormData(e.target.parentElement);
       xhr.open("POST", "./php/order actions/order-release.php");
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -31,21 +34,23 @@ notificationModalBtn.addEventListener('click',(e)=>{
           if (xhr.status === 200) {
             /*The datas received from the database will be saved in an array and the length of the array will be the number of the 
             new notification*/
-            const data = JSON.parse(xhr.responseText);
-            alert(data);
+            // const data = JSON.parse(xhr.responseText);
+            alert(xhr.responseText);
           }
         };
       const urlEncodedData = new URLSearchParams(formData).toString();
-      alert(urlEncodedData);
+      // alert(urlEncodedData);
       xhr.send(urlEncodedData);
+      e.target.parentElement.parentElement.style.display = "none";
+      window.location.reload();
     })
 
     //The form box buy button to release the trade and in that process send a notification to the 
     //buyer that the trade has been released then the specific notification will be removed from the stack.
-    container.querySelector(".buy-submit").addEventListener("click", (e) => {
+    container.querySelector(".buy-reset").addEventListener("click", (e) => {
       e.preventDefault();
       const formData = new FormData(e.target.parentElement);
-      xhr.open("POST", "./php/order actions/order_cancel.php");
+      xhr.open("POST", "../php/order actions/order-release.php");
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onload = () => {
           if (xhr.status === 200) {
@@ -56,8 +61,9 @@ notificationModalBtn.addEventListener('click',(e)=>{
           }
         };
       const urlEncodedData = new URLSearchParams(formData).toString();
-      alert(urlEncodedData);
+      // alert(urlEncodedData);
       xhr.send(urlEncodedData);
+      e.target.parentElement.style.display = "none";
     });
   })
 })
@@ -78,7 +84,7 @@ buyConfirmBtn.addEventListener("click", (e) => {
 
 
 const formData = new FormData(buyTradeForm);
-const xhr = new XMLHttpRequest();
+
 //method to work on the form, the name of the php script the form should be sent to.
 xhr.open("POST", "./php/order_response.php");
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -102,6 +108,7 @@ const urlEncodedData = new URLSearchParams(formData).toString();
 console.log(urlEncodedData);
 xhr.send(urlEncodedData);
 
+
 //The html for each order.
 const html = function(data){
   const newData =
@@ -109,16 +116,21 @@ const html = function(data){
   <div class="notifications">
       <form id="buy-trade-notification">
           <input type="text" name="trade_type" value="buy" hidden>
-          <span class="type">Buy</span>
-          <input type="text" name="buyer_id" value="${data.buyer_id}" hidden>
+          <input type="number" name="trade_index" value="${data.ind}" hidden>
+          <span class="type">Buy </span>
+          <input type="number" name="buyer_id" value="${data.buyer_id}" hidden>
           <input type="text" name="wallet" value="${data.wallet}" hidden>
-          <span class="wallet">${data.wallet}</span>
+          <span class="wallet">${data.wallet} </span>
 
-          <input type="text" name="unit_amount" value="${data.order_unit}" hidden>
-          <span class="unit-amount">${data.order_unit}</span>
+          <input type="number" name="unit_amount" value="${data.order_unit}" hidden>
+          <span class="unit-amount">(${data.order_unit} </span>
 
-          <input type="text" name="cost" value="${data.receive_amount}" hidden>
-          <span class="cost">${data.receive_amount}</span>
+          <input type="number" name="exchange_rate" value="${data.exchange_rate}" hidden>
+          <span class="cost">X ${data.exchange_rate})</span>
+
+          <input type="number" name="cost" value="${data.receive_amount}" hidden>
+          <span class="cost">= ${data.receive_amount} </span>
+
 
           <button type="reset" class="buy-reset">Reject</button>
           
@@ -131,26 +143,26 @@ return newData;
 
 /*This button will send a delete request to the database to remove the trade from the notification database
 for the sell order.*/
-buyRejectBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-  console.log('Buy Order cancelled')
-  const formData = new FormData(sellTradeForm);
-  const xhr = new XMLHttpRequest();
-  //method to work on the form, the name of the php script the form should be sent to.
-  xhr.open("POST", "submit.php");
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onload = () => {
-    if (xhr.status === 200) {
-      /*The datas received from the database will be saved in an array and the length of the array will be the number of the 
-    new notification*/
-      console.log(xhr.responseText);
-    }
-  };
-  // Convert the form data to a URL-encoded string
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData);
-  xhr.send(urlEncodedData);
-})
+// buyRejectBtn.addEventListener('click',(e)=>{
+//   e.preventDefault();
+//   console.log('Buy Order cancelled')
+//   const formData = new FormData(sellTradeForm);
+//   const xhr = new XMLHttpRequest();
+//   //method to work on the form, the name of the php script the form should be sent to.
+//   xhr.open("POST", "submit.php");
+//   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//   xhr.onload = () => {
+//     if (xhr.status === 200) {
+//       /*The datas received from the database will be saved in an array and the length of the array will be the number of the 
+//     new notification*/
+//       console.log(xhr.responseText);
+//     }
+//   };
+//   // Convert the form data to a URL-encoded string
+//   const urlEncodedData = new URLSearchParams(formData).toString();
+//   console.log(urlEncodedData);
+//   xhr.send(urlEncodedData);
+// })
 
 
 

@@ -21,6 +21,6 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
 
 //   /*Then delete the data from the table it was so it will be removed from the pending trade queue*/
 
-// }
+}
 echo json_encode($accountOwner);
 ?>

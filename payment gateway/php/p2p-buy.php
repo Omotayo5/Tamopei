@@ -42,6 +42,8 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
         '$inputs3')";
         $sellentry = mysqli_query($conn,$sell);
         if($sellentry)$response['Succesfull'] = "Buy order Posted succesfully";
+
+        
         $removeValue = "UPDATE wallet SET {$selected}  = {$selected} - {$highLimit} WHERE `user_id`=$accountOwner";
         $removed = mysqli_query($conn,$removeValue);
 }

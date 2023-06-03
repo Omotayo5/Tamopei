@@ -16,6 +16,8 @@ walletBtn.forEach((button) =>
   })
 );
 
+
+//Checking théiput values
 sellerRate.addEventListener("input", () => {
   const inputValue = sellerRate.value.trim();
   if (/^\d+$/.test(inputValue)) {
@@ -74,15 +76,19 @@ const useData = function (data) {
         switch (e.target.value) {
           case "Naira":
             walletAvailable.innerHTML = `₦ ${data[e.target.value]} `;
+            document.querySelector(`#${e.target.value}`).disabled = true;
             break;
           case "Dollar":
             walletAvailable.innerHTML = `$ ${data[e.target.value]} `;
+            document.querySelector(`#${e.target.value}`).disabled = true;
             break;
           case "Cedi":
             walletAvailable.innerHTML = `GHC ${data[e.target.value]} `;
+            document.querySelector(`#${e.target.value}`).disabled = true;
             break;
           case "Rand":
             walletAvailable.innerHTML = `R ${data[e.target.value]} `;
+            document.querySelector(`#${e.target.value}`).disabled = true;
             break;
           default:
             walletAvailable.innerHTML = "";
@@ -92,6 +98,9 @@ const useData = function (data) {
     });
   }
 };
+
+
+//Removing the selected wallet for p2p from the payment options
 
 
 //SELL FORM
