@@ -99,7 +99,29 @@ const useData = function (data) {
   }
 };
 
-
+///////////////////////////////////
+selected[1].addEventListener('click',(e)=>{
+  switch (e.target.value) {
+    case 'Naira':
+      document.querySelector(`#buy${e.target.value}`).disabled = true;
+      console.log(`#buy${e.target.value}`)
+      break;
+    case 'Dollar':
+      document.querySelector(`#buy${e.target.value}`).disabled = true;
+      console.log(`#buy${e.target.value}`)
+      break;
+    case 'Rand':
+      document.querySelector(`#buy${e.target.value}`).disabled = true;
+      console.log(`#buy${e.target.value}`)
+      break;
+    case 'Cedi':
+      document.querySelector(`#buy${e.target.value}`).disabled = true;
+      console.log(`#buy${e.target.value}`)
+      break;
+    default:
+      break;
+  }
+})
 //Removing the selected wallet for p2p from the payment options
 
 
