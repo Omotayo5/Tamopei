@@ -214,7 +214,6 @@ sellRejectBtn.addEventListener('click',(e)=>{
   console.log(urlEncodedData);
   xhr.send(urlEncodedData);
 })
-
 // orderContainer.querySelectorAll('a').addEventListener('click',(e)=>{
 //   e.preventDefault();
 //   console.log(e.target)
