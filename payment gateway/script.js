@@ -1,26 +1,27 @@
 //MODAL BOXES Design.
-const body = document.querySelector(".container");
-const selectOpt = document.querySelector("#select");
-const sendSellectOpt = document.querySelector("#send-select");
-const accountDisplay = document.querySelector(".banks");
-const payGateways = document.querySelector(".deposits");
-const bankButton = document.querySelector(".form-btn");
-const buttonHide = document.querySelector("#buttons");
-const addBtn = document.querySelector("#add-btn");
-const sendBtn = document.querySelector("#send-btn");
-const sendMoneyModal = document.querySelector("#send-money-modal");
-const bankTransferBtn = document.querySelector(".bank-transfer");
-const sendModalClose = document.querySelector(".send-close-btn");
-const closeBtn = document.querySelector(".close-btn");
-const modalBox = document.querySelector("#add-money-modal");
-const pairToPairbtn = document.querySelector("#pair-to-pair");
-const CurNameFundWallet = document.querySelector(".fund-wallet h2 span");
-const walletToBank = document.querySelector("#bank-deposit");
-const dollarModal = document.querySelector(".dollar-container");
-const walletToBankBtn = document.querySelector(".wallet-to-bank");
-const walletTowalletBtn = document.querySelector(".wallet-to-wallet");
-const walletTowallet = document.querySelector("#wallet");
-const popup = document.querySelector(".popup-container");
+const body = document.querySelector(".container"),
+ selectOpt = document.querySelector("#select"),
+ sendSellectOpt = document.querySelector("#send-select"),
+ accountDisplay = document.querySelector(".banks"),
+ payGateways = document.querySelector(".deposits"),
+ bankButton = document.querySelector(".form-btn"),
+ buttonHide = document.querySelector("#buttons"),
+ addBtn = document.querySelector("#add-btn"),
+ sendBtn = document.querySelector("#send-btn"),
+ sendMoneyModal = document.querySelector("#send-money-modal"),
+ bankTransferBtn = document.querySelector(".bank-transfer"),
+ sendModalClose = document.querySelector(".send-close-btn"),
+ closeBtn = document.querySelector(".close-btn"),
+ modalBox = document.querySelector("#add-money-modal"),
+ pairToPairbtn = document.querySelector("#pair-to-pair"),
+ CurNameFundWallet = document.querySelector(".fund-wallet h2 span"),
+ walletToBank = document.querySelector("#bank-deposit"),
+ dollarModal = document.querySelector(".dollar-container"),
+ walletToBankBtn = document.querySelector(".wallet-to-bank"),
+ walletTowalletBtn = document.querySelector(".wallet-to-wallet"),
+ walletTowallet = document.querySelector("#wallet"),
+ popup = document.querySelector(".popup-container");
+ 
 
 //initial state of the button
 walletToBank.classList.add("none");

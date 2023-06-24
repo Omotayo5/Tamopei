@@ -2,7 +2,7 @@
 include('server.php');
 $accountOwner = $_SESSION['id'];
     $select = clean_Input($_POST['select']);
-    $receiverName = clean_Input($_POST['user_name']);
+    $receiverName = clean_Input($_POST['receiver_id']);
     $sentAmount = clean_Input($_POST['amount']);
     //to check if there are data posted to the php file
     // print_r($_POST);
@@ -41,13 +41,13 @@ $accountOwner = $_SESSION['id'];
             // print_r($userBalance." ");
             if($userBalance>= $sentAmount){
                 //Check if the Benefactor's name exists inside the database.
-                $user2 = "SELECT user_id FROM `user_credentials` WHERE `first_name` ='$receiverName'";
+                $user2 = "SELECT user_id FROM `user_credentials` WHERE `user_id` ='$receiverName'";
                 $stmt3 = mysqli_query($conn,$user2);
     
                 //if the user exists in the database, add to the user's account
                 if($stmt3->num_rows>0){
                     $beneficiaryId= $stmt3->fetch_assoc()['user_id'];
-                    print_r(" ".$beneficiaryId);
+                    // print_r(" ".$beneficiaryId);
                     //Getting and setting new transaction refrence from the database
     
                     //calculate charges
@@ -55,10 +55,10 @@ $accountOwner = $_SESSION['id'];
                     //value the beneficiary will receive
                     $toBeneficiary = $sentAmount - $charges;
                     $_SESSION['charges'] = $charges;
-                    print_r(" ".$charges);
+                    // print_r(" ".$charges);
                     //add value to the beneficiary account
                     
-                    $addValue="UPDATE wallet SET {$select} = {$select} + {$toBeneficiary} WHERE user_id = $beneficiaryId ";
+                    $addValue="UPDATE wallet SET {$select} = {$select} + {$toBeneficiary} WHERE `user_id` = $beneficiaryId ";
                     $added = mysqli_query($conn,$addValue);
                     //remove value from the sender's
                     $removeValue = "UPDATE wallet SET {$select}  = {$select} - {$sentAmount} WHERE `user_id`=$accountOwner";
@@ -114,7 +114,7 @@ $accountOwner = $_SESSION['id'];
     
     $stmt2->close();
     $conn->close();
-// }
+
 
 // GETTING DATA FROM THE DATABASE
 // //1.Select from the database table order by the .....

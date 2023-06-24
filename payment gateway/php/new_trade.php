@@ -13,6 +13,7 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
         $lowLimit=mysqli_real_escape_string($conn, $_POST['low_limit']);
         $highLimit=mysqli_real_escape_string($conn, $_POST['high_limit']);
         $sellerRate = mysqli_real_escape_string($conn, $_POST['selling_rate']);
+        
         $inputs1=mysqli_real_escape_string($conn, $_POST['inputs'][0]);
         $inputs2=mysqli_real_escape_string($conn, $_POST['inputs'][1]);
         $inputs3=mysqli_real_escape_string($conn, $_POST['inputs'][2]);

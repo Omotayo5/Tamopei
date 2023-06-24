@@ -1,4 +1,7 @@
 <?php
+
+//Fetch the user saved payment receiving options and prinţit to the trade creating box as the available methods the user wants to receive their 
+// currency in.
 session_start();
 $accountOwner = $_POST['user_id'];
 $serverName = 'localhost';

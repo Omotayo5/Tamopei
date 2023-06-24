@@ -18,12 +18,14 @@
         <img src="../img/colorLogo.png" alt="">
       </a></h2>
   </div>
+  
   <section>
+    
     <div class="head-content-c">
       <button class="btn-c active" id="buyc1">SELL</button>
       <button class="btn-c " id="buyc">BUY</button>
     </div>
-    <section>
+    <section id="sell_post">
       <form id="trade_post_sell">
         <main>
           <input type="hidden" id="" name="Trade_Type" value="sell">
@@ -64,7 +66,7 @@
             <div class="order-limit-c">
               <p>Sell Limit</p>
               <div class="lowest-order-c">
-                <input type="tel" placeholder="Lowest" name="low_limit">
+                <input type="tel" placeholder="Lowest" name="low_limit" id="low_limit">
               </div>
 
 
@@ -76,8 +78,11 @@
             <div class="payment_proceed">
               <div class="payment-method-c">
                 <div class="payment">Payment methods</div>
+                <p>Please select <b>WALLET</b> if you want to receive payments directly into your wallet or select <b>Other Method</b>
+                   if you want to receive your payment elsewhere</p>
+                   <hr>
                 <button class="btn-c active" id="dropbtn3">Wallet</button>
-                <button class="btn-c " id="dropbtn4">Other Method</button>
+                <button class="btn-c" id="dropbtn4">Other Method</button>
               </div>
 
             </div>
@@ -101,7 +106,9 @@
 
 
             <div class="wallet-list1-c" id="wallet4">
-              <!-- user stored payment receiving methods will be displayed here -->
+              <p>Maximum 2</p>
+                <hr>
+              <!-- user stored payment receiving methods will be displayed here-->
               <!-- <div class="symbol-c">
                 <p>BANK </p> <input type="checkbox" name="inputs[]" id="" value="Bank">
               </div>
@@ -126,10 +133,12 @@
               </div>
               <div class="symbol-c">
                 <p>GOGGLEPAY</p> <input type="checkbox" name="inputs[]" value="Google pay" id="">
-              </div>
-            </div> -->
-            <div class="post-btn">
-              <button type="submit" class="btn-1 sell" id="submit">POST</button>
+              </div> -->
+            </div>
+            <div class="post-btn" id="">
+              <a href="/payment gateway/trade/trade.html">
+                <button type="submit" class="btn-1 sell" id="submit">POST</button>
+              </a>
             </div>
 
           </div>
@@ -137,7 +146,7 @@
       </form>
     </section>
 
-    <section>
+    <section id="buy_post">
       <form id="trade_post_buy">
         <main>
           <input type="hidden" id="" name="Trade_Type" value="buy">
@@ -210,8 +219,11 @@
             <div class="payment_proceed">
               <div class="payment-method-c">
                 <div class="payment">Payment methods</div>
+                <p>Please select <b>WALLET</b> if you want to make payments directly into buyer wallet or select <b>Other Method</b>
+                  if you want to pay elsewhere</p>
+                  <hr>
                 <button class="btn-c active" id="dropbtn">Wallet</button>
-                <button class="btn-c " id="dropbtn1">Other Method</button>
+                <button class="btn-c" id="dropbtn1">Other Method</button>
               </div>
 
             </div>
@@ -236,6 +248,8 @@
 
             <div class="method_b">
               <div class="wallet-list1-c" id="wallet2">
+                <p>Maximum 2</p>
+                <hr>
                 <div class="symbol-c">
                   <!-- user stored payment receiving methods will be displayed here -->
                   <p>BANK </p> <input type="checkbox" name="inputs[]" id="" value="Bank">

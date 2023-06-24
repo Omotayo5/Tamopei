@@ -14,6 +14,16 @@ if($_SERVER['REQUEST_METHOD']==="POST" && $_POST['order_unit']){
         $userInpt = htmlspecialchars($userInpt);
         return $userInpt;
     }
+    $refrence = substr(md5(uniqid(rand(),true)),0,15);//order refrence number
+    $UniqueRef = "SELECT COUNT(*) as count FROM transactions WHERE transaction_refrence = '$refrence'";
+    $result = mysqli_query($conn,$UniqueRef);
+    $row = mysqli_fetch_assoc($result);
+    $count = $row['count'];
+    $_SESSION['count']= $count;
+    if($count >0){
+        $refrence = substr(md5(uniqid(rand(),true)),0,20);
+    }
+
     $orderIndex = clean_Input($_POST['trade_index']);
     $user_id = clean_Input($_POST['user_id']);
     $wallet = clean_Input($_POST['wallet']);

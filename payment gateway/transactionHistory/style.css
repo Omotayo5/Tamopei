@@ -117,7 +117,7 @@ section button{
   }
   
   .table-content.show {
-    display: block;
+    /* display: block; */
     text-align: left;
     font-style: normal;
     font-weight: 500;
@@ -230,9 +230,11 @@ section button{
     width: 80%;
   }
 .table-info{
+  display: flex;
   border: 1px solid #5EA536;
   padding: 1rem;
-  margin: 1rem 0;
+  width: fit-content;
+  margin: auto;
   border: none;
   background-color: var(--white);
   box-shadow: var(--box-shadow);

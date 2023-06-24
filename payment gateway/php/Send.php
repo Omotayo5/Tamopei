@@ -1,17 +1,14 @@
 <?php
 include('server.php');
 $accountOwner = $_SESSION['id'];
-print_r($_POST['select']);
-print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD']==="POST"){
 
-
     $select = clean_Input($_POST['select']);
-    $receiverName = clean_Input($_POST['user_name']);
+    $receiverId = clean_Input($_POST['receiver_id']);
     $sentAmount = clean_Input($_POST['amount']);
     //to check if there are data posted to the php file
     // print_r($_POST);
-    print_r($sentAmount." ".$accountOwner." ");
+    // print_r($sentAmount." ".$accountOwner." ");
     // print_r($select);
     
     function clean_Input($userInpt){
@@ -36,7 +33,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $stmt2->bind_param('s',$accountOwner);
     $stmt2->execute();
     $stmt2->store_result();
-    if(!empty($select) && !empty($receiverName)&& !empty($sentAmount) ){
+    if(!empty($select) && !empty($receiverId)&& !empty($sentAmount) ){
         //If the result is found inside the database then do the following.
         if($stmt2){
             //Binding the currency selected to a variable called $userBalance so the value of the currency is now stored as the user balance.
@@ -46,13 +43,13 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
             // print_r($userBalance." ");
             if($userBalance>= $sentAmount){
                 //Check if the Benefactor's name exists inside the database.
-                $user2 = "SELECT user_id FROM `user_credentials` WHERE `first_name` ='$receiverName'";
+                $user2 = "SELECT user_id FROM `user_credentials` WHERE `user_id` ='$receiverId'";
                 $stmt3 = mysqli_query($conn,$user2);
     
                 //if the user exists in the database, add to the user's account
                 if($stmt3->num_rows>0){
-                    $beneficiaryId= $stmt3->fetch_assoc()['user_id'];
-                    print_r(" ".$beneficiaryId);
+                    // $beneficiaryId= $stmt3->fetch_assoc()['user_id'];
+                    // print_r(" ".$beneficiaryId);
                     //Getting and setting new transaction refrence from the database
     
                     //calculate charges
@@ -60,10 +57,10 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
                     //value the beneficiary will receive
                     $toBeneficiary = $sentAmount - $charges;
                     $_SESSION['charges'] = $charges;
-                    print_r(" ".$charges);
+                    // print_r(" ".$charges);
                     //add value to the beneficiary account
                     
-                    $addValue="UPDATE wallet SET {$select} = {$select} + {$toBeneficiary} WHERE user_id = $beneficiaryId ";
+                    $addValue="UPDATE wallet SET {$select} = {$select} + {$toBeneficiary} WHERE user_id =$receiverId";
                     $added = mysqli_query($conn,$addValue);
                     //remove value from the sender's
                     $removeValue = "UPDATE wallet SET {$select}  = {$select} - {$sentAmount} WHERE `user_id`=$accountOwner";
@@ -89,7 +86,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
                     //then it means the affected row is greater than 1.
                     if($added->affected_rows>0){
         
-                        $response["Succesfull"] = "Sent " .$sentAmount." ".$select ." to ".$receiverName. " " .$sentAmount. " has been removed from " .$accountOwner. " account";
+                        $response["Succesfull"] = "Sent " .$sentAmount." ".$select ." to ".$receiverId. " " .$sentAmount. " has been removed from " .$accountOwner. " account";
                         // echo json_encode($response["Succesfull"]);
                         header('location:notifications.php');
                     }else{
@@ -119,26 +116,6 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     
     $stmt2->close();
     $conn->close();
-
+    echo json_encode($_POST);
 }
-// }
-
-// GETTING DATA FROM THE DATABASE
-// //1.Select from the database table order by the .....
-// $showTrnx = "SELECT * FROM inserts ORDER BY transaction_time";
-// //2.Connect the database with the query
-// $data = mysqli_query($conn,$showTrnx);
-// $res = mysqli_fetch_all($data);
-
-// // print_r(end($res));
-
-// $_SESSION['last'] = end($res);
-// //loop throuhg the array and map the data with variables.
-// foreach($res as $r){
-//     $id = $r[0];
-//     $profit = $r[1];
-//     $name = $r[2];
-//     $date = $r[3];
-//     echo "<h3>".htmlspecialchars($name)."</h3><br/>".date($date);
-// }
 ?>

@@ -374,9 +374,9 @@ function loadData2(method, url) {
       </td>
       <td>
           <div class="methods">
-          <span>${data.payment_method_1},</span>
-          <span>${data.payment_method_2},</span>
-          <span>${data.payment_method_3},</span>
+          <span><b>${data.payment_method_1}</b> </span>
+          <span><b>${data.payment_method_2}</b> </span>
+          <span><b>${data.payment_method_3}</b></span>
           </div>
       </td>
       <td>

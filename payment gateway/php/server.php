@@ -1,5 +1,5 @@
 <?php
-//Connect the server here and require it in the reat of the file
+//Connect the server here and require it in the rest of the file
 $serverName = 'localhost';
 $username = 'root';
 $password = 'password';

@@ -1,0 +1,34 @@
+<?php
+//connecteď to fetchDetails.js
+include('server.php');
+// session_start();//The session already started inside the Home php can also be used here without starting another new session
+function clean_Input($userInpt){
+    $userInpt = trim($userInpt);
+    $userInpt = strip_tags($userInpt);
+    $userInpt = stripslashes($userInpt);
+    $userInpt = htmlspecialchars($userInpt);
+    return $userInpt;
+}
+$response = array("Not_found"=>"",);
+if($_SERVER['REQUEST_METHOD']=== 'POST'){
+
+    $receiver = clean_Input($_POST['user_name']);
+    $sql = "SELECT * FROM tamopei.user_credentials WHERE user_id = '$receiver'";
+    $user_credentials = mysqli_query($conn,$sql);
+    if($user_credentials){
+        $row = mysqli_fetch_assoc($user_credentials);
+        $name=$row['first_name'];
+        $id=$row['user_id'];
+        // $_SESSION['name']= $name;
+        // $_SESSION['id'] = $id;
+        echo json_encode($row);
+    }else{
+        $response['not_found'] = "User not found";
+        echo json_encode($response['not_found']);
+    }
+
+
+
+}
+
+?>

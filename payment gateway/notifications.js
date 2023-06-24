@@ -6,19 +6,18 @@
 
 
 
-const notificationModalBtn = document.querySelector('#notification');
-const notificationModal = document.querySelector('#notifications-modal');
-const orderContainer = document.querySelector('#notifications-modal');
-const itemBox = document.querySelector('.items-box');
-const notificationCount = document.querySelector('.white');
-const closeModal = document.querySelector('.close');
-const buyTradeForm = document.getElementById('buy-trade-notification');
-const sellTradeForm = document.getElementById('sell-trade-notification');
-const buyConfirmBtn = document.querySelector('#buy-trade-notification .buy-submit');
-const buyRejectBtn = document.querySelector('#buy-trade-notification .buy-reset');
-
-const sellConfirmBtn = document.querySelector('#sell-trade-notification .sell-submit');
-const sellRejectBtn = document.querySelector('#sell-trade-notification .sell-reset');
+const notificationModalBtn = document.querySelector('#notification'),
+ notificationModal = document.querySelector('#notifications-modal'),
+ orderContainer = document.querySelector('#notifications-modal'),
+ itemBox = document.querySelector('.items-box'),
+ notificationCount = document.querySelector('.white'),
+ closeModal = document.querySelector('.close'),
+ buyTradeForm = document.getElementById('buy-trade-notification'),
+ sellTradeForm = document.getElementById('sell-trade-notification'),
+ buyConfirmBtn = document.querySelector('#buy-trade-notification .buy-submit'),
+ buyRejectBtn = document.querySelector('#buy-trade-notification .buy-reset'),
+ sellConfirmBtn = document.querySelector('#sell-trade-notification .sell-submit'),
+ sellRejectBtn = document.querySelector('#sell-trade-notification .sell-reset');
 
 notificationModal.style.display = 'none';
 
