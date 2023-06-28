@@ -343,6 +343,175 @@ function loadData2(method, url) {
     const datas = JSON.parse(this.response);
     console.log(datas);
     datas.forEach((data) => {
+      if(data.payment_method_1 == 'Cedi'){
+        
+        const byWallet =
+        `<tr>
+        <td>
+          <div class="card-info1">
+            <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Limit: ${data.lowest_rate} - ${data.highest_rate}</h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>1 ${data.wallet} <i class="fa-solid fa-right-left"></i>GHC ${data.user_rate}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+
+
+            <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell GHC</button>
+          </div>
+        </td>
+      </tr>`
+      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
+      };
+      if(data.payment_method_1 == 'Dollar'){
+        
+        const byWallet =
+        `<tr>
+        <td>
+          <div class="card-info1">
+            <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Limit: ${data.lowest_rate} - ${data.highest_rate}</h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>1 ${data.wallet} <i class="fa-solid fa-right-left"></i>$${data.user_rate}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+
+
+            <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell USD</button>
+          </div>
+        </td>
+      </tr>`
+      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
+      };
+      if(data.payment_method_1 == 'Rand'){
+        
+        const byWallet =
+        `<tr>
+        <td>
+          <div class="card-info1">
+            <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Limit: ${data.lowest_rate} - ${data.highest_rate}</h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>1 ${data.wallet} <i class="fa-solid fa-right-left"></i>ZAR${data.user_rate}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+
+
+            <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell ZAR</button>
+          </div>
+        </td>
+      </tr>`
+      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
+      };
+      if(data.payment_method_1 == 'Naira'){
+       
+        const byWallet =
+        `<tr>
+        <td>
+          <div class="card-info1">
+            <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Limit: ${data.lowest_rate} - ${data.highest_rate}</h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>1 ${data.wallet} <i class="fa-solid fa-right-left"></i>₦${data.user_rate}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
+          </div>
+        </td>
+      </tr>`
+      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
+      };
+
+
+
+      /*
+      
+      End of payment by wallet
+      
+      
+      
+      */
+
       const html = `<tr>
       <td>
         <div class="card-info1">
@@ -381,25 +550,58 @@ function loadData2(method, url) {
       </td>
       <td>
         <div class="card-buy">
-          <button class="btn2" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
+          <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
         </div>
       </td>
     </tr>`;
       sell_tableBody.innerHTML += html;
     });
   };
-  // const urlEncodedData = new URLSearchParams(formData).toString();
-  // console.log(formData);
   xhr.send();
 }
+
+
+
 //////////////SELL POST//////////////
 const method_sell = "POST",
   url_sell = "../php/order_sell.php";
 loadData2(method_sell, url_sell);
 
-// console.log(retrieved)
-const session = fetchAsync("../php/payment-options.php")
+// pop-up contsiner for other paynent methods
+setTimeout(() => {
+  document.querySelectorAll('.sell_other_method').forEach(button=>{
+    button.addEventListener('click',(e)=>{
+      document.querySelector('#popup-container5').style.display = 'block';
 
-sessionStorage.setItem('session',session)
-console.log(sessionStorage.getItem('session'));
+    })
+  })
+}, 1000);
 
+
+//Getting the values of the trade box whenever its clicked individually;
+setTimeout(() => {
+  document.querySelectorAll('#modal-btn').forEach(button=>{
+    button.addEventListener('click',(e)=>{
+      let walletContainer = e.target.parentElement.parentElement.parentElement;
+      document.querySelector('#popup-container2').style.display = 'block';
+      let sellerId = walletContainer.querySelector('td #id').innerHTML;
+
+
+
+
+
+      document.querySelector('#popup-container2 #seller p').innerHTML = sellerId;
+      // document.querySelector('#popup-container2 #wallet p').innerHTML = 
+    })
+  })
+}, 1000);
+
+
+
+//Closing the modal box
+window.addEventListener("click", function(event) {
+  if (event.target == document.querySelector('#popup-container2')||event.target == document.querySelector('#popup-container5')) {
+    document.querySelector('#popup-container2').style.display = "none"; // Hide the modal when clicking outside of it
+    document.querySelector('#popup-container5').style.display = 'none';
+  }
+});

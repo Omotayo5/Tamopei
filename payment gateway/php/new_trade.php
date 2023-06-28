@@ -7,7 +7,7 @@ header("Content-Type:application/json");
 $response = array("Succesfull"=>"","Seller rate"=>"",);
 // print_r($_SERVER['REQUEST_METHOD']);
 if($_SERVER['REQUEST_METHOD']=== 'POST'){
-    if($_POST){
+    if (isset($_POST['select']) && isset($_POST['Trade_Type']) && isset($_POST['low_limit']) && isset($_POST['high_limit']) && isset($_POST['selling_rate']) && isset($_POST['inputs'])) {
         $selected = mysqli_real_escape_string($conn, $_POST['select']);
         $tradeType = mysqli_real_escape_string($conn, $_POST['Trade_Type']);
         $lowLimit=mysqli_real_escape_string($conn, $_POST['low_limit']);
@@ -15,9 +15,11 @@ if($_SERVER['REQUEST_METHOD']=== 'POST'){
         $sellerRate = mysqli_real_escape_string($conn, $_POST['selling_rate']);
         
         $inputs1=mysqli_real_escape_string($conn, $_POST['inputs'][0]);
-        $inputs2=mysqli_real_escape_string($conn, $_POST['inputs'][1]);
+        $inputs2= mysqli_real_escape_string($conn, $_POST['inputs'][1]);
         $inputs3=mysqli_real_escape_string($conn, $_POST['inputs'][2]);
-        
+        if($inputs1 || $inputs2 || $inputs3){
+
+        }
        
             $sell = "INSERT INTO p2p_posts_sell (
             `user_id`,

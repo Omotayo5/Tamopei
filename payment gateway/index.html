@@ -61,7 +61,7 @@
                     </div>
                     </span>
                 </a>
-                <a href=""><span class="b material-icons-sharp">
+                <a href="./history/transaction-history.html"><span class="b material-icons-sharp">
                         history
                     </span>
                     <h3 class="b">History</h3>
@@ -294,23 +294,7 @@
 
                     </div>
                 </div>
-                <div class="insights">
-                    <div class="stat">
-                        <!-- <span class="circle material-icons-sharp">
-                            account_balance_wallet
-                        </span> -->
-                        <div class="balance">
-                            <div class="left">
-                                <h3>Cedi Balance <span class="material-icons-sharp">
-                                        visibility
-                                    </span></h3>
-                                <h2><span>N</span> 3,000</h2>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                
 
             </div>
 
@@ -580,7 +564,7 @@
                     <div class="select " id="wallet">
                         <label for="select">
                             Select Wallet
-                            <select name="select" class="wallet-select" id="send-select">
+                            <select class="wallet-select" id="send-select">
                                 <option value="" id="available_curr">Select Wallet</option>
                                 <!-- The available currency from database will be displayed here -->
                             </select>
@@ -598,26 +582,28 @@
                         </div>
                         <div class="send-inputs">
                             <label for="beneficiary-name">
-                                Username
-                                <input type="text" class="bottom-border" name="user_name" id="user_name">
+                                User Id
+                                <input type="text" class="bottom-border" id="user_name">
                             </label>
 
                             <label for="user-amount">
                                 Enter Amount
-                                <input type="text" name="amount" class=" bottom-border" maxlength="8"
+                                <input type="text" class=" bottom-border" maxlength="8"
                                     id="amount_to_send">
                             </label>
                         </div>
                         <div class="confirm-details">
-                            <p>Confirm Receiver information </p>
+                            <p>Confirm Receiver</p>
                             <div class="details">
-
+                                <p class="name"></p>
                             </div>
 
                         </div>
+                        
                         <!-- if confirm button is clicked, check if the entered username is inside the database
                          then open a modal to enter password for the user to confirm the transaction. -->
-                        <button type="submit" class="form-btn" id="form_btn">Confirm User datails</button>
+                        <button type="submit" class="form-btn" id="confirm">Confirm</button>
+                        <button type="submit" class="form-btn" id="form_btn">Send</button>
                 </form>
             </div>
 
@@ -768,6 +754,7 @@
 
     </div>
     </div>
+    <script src="./scripts/fetchDetails.js"></script>
     <script src="./scripts/Home.js"></script>
     <script src="./scripts/wallet-balance.js"></script>
     <script src="./notifications.js"></script>

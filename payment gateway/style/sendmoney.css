@@ -228,6 +228,7 @@ label {
     font-size: 1rem;
 }
 
+/*The confirm details check container*/
 .confirm-details {
     margin: .5rem;
     /* border: 2px solid black; */
@@ -238,11 +239,11 @@ label {
     font-size: 1rem;
     padding: .25rem;
 }
-
-.details {
-    padding: 2.5rem;
-
+.name{
+    font-size: 1.5rem;
 }
+
+
 
 option {
     /* text-align: justify; */
@@ -342,3 +343,5 @@ input.bottom-border:focus {
         /* justify-content: space-between; */
     }
 }
+
+

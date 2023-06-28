@@ -4,7 +4,6 @@
 3. Fix the buy modal receive amount calculations.
 4. Set the data inside the buy input box as the highest limit to buy.
 5. Fetch the currency monitoring Api and retrieve the live data to be set as current exchange rate / dollar.
-
 */
 
 const form = document.querySelector("#trade_post_sell"),
@@ -20,6 +19,7 @@ const form = document.querySelector("#trade_post_sell"),
   receivedAmntDisplay = document.querySelector(
     ".value_display_calculated span"
   ),
+
   checked = document.querySelectorAll("input[type='checkbox']"),
   highLimit = document.querySelector("#high_limit"),
   sellBtn = document.querySelector(".sell"),
@@ -30,40 +30,6 @@ walletBtn.forEach((button) =>
     e.preventDefault();
   })
 );
-
-//if other method is clicked then the form id attribute should change to other method;
-sell_other_method_btn.addEventListener("click", (e) => {
-  document.querySelector("#dropbtn3").setAttribute("disabled", "");
-  sellForm.setAttribute("id", "other_method_sell");
-  console.log(e.target);
-  console.log(sellForm);
-});
-
-buy_other_methods_btn.addEventListener("click", (e) => {
-  document.querySelector("#dropbtn").setAttribute("disabled", "");
-  buyForm.setAttribute("id", "other_method_buy");
-  console.log(e.target);
-  console.log(buyForm);
-});
-//////////////////////////////////////////////////////////////////////////////////////
-//Disabling payment methods when one is selected already
-document
-  .querySelectorAll('#wallet3 input[type="checkbox"]')
-  .forEach((check) => {
-    check.addEventListener("change", (e) => {
-      console.log(e.target.value);
-      document.querySelector("#dropbtn4").setAttribute("disabled", "");
-    });
-  });
-
-document
-  .querySelectorAll('#wallet1 input[type="checkbox"]')
-  .forEach((check) => {
-    check.addEventListener("change", (e) => {
-      console.log(e.target.value);
-      document.querySelector("#dropbtn1").setAttribute("disabled", "");
-    });
-  });
 ////////////////////////////////////////////////////////////
 
 //Checking théiput values
@@ -88,23 +54,31 @@ purchaseAmount.addEventListener("input", () => {
     formBtn.disabled = true;
     formBtn.style.backgroundColor = "red";
   }
-  receivedAmntDisplay.innerHTML = purchaseAmount.value * sellerRate.value;
+  document.querySelector("#high_limit").value = inputValue;
+  receivedAmntDisplay.innerHTML = inputValue * 1 * (sellerRate.value * 1);
+  console.log(sellerRate.value * 1);
 });
 
 //Function to get and send data to and from database.
-function loadData(method, url, frm) {
-  //Use javascript to set the attribute of the form, both the me
-  const formData = new FormData(frm);
-  const xhr = new XMLHttpRequest();
-  xhr.open(method, url);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onload = function () {
-    const data = JSON.parse(this.response);
+async function loadData(method, url, frm) {
+  try {
+    const formData = new FormData();
+    formData.append()
+
+    
+    const response = await fetch(url, {
+      method: method,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams(formData)
+    });
+
+    const data = await response.json();
     console.log(data);
-  };
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData);
-  xhr.send(urlEncodedData);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 //Fetching the curency wallet values and using it on the page;
@@ -217,10 +191,10 @@ form.addEventListener("submit", (e) => {
     parseInt(walletAvailable.innerHTML.split(" ")[1])
   ) {
     sellBtn.disabled = true;
-    alert("You cannot post a sell order higher than your balance 😥");
+    alert("You cannot post a sell order higher or lower than your balance 😥");
     e.preventDefault();
   } else {
-    formBtn.disabled =false;
+    formBtn.disabled = false;
     sellBtn.disabled = false;
     loadData("POST", "../php/new_trade.php", form);
     console.log("From here 2");
@@ -230,85 +204,11 @@ form.addEventListener("submit", (e) => {
 });
 
 
-//SELL FORM OTHER METHOD
-console.log(sellForm.querySelector('.post-btn button'))
-
-
-const otherSelect = sellForm.querySelector('#buy_select'),
-otherSellingRate = sellForm.querySelector('#selling_rate'),
-otherLowLimit = sellForm.querySelector('#low_limit'),
-otherHighLimit = sellForm.querySelector('#high_limit')
-
-console.log(otherLowLimit);
-
-
-
-
-
-sellForm.addEventListener('submit',(e)=>{
-  e.preventDefault();
-  const otherMethodChecked = document.querySelectorAll('#wallet4 input[type="checkbox"]');
-    if (
-    sellerRate.value == "" ||
-    Array.from(otherMethodChecked).some((boxes) => boxes.checked) == 0
-  ) {
-    e.preventDefault();
-    alert("One or more value cannot be empty or unchecked");
-    formBtn.disabled = true;
-  } else if (
-    parseInt(highLimit.value) >
-    parseInt(walletAvailable.innerHTML.split(" ")[1])
-  ) {
-    sellBtn.disabled = true;
-    alert("You cannot post a sell order higher than your balance 😥");
-    e.preventDefault();
-  }else{
-    formBtn.disabled =false;
-    sellBtn.disabled = false;
-  let formData = new FormData();
-    formData.append('wallet',otherSelect.value);
-    formData.append('selling_rate',otherSellingRate.value);
-    formData.append('low_limit',otherLowLimit.value);
-    formData.append('high_limit',otherHighLimit.value);
-
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData);
-}
-});
-
-//BUY FORM OTHER METHOD
-buyForm.addEventListener('submit',(e)=>{
-  e.preventDefault();
-  if (
-    sellerRate.value == "" ||
-    Array.from(checked).some((boxes) => boxes.checked) == 0
-  ) {
-    e.preventDefault();
-    alert("One or more value cannot be empty or unchecked");
-    formBtn.disabled = true;
-  } else if (
-    parseInt(highLimit.value) >
-    parseInt(walletAvailable.innerHTML.split(" ")[1])
-  ) {
-    sellBtn.disabled = true;
-    alert("You cannot post a sell order higher than your balance 😥");
-    e.preventDefault();
-  }else{
-  let formData = new FormData(e.target);
-  const urlEncodedData = new URLSearchParams(formData).toString();
-  console.log(urlEncodedData);
-}
-})
-
-
-
-
-
-
 fetch("../php/user-wallet.php")
   .then((response) => response.json())
   .then((data) => useData(data))
   .catch((err) => console.log(err));
+
 
 //Buy FORM WALLET TO WALLET
 const form2 = document.querySelector("#trade_post_buy");
@@ -321,14 +221,19 @@ form2.addEventListener("submit", (e) => {
     e.preventDefault();
     alert("One or more value cannot be empty or unchecked");
     formBtn.disabled = true;
-  } else {
+  }else if (
+    parseInt(highLimit.value) >
+    parseInt(walletAvailable.innerHTML.split(" ")[1])
+  ){
+    sellBtn.disabled = true;
+    alert("You cannot post a sell order higher than your balance 😥");
+    e.preventDefault();
+  }
+   else {
     loadData("POST", "../php/p2p-buy.php", form2);
     console.log("From here 2");
   }
 });
-
-
-
 
 //Getting user saved payment receiving methods from the database
 const paymentOptions = document.querySelector("#wallet4");
@@ -360,3 +265,5 @@ fetch("../php/payment-options.php")
     console.log(data);
   })
   .catch((err) => console.log(err));
+
+  

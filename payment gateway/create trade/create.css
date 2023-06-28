@@ -18,7 +18,7 @@ body {
 /* RM */
 section {
   /* width: fit-content; */
-  padding: 5rem;
+  /* padding: 5rem; */
   margin: auto;
 }
 
@@ -275,6 +275,37 @@ span {
   text-align: center;
   margin: 1rem 0;
 }
+/* REFIX  */
+.wallet, .other{
+  background-color: white;
+  padding: 2.5rem;margin: auto;
+}
+.sell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sell_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  /* border: 2px solid red; */
+}
+.sell .sell_header button{
+  padding: 1rem;
+  outline: none;
+  background-color: var(--main-color);
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+
+
+
+
 
 @media only screen and (max-width: 1000px) {
 
@@ -282,8 +313,6 @@ span {
 
   main {
     padding: 1rem;
-    /* width: 100%; */
-    /* border: 2px solid black; */
   }
 
   .currency-c select {

@@ -1,29 +1,41 @@
-const walletFormBtn = document.querySelector('#confirm');
+/*
+Php files
+1. fetUser.php to fetch the user from the database.
+2. Send.php to send the money
+*/
+
+const confirmBtn = document.querySelector('#confirm');
 const receiverID = document.querySelector('#user_name'),
-receiverName = document.querySelector('.details .name'),
+receiverName = document.querySelector('.name'),
 amount = document.querySelector('#amount_to_send'),
-formBtn = document.querySelector('#form_btn'),
+sendMoneyBtn = document.querySelector('#form_btn'),
 selected = document.querySelector('#send-select'),
 confirmBox = document.querySelector('.confirm-details'),
 id = document.querySelector('.details .id');
 
 
+//Prevet the form from reloading the page when its submitted.
+document.querySelector('#p2p-form').addEventListener('submit',(e)=>{
+    e.preventDefault();
+})
+
+console.log(confirmBtn,sendMoneyBtn);
 //by default the form button will be disabled.
-formBtn.disabled = true;
+confirmBtn.disabled = true;
 //the confirm details box too will be invisible
 confirmBox.classList.add('none');
 
-
+sendMoneyBtn.classList.add('none');
 //checking the values inside the amount input if it is a number
 amount.addEventListener("input",()=>{
     const inputValue = amount.value.trim();
     if(/^\d+$/.test(inputValue)){
        console.log("value is a number")
-       formBtn.disabled = false;
-       formBtn.style.backgroundColor = "rgb(46, 204, 113)";
+       confirmBtn.disabled = false;
+       confirmBtn.style.backgroundColor = "rgb(46, 204, 113)";
     }else{
-        formBtn.disabled = true;
-        formBtn.style.backgroundColor = "red";
+        confirmBtn.disabled = true;
+        confirmBtn.style.backgroundColor = "red";
     }
 })
 
@@ -32,34 +44,38 @@ receiverID.addEventListener('input',()=>{
     const inputValue = receiverID.value.trim();
     if(/^\d+$/.test(inputValue)){
        console.log("value is a number")
-       walletFormBtn.disabled = false;
-       walletFormBtn.style.backgroundColor = "rgb(46, 204, 113)";
+       confirmBtn.disabled = false;
+       confirmBtn.style.backgroundColor = "rgb(46, 204, 113)";
     }else{
-        walletFormBtn.disabled = true;
-        walletFormBtn.style.backgroundColor = "red";
+        confirmBtn.disabled = true;
+        confirmBtn.style.backgroundColor = "red";
     }
 })
 
 // the button to confirm the user details
-walletFormBtn.addEventListener('click',(e)=>{
-    // formBtn.disabled = true;
+confirmBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     fetchAsync('./php/fetchUser.php');
     console.log('confirm button');    
 })
 
 //The button to send the value.
-formBtn.addEventListener('click',(e)=>{
+sendMoneyBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     if(amount.value == "" || selected.value ==""){
         e.preventDefault();
         window.alert('One or more value cannot be empty')
-        formBtn.disabled = true;
+        sendMoneyBtn.disabled = true;
     }else if(parseFloat(amount.value) > parseFloat(selected.value)){
         alert('Insufficient Balance')
     }
     else{
-        fetchAsyncSend('./php/p2p.php');
+        fetchAsyncSend('./php/Send.php');
+        setTimeout(() => {
+            amount.value = '';
+            selected.value = '';
+            receiverID.value = '';
+        }, 1000);
     }
 })
 
@@ -74,18 +90,23 @@ async function fetchAsync(url) {
         });
         if(response.ok){
             let data = await response.json();
-            confirmBox.classList.remove('none');
             receiverName.innerHTML= `${data.first_name} ${data.middle_name} ${data.last_name}`;
-            id.innerHTML = data.user_id;
-            formBtn.removeAttribute('hidden');
-            walletFormBtn.setAttribute('hidden',true);
+            confirmBox.classList.remove('none');
+            sendMoneyBtn.classList.remove('none');
+            confirmBtn.setAttribute('hidden',true);
+            console.log(data);
         }
     } catch(error){
-        // console.log(error);
+        console.log(error);
+        sendMoneyBtn.setAttribute('hidden',true);
+        confirmBtn.removeAttribute('hidden');
         confirmBox.classList.remove('none');
-        receiverName.innerHTML= `<b>Id incorrect</b>`;
+        receiverName.innerHTML= `<b>Id incorrect, Please check the user id and try again</b>`;
+        sendMoneyBtn.removeAttribute('hidden');
     }
 };
+
+
 
 //function to send the data to the database
 async function fetchAsyncSend(url) {
@@ -102,9 +123,23 @@ async function fetchAsyncSend(url) {
         if (response.ok) {
             let data =await  response.json();
             console.log(data);
+            if(data['Insufficient Balance']){
+                document.querySelector('.confirm-details p').innerHTML = '😥';
+                receiverName.innerHTML = `<span>${data['Insufficient Balance']}</span>`;
+                console.log('insufficient Balance')
+            };
+            if(data['Successfull']){
+                document.querySelector('.confirm-details p').innerHTML = '<span id="id">SUCCESFULL 😁</span>';
+                receiverName.innerHTML = `<span id="id">${data['Successfull']} <br>Please Fund your account and try again later</span>`;
+                sendMoneyBtn.setAttribute('hidden',true);
+                confirmBox.classList.remove('none');
+                confirmBtn.removeAttribute('hidden');
+                // console.log(data['Succesfull']);
+            };
         }
     } catch (error) {
         // confirmBox.classList.remove('none');
         receiverName.innerHTML= `<b>Id incorrect</b>`;
+        console.log(error);
     }
 }
