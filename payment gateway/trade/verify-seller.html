@@ -35,11 +35,12 @@
       <div class="proof-upload">
         <p>Please confirm the proof of payment before releasing trade</p>
         <div class="proof-upload-file">
-
+          <div class="image-container">
+          </div>
           <label for="file-upload" class="custom-file-upload">
-            <img src="" alt="Upload" />
+            <input id="file-upload" type="file" hidden />
           </label>
-          <input id="file-upload" type="file" name="file" required />
+          <button id="uploadBtn">Upload proof</button>
         </div>
       </div>
       <div class="proof-complete">
@@ -52,11 +53,7 @@
 
               <h4>Transaction ID: #2187093564 </h4>
               <h4>Trade Status: Pending </h4>
-              <!-- <select name="" id="payment-method1">
-                                                        <option value="">BANK PAYMENT</option>
-                                                        <option value="">CHIPPER CASH</option>
-                                                        <option value="">PI NETWORK</option>
-                                              </select> -->
+              
             </div>
             <div class="payment-method-bank">
               <div class="name-details">
@@ -107,6 +104,7 @@
       document.getElementById("myModal").style.display = "block";
     }
   </script>
+  <script src="upload.js"></script>
 </body>
 
 </html>

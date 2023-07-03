@@ -8,7 +8,7 @@
 
 body {
   /* background-color: var(--body); */
-  background-color: #333;
+  background-color: #cac9c9;
   font-family: 'lato', 'roboto';
   font-size: 62.5%;
   padding: 1rem;
@@ -55,6 +55,16 @@ main {
 
 }
 
+input, select{
+  padding: .75rem;
+  font-size: 1.5rem;
+  outline: none;
+  text-align: center;
+}
+
+input:focus{
+  border-bottom: .2rem solid var(--main-color);
+}
 
 #buy {
   background-color: var(--white);
@@ -109,9 +119,13 @@ label {
   /* padding: .25rem; */
   margin: auto;
 }
+.value_display_calculated span{
+  background-color: aliceblue;
+  border: 2px solid rgba(136, 135, 135, 0.47);
+}
 .value_display_box{
   display: flex;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: fit-content;
   align-items: center;
 }
@@ -130,9 +144,31 @@ label {
   font-size: 1.15rem;
 }
 .payment_proceed{
-  display: flex;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
-
+.method_a{
+  padding: .5rem;
+  border: 2px solid rgba(136, 135, 135, 0.47);
+  width: fit-content;
+  margin: auto;
+}
+.method_a select{
+  outline: none;
+  border: none;
+}
+.buy_wallet_value_display,.buy_other_value_display{
+  /* border: 2px solid tomato; */
+  width: 10rem;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: aliceblue;
+  margin: auto;
+  text-align: center;
+}
+.cancel{
+  background-color: red;
+}
 /*  */
 .label1-c select:focus {
   outline: none;
@@ -165,6 +201,10 @@ label {
   font-size: 1.5rem;
   margin: 0;
   width: 2.5rem;
+}
+.content-c{
+  margin: auto;
+  border: #949494a0 2px solid ;
 }
 .content-c p{
   text-align: center;
@@ -208,7 +248,7 @@ label {
 }
 
 .ammount-c {
-  text-align: left;
+  /* text-align: left; */
 }
 
 .order-limit-c {
@@ -266,9 +306,11 @@ span {
 
 .symbol-c {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  margin: .6rem 0;
+  margin: 1rem;
+  text-align: center;
 }
 
 .post-btn {
@@ -295,16 +337,40 @@ span {
 }
 .sell .sell_header button{
   padding: 1rem;
+  margin: .5rem;
   outline: none;
+  border: none;
   background-color: var(--main-color);
   font-size: 1.5rem;
   color: white;
 }
 
+.success,.sell_success{
+  width: clamp(40vw,50%,100vw);
+  margin: auto;
+  padding: 2rem;
+  background-color: rgb(46, 204, 113);
+  color: #333;
+  text-align: center;
+  font-size: 2.5rem;
+}
 
-
-
-
+.posted_display,.sell_posted_display{
+  padding: 2rem;
+  background-color: white;
+  /* border: #797878bb 2px solid; */
+}
+.posted_display div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: #333 .05rem solid;
+}
+.posted_display span{
+  text-transform: capitalize;
+  font-size: 2rem;
+ 
+}
 
 
 @media only screen and (max-width: 1000px) {
@@ -364,6 +430,7 @@ span {
 
   .ammount-c {
     margin: 1rem 0;
+    text-align: center;
     align-items: center;
 
   }

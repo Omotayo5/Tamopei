@@ -128,11 +128,15 @@ async function fetchAsyncSend(url) {
                 receiverName.innerHTML = `<span>${data['Insufficient Balance']}</span>`;
                 console.log('insufficient Balance')
             };
-            if(data['Successfull']){
+            if(data['Successful']){
                 document.querySelector('.confirm-details p').innerHTML = '<span id="id">SUCCESFULL 😁</span>';
-                receiverName.innerHTML = `<span id="id">${data['Successfull']} <br>Please Fund your account and try again later</span>`;
+                receiverName.innerHTML = `<span>${data['Successful']}</span>`;
                 sendMoneyBtn.setAttribute('hidden',true);
                 confirmBox.classList.remove('none');
+                setTimeout(() => {
+                    document.querySelector('.confirm-details p').innerHTML = 'Confirm Receiver';
+                    receiverName.innerHTML = '';
+                }, 5000);
                 confirmBtn.removeAttribute('hidden');
                 // console.log(data['Succesfull']);
             };

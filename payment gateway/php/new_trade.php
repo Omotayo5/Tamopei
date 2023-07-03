@@ -1,52 +1,76 @@
 <?php
+// Make sure to sanitize and validate user inputs before using them in your queries
+
 include('server.php');
+
+// Check if the user is logged in and retrieve necessary session data
+// session_start();
+if (!isset($_SESSION['id'], $_SESSION['name'], $_SESSION['wallet_balance'])) {
+    // Handle session not being set or expired
+    header("HTTP/1.1 401 Unauthorized");
+    exit;
+}
+
 $accountOwner = $_SESSION['id'];
 $accountOwnerName = $_SESSION['name'];
-$wallets=$_SESSION['wallet_balance'];
-header("Content-Type:application/json");
-$response = array("Succesfull"=>"","Seller rate"=>"",);
-// print_r($_SERVER['REQUEST_METHOD']);
-if($_SERVER['REQUEST_METHOD']=== 'POST'){
-    if (isset($_POST['select']) && isset($_POST['Trade_Type']) && isset($_POST['low_limit']) && isset($_POST['high_limit']) && isset($_POST['selling_rate']) && isset($_POST['inputs'])) {
-        $selected = mysqli_real_escape_string($conn, $_POST['select']);
-        $tradeType = mysqli_real_escape_string($conn, $_POST['Trade_Type']);
-        $lowLimit=mysqli_real_escape_string($conn, $_POST['low_limit']);
-        $highLimit=mysqli_real_escape_string($conn, $_POST['high_limit']);
-        $sellerRate = mysqli_real_escape_string($conn, $_POST['selling_rate']);
-        
-        $inputs1=mysqli_real_escape_string($conn, $_POST['inputs'][0]);
-        $inputs2= mysqli_real_escape_string($conn, $_POST['inputs'][1]);
-        $inputs3=mysqli_real_escape_string($conn, $_POST['inputs'][2]);
-        if($inputs1 || $inputs2 || $inputs3){
+$wallets = $_SESSION['wallet_balance'];
 
+header("Content-Type: application/json");
+$response = array("Successful" => "", "Failed" => "");
+$posted = array();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $selected = mysqli_real_escape_string($conn, $_POST['wallet']);
+    $lowLimit = mysqli_real_escape_string($conn, $_POST['low_limit']);
+    $highLimit = mysqli_real_escape_string($conn, $_POST['high_limit']);
+    $Rate = mysqli_real_escape_string($conn, $_POST['rate']);
+    $paymentMethod = mysqli_real_escape_string($conn, $_POST['method']);
+
+    if ($_POST['type'] === 'buy') {
+        // Prepare the query using prepared statements for better security
+        $buy = "INSERT INTO p2p_posts_buy (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`, `payment_method`)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $buyStmt = mysqli_prepare($conn, $buy);
+        mysqli_stmt_bind_param($buyStmt, "issssss", $accountOwner, $accountOwnerName, $selected, $lowLimit, $highLimit, $Rate, $paymentMethod);
+        $buyResult = mysqli_stmt_execute($buyStmt);
+
+        if ($buyResult) {
+            $posted['wallet']= $selected;
+            $posted['low_limit']=$lowLimit;
+            $posted['high_limit']=$highLimit;
+            $posted['rate']=$Rate;
+            $posted['payment_method']=$paymentMethod;
+            $response["Successful"] = $posted;
+        } else {
+            // Handle the error case when the query execution fails
+            $response['Failed'] = "Failed to post buy order";
         }
-       
-            $sell = "INSERT INTO p2p_posts_sell (
-            `user_id`,
-            `user_name`,
-            `wallet`,
-            `lowest_rate`,
-            `highest_rate`,
-            `user_rate`,
-            `payment_method_1`,
-            `payment_method_2`,
-            `payment_method_3`)
-             VALUES (
-            '$accountOwner',
-            '$accountOwnerName',
-            '{$selected}',
-            '$lowLimit',
-            '$highLimit',
-            '$sellerRate',
-            '$inputs1',
-            '$inputs2',
-            '$inputs3')";
-            // Will later convert it to a bind statement for efficient data verification
-            $sellentry = mysqli_query($conn,$sell);
-            $response['Succesfull'] = "Sell order Posted succesfully";
-            $response['seller rate'] = $sellerRate;
+
+        mysqli_stmt_close($buyStmt);
     }
-    echo json_encode($response);
+
+    if ($_POST['type'] === 'sell') {
+        // Prepare the query using prepared statements for better security
+        $sell = "INSERT INTO p2p_posts_sell (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`, `payment_method`)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sellStmt = mysqli_prepare($conn, $sell);
+        mysqli_stmt_bind_param($sellStmt, "issssss", $accountOwner, $accountOwnerName, $selected, $lowLimit, $highLimit, $Rate, $paymentMethod);
+        $sellResult = mysqli_stmt_execute($sellStmt);
+
+        if ($sellResult) {
+            $posted['wallet']= $selected;
+            $posted['low_limit']=$lowLimit;
+            $posted['high_limit']=$highLimit;
+            $posted['rate']=$Rate;
+            $posted['payment_method']=$paymentMethod;
+            $response["Successful"] = $posted;
+        } else {
+            // Handle the error case when the query execution fails
+            $response['Failed'] = "Failed to post sell order";
+        }
+
+        mysqli_stmt_close($sellStmt);
+    }
 }
-// will shift this wallet to another php file so it can be succesfully passed to the javascript or use xhttp
-?>
+
+echo json_encode($response);

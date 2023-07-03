@@ -16,8 +16,7 @@ async function fetchData(url) {
           <h4>Type <span class="green-text"> RECEIVED</span></h4>
           <h4>Wallet: <span class="green-text">${received.currency_wallet}</span></h4>
           <h4>Amount: <span class="green-text">${received.amount}</span></h4>
-          <h4>Sender Id <span class="green-text">${received.receiver_id}</span></h4>
-          <h4>Transaction Fee <span class="green-text">${received.transaction_charge} ${received.currency_wallet}</span></h4>
+          <h4>Sender Id <span class="green-text">${received.sender_id}</span></h4>
           <h4>Transaction Ref: <span class="text-faded">${received.transaction_refrence}</span></h4>
           <h4>Date: <span class="green-text">${received.date}</span></h4>
           `;
@@ -33,7 +32,7 @@ async function fetchData(url) {
           <h4>Type <span class="green-text"> SENT</span></h4>
           <h4>Wallet: <span class="green-text">${sent.currency_wallet}</span></h4>
           <h4>Amount: <span class="green-text">${sent.amount}</span></h4>
-          <h4>Receiver Id <span class="green-text">${sent.sender_id}</span></h4>
+          <h4>Receiver Id <span class="green-text">${sent.receiver_id}</span></h4>
           <h4>Transaction Fee <span class="green-text">${sent.transaction_charge} ${sent.currency_wallet}</span></h4>
           <h4>Transaction Ref: <span class="text-faded">${sent.transaction_refrence}</span></h4>
           <h4>Date: <span class="green-text">${sent.date}</span> <button id="print">Print</button></h4>
