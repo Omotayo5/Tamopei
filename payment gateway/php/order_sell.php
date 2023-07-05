@@ -11,9 +11,7 @@ $stmt2 = "SELECT
 `lowest_rate`,
 `highest_rate`,
 `user_rate`,
-`payment_method_1`,
-`payment_method_2`,
-`payment_method_3`,
+`payment_method`,
 `date` FROM `p2p_posts_sell`
 ORDER BY `date` DESC";
 $result = mysqli_query($conn,$stmt2);

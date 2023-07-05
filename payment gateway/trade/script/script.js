@@ -1,21 +1,10 @@
-import { fetchAsync } from "./safety.js";
-
-var thisuserID = 0;//initializing the userId variable.
-
-
+var thisuserID = 0; //initializing the userId variable.
 
 //Retrieve the payment methods the poster adds to his trades and paste it on individual trade modal boxes
-
-
-
-
-
 
 const buy_tableBody = document.querySelector(".buy_other_methods"),
   sell_tableBody = document.querySelector(".sell_other_methods"),
   popContainer = document.querySelector("popup-container4");
-
-
 
 const retrieved = {};
 // console.log(document.querySelector(".buy_other_methods").innerHTML)
@@ -99,9 +88,9 @@ function loadData(method, url) {
     const datas = JSON.parse(this.response);
     retrieved.data = datas;
     //Retrieving the current user id and checking it against the trades id to prevent user from interracting with the trade they post.
-    thisuserID = datas['three'];
-    console.log(datas['one'])
-    console.log(datas['three']);
+    thisuserID = datas["three"];
+    console.log(datas["one"]);
+    console.log(datas["three"]);
     //Looping through the trade data and posting it on the trade page
     datas.one.forEach((data) => {
       const html = `<tr>
@@ -132,14 +121,12 @@ function loadData(method, url) {
         </td>
         <td>
           <div class="card-info2">
-            <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1USD</h3>
+            <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1${data.payment_method}</h3>
           </div>
         </td>
         <td>
         <div class="methods">
-            <span>${data.payment_method_1}</span>
-            <span>${data.payment_method_2}</span>
-            <span>${data.payment_method_3}</span>
+            <span>${data.payment_method}</span>
           </div>
         </td>
         <td class="flex">
@@ -154,13 +141,181 @@ function loadData(method, url) {
     </tr>`;
       //Adding the html into the dom;
       buy_tableBody.innerHTML += html;
+
+      if (data.payment_method == "Naira") {
+        const buy_order_wallet = `<tr>
+        <td>
+          <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
+          <div class="card-info1">
+
+          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1${data.payment_method}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn" id="modal-btn"> Buy NGN</button>
+          </div>
+        </td>
+      </tr>`;
+        document
+          .querySelector("#PayByWallet")
+          .insertAdjacentHTML("afterbegin", buy_order_wallet);
+      }
+      if (data.payment_method == "Dollar") {
+        const buy_order_wallet = `<tr>
+        <td>
+          <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
+          <div class="card-info1">
+
+          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1${data.payment_method}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn" id="modal-btn"> Buy USD</button>
+          </div>
+        </td>
+      </tr>`;
+        document
+          .querySelector("#PayByWallet")
+          .insertAdjacentHTML("afterbegin", buy_order_wallet);
+      }
+      if (data.payment_method == "Rand") {
+        const buy_order_wallet = `<tr>
+        <td>
+          <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
+          <div class="card-info1">
+
+          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1${data.payment_method}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn" id="modal-btn"> Buy ZAR</button>
+          </div>
+        </td>
+      </tr>`;
+        document
+          .querySelector("#PayByWallet")
+          .insertAdjacentHTML("afterbegin", buy_order_wallet);
+      }
+      if (data.payment_method == "Cedi") {
+        const buy_order_wallet = `<tr>
+        <td>
+          <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
+          <div class="card-info1">
+
+          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+            <h3>Trade(s): <span>
+                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
+                  class="fa-regular fa-star"></i>
+              </span></h3>
+
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-info2">
+          <h3 class="wallet"> ${data.user_rate}  <span>${data.wallet}</span><i class="fa-solid fa-right-left"></i>1${data.payment_method}</h3>
+          </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn" id="modal-btn"> Buy GHC</button>
+          </div>
+        </td>
+      </tr>`;
+        document
+          .querySelector("#PayByWallet")
+          .insertAdjacentHTML("afterbegin", buy_order_wallet);
+      }
     });
   };
   /////////////////The function that handles the click on individual container///////////////////////////
   function handleclick(event) {
     var item = event.target;
     const order = {};
-
 
     if (item.tagName === "BUTTON") {
       console.log(thisuserID);
@@ -173,7 +328,8 @@ function loadData(method, url) {
         item.parentElement.parentElement.parentElement.querySelector(
           "td input"
         );
-        const tradeIndex = item.parentElement.parentElement.parentElement.querySelector(
+      const tradeIndex =
+        item.parentElement.parentElement.parentElement.querySelector(
           "td #trade_ind"
         );
       const paymentMethod1 =
@@ -184,10 +340,11 @@ function loadData(method, url) {
         item.parentElement.parentElement.parentElement.querySelector(
           "td .card-info1 h3"
         );
-      const wallet = item.parentElement.parentElement.parentElement.querySelector(
-        "td .card-info2 .wallet span"
-      );
-      console.log(wallet)
+      const wallet =
+        item.parentElement.parentElement.parentElement.querySelector(
+          "td .card-info2 .wallet span"
+        );
+      console.log(wallet);
       const purchaseAmnt = document.querySelector(
         ".payment-method-bank #amount input"
       );
@@ -196,51 +353,79 @@ function loadData(method, url) {
       );
       //Checking if the account user id is thesame thing as the trade id,
       //if itśthesame then the user will not be able to interract with that specific trade
-        if(thisuserID == userID.value){
-          purchaseAmnt.disabled = true;
-        }
+      if (thisuserID == userID.value) {
+        purchaseAmnt.disabled = true;
+      }
 
-
-        // console.log(userID.value);
+      // console.log(userID.value);
       //Getting each container innerHtml to set it as the values of the modal container when they are clicked individually.
-      const lowLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1,
-       highLimit = item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[1].innerHTML*1,
-       rate = item.parentElement.parentElement.parentElement.querySelector("td .card-info2 .wallet").childNodes[0].textContent *1;    
+      const lowLimit =
+          item.parentElement.parentElement.parentElement.querySelectorAll(
+            ".limit span"
+          )[0].innerHTML * 1,
+        highLimit =
+          item.parentElement.parentElement.parentElement.querySelectorAll(
+            ".limit span"
+          )[1].innerHTML * 1,
+        rate =
+          item.parentElement.parentElement.parentElement.querySelector(
+            "td .card-info2 .wallet"
+          ).childNodes[0].textContent * 1;
       order.userID = userID.value;
       order.wallet = wallet.innerHTML;
-      
 
+      const tradeInd = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='trade_index']"
+        ),
+        orderUnitInpt = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='order_unit']"
+        ),
+        orderCostInpt = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='order_cost']"
+        ),
+        receveInpt = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='receive']"
+        ),
+        transactionFee = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='transaction_fee']"
+        ),
+        exchangeRate = document.querySelector(
+          "#floating_container .payment_receiving_methods input[name='exchange_rate']"
+        );
 
-      const tradeInd = document.querySelector("#floating_container .payment_receiving_methods input[name='trade_index']"),
-       orderUnitInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='order_unit']"),
-       orderCostInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='order_cost']"),
-       receveInpt = document.querySelector("#floating_container .payment_receiving_methods input[name='receive']"),
-       transactionFee = document.querySelector("#floating_container .payment_receiving_methods input[name='transaction_fee']"),
-       exchangeRate = document.querySelector("#floating_container .payment_receiving_methods input[name='exchange_rate']");
-      
-
-
-      
       //Updating the amount to receive as the input value is typed
-      purchaseAmnt.addEventListener('input',()=>{
-        order.orderCost = (purchaseAmnt.value * 1)*rate;
-        order.transactionFee = (purchaseAmnt.value * 1)*rate - ((purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01);
-        order.receiveAmnt = (purchaseAmnt.value * 1)*rate - (purchaseAmnt.value * 1)*rate *0.01
-        document.querySelector('#floating_container .order_cost p').innerHTML = order.orderCost;
-        document.querySelector('#floating_container .fee p').innerHTML = parseFloat((order.transactionFee*1).toFixed(2));
-        document.querySelector('#floating_container .receive p').innerHTML = parseFloat(order.receiveAmnt.toFixed(2));
-      })
+      purchaseAmnt.addEventListener("input", () => {
+        order.orderCost = purchaseAmnt.value * 1 * rate;
+        order.transactionFee =
+          purchaseAmnt.value * 1 * rate -
+          (purchaseAmnt.value * 1 * rate -
+            purchaseAmnt.value * 1 * rate * 0.01);
+        order.receiveAmnt =
+          purchaseAmnt.value * 1 * rate - purchaseAmnt.value * 1 * rate * 0.01;
+        document.querySelector("#floating_container .order_cost p").innerHTML =
+          order.orderCost;
+        document.querySelector("#floating_container .fee p").innerHTML =
+          parseFloat((order.transactionFee * 1).toFixed(2));
+        document.querySelector("#floating_container .receive p").innerHTML =
+          parseFloat(order.receiveAmnt.toFixed(2));
+      });
 
       //////////////////////////////////MODAL CONTAINER VALUES////////////////////////////////////////
       //Inputing the innerHtml values taken from each trades when clicked into the modal container.
-      const userToDbID = document.querySelector(".payment_receiving_methods input[name='user_id']") ;
+      const userToDbID = document.querySelector(
+        ".payment_receiving_methods input[name='user_id']"
+      );
       userToDbID.value = order.userID * 1;
-      const exchngRate = document.querySelector('#floating_container .rate p');
-      exchngRate.innerHTML = rate*1;
+      const exchngRate = document.querySelector("#floating_container .rate p");
+      exchngRate.innerHTML = rate * 1;
 
       //Setting the name and id
-      document.querySelector("#floating_container h3").innerHTML = `${userName.innerHTML} `;
-      document.querySelector("#floating_container .payment_receiving_methods input[name='wallet']").value = order.wallet;
+      document.querySelector(
+        "#floating_container h3"
+      ).innerHTML = `${userName.innerHTML} `;
+      document.querySelector(
+        "#floating_container .payment_receiving_methods input[name='wallet']"
+      ).value = order.wallet;
 
       //Setting the payment method data into their container
       var paymentModal = document.querySelector(".sp p");
@@ -248,10 +433,12 @@ function loadData(method, url) {
       paymentModal.innerHTML += `<span class="one">${paymentMethod1[1].innerHTML}</span> `;
       paymentModal.innerHTML += `<span class="one">${paymentMethod1[2].innerHTML}</span>`;
       //////////////////////////////////////////////////////////////////////////////////////////////
-      
-      
-      
-      console.log(item.parentElement.parentElement.parentElement.querySelectorAll('.limit span')[0].innerHTML*1);
+
+      console.log(
+        item.parentElement.parentElement.parentElement.querySelectorAll(
+          ".limit span"
+        )[0].innerHTML * 1
+      );
 
       //NOTE
       /* as this button is The user id will be taken and sent to the database to get the addresses of the user's available payment methods and be returned
@@ -268,39 +455,46 @@ function loadData(method, url) {
         orderUnitInpt.value = purchaseAmnt.value;
         orderCostInpt.value = order.orderCost;
         receveInpt.value = order.receiveAmnt;
-        exchangeRate.value = rate *1;
-        transactionFee.value = parseFloat((order.transactionFee*1).toFixed(2));
+        exchangeRate.value = rate * 1;
+        transactionFee.value = parseFloat(
+          (order.transactionFee * 1).toFixed(2)
+        );
 
         // console.log("Confirm button worked", (purchaseAmnt.value * 1)*rate);
-        console.log(order.userID * 1,userToDbID.value*1);
+        console.log(order.userID * 1, userToDbID.value * 1);
         // console.log(order,orderUnitInpt.value *1,orderCostInpt.value *1);
 
         //the data will be fetched and sent to the database;
-        const apiKey = 'YOUR_API_KEY';
-        const endpoint = '../php/order_request.php';
-        const form = document.querySelector('.payment_receiving_methods form');
+        const apiKey = "YOUR_API_KEY";
+        const endpoint = "../php/order_request.php";
+        const form = document.querySelector(".payment_receiving_methods form");
 
-        form.addEventListener('submit',(e)=>{
-          console.log(purchaseAmnt.value,lowLimit,highLimit)
+        form.addEventListener("submit", (e) => {
+          console.log(purchaseAmnt.value, lowLimit, highLimit);
           const formData = new FormData(form);
-          if(orderUnitInpt.value.trim() !=='' && purchaseAmnt.value.trim()*1 >= lowLimit && purchaseAmnt.value.trim()*1<=highLimit){
+          if (
+            orderUnitInpt.value.trim() !== "" &&
+            purchaseAmnt.value.trim() * 1 >= lowLimit &&
+            purchaseAmnt.value.trim() * 1 <= highLimit
+          ) {
             e.preventDefault();
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', endpoint);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onload = function () {
-                  const datas = (this.response);
-                  console.log(datas);
-                
-                }
-                const urlEncodedData = new URLSearchParams(formData).toString();
-                console.log(urlEncodedData)
-                xhr.send(urlEncodedData);
-          }else{
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", endpoint);
+            xhr.setRequestHeader(
+              "Content-Type",
+              "application/x-www-form-urlencoded"
+            );
+            xhr.onload = function () {
+              const datas = this.response;
+              console.log(datas);
+            };
+            const urlEncodedData = new URLSearchParams(formData).toString();
+            console.log(urlEncodedData);
+            xhr.send(urlEncodedData);
+          } else {
             e.preventDefault();
-            
           }
-        })
+        });
       });
     } else {
       console.log("Not a button");
@@ -324,16 +518,11 @@ function loadData(method, url) {
   xhr.send();
 }
 
-
 ///////////////BUY POST/////////////////////
 const method_buy = "POST",
   url_buy = "../php/order_buy.php";
 loadData(method_buy, url_buy);
 /////////////////////////////////////
-
-
-
-
 
 function loadData2(method, url) {
   const xhr = new XMLHttpRequest();
@@ -343,12 +532,12 @@ function loadData2(method, url) {
     const datas = JSON.parse(this.response);
     console.log(datas);
     datas.forEach((data) => {
-      if(data.payment_method_1 == 'Cedi'){
-        
-        const byWallet =
-        `<tr>
+      if (data.payment_method == "Cedi") {
+        const byWallet = `<tr>
         <td>
           <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
             <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
           </div>
         </td>
@@ -380,15 +569,17 @@ function loadData2(method, url) {
             <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell GHC</button>
           </div>
         </td>
-      </tr>`
-      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
-      };
-      if(data.payment_method_1 == 'Dollar'){
-        
-        const byWallet =
-        `<tr>
+      </tr>`;
+        document
+          .querySelector("#sellByWallet")
+          .insertAdjacentHTML("afterbegin", byWallet);
+      }
+      if (data.payment_method == "Dollar") {
+        const byWallet = `<tr>
         <td>
           <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
             <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
           </div>
         </td>
@@ -420,15 +611,17 @@ function loadData2(method, url) {
             <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell USD</button>
           </div>
         </td>
-      </tr>`
-      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
-      };
-      if(data.payment_method_1 == 'Rand'){
-        
-        const byWallet =
-        `<tr>
+      </tr>`;
+        document
+          .querySelector("#sellByWallet")
+          .insertAdjacentHTML("afterbegin", byWallet);
+      }
+      if (data.payment_method == "rand") {
+        const byWallet = `<tr>
         <td>
           <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
             <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
           </div>
         </td>
@@ -460,15 +653,15 @@ function loadData2(method, url) {
             <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell ZAR</button>
           </div>
         </td>
-      </tr>`
-      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
-      };
-      if(data.payment_method_1 == 'Naira'){
-       
-        const byWallet =
-        `<tr>
+      </tr>`;
+        document.querySelector("#sellByWallet").innerHTML += byWallet;
+      }
+      if (data.payment_method == "Naira") {
+        const byWallet = `<tr>
         <td>
           <div class="card-info1">
+          <input type="tel" value="${data.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
             <h3>${data.user_name} ID <span id="id">${data.user_id}</span></h3>
           </div>
         </td>
@@ -498,11 +691,11 @@ function loadData2(method, url) {
             <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
           </div>
         </td>
-      </tr>`
-      document.querySelector('#sellByWallet').insertAdjacentHTML('afterbegin',byWallet);
-      };
-
-
+      </tr>`;
+        document
+          .querySelector("#sellByWallet")
+          .insertAdjacentHTML("afterbegin", byWallet);
+      }
 
       /*
       
@@ -515,7 +708,8 @@ function loadData2(method, url) {
       const html = `<tr>
       <td>
         <div class="card-info1">
-  
+        <input type="tel" value="${data.user_id}" hidden>
+        <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <h3> ${data.user_name} -- (${data.user_id})</h3>
   
         </div>
@@ -543,14 +737,12 @@ function loadData2(method, url) {
       </td>
       <td>
           <div class="methods">
-          <span><b>${data.payment_method_1}</b> </span>
-          <span><b>${data.payment_method_2}</b> </span>
-          <span><b>${data.payment_method_3}</b></span>
+          <span><b>${data.payment_method}</b> </span>
           </div>
       </td>
       <td>
         <div class="card-buy">
-          <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
+          <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell</button>
         </div>
       </td>
     </tr>`;
@@ -560,48 +752,7 @@ function loadData2(method, url) {
   xhr.send();
 }
 
-
-
 //////////////SELL POST//////////////
 const method_sell = "POST",
   url_sell = "../php/order_sell.php";
 loadData2(method_sell, url_sell);
-
-// pop-up contsiner for other paynent methods
-setTimeout(() => {
-  document.querySelectorAll('.sell_other_method').forEach(button=>{
-    button.addEventListener('click',(e)=>{
-      document.querySelector('#popup-container5').style.display = 'block';
-
-    })
-  })
-}, 1000);
-
-
-//Getting the values of the trade box whenever its clicked individually;
-setTimeout(() => {
-  document.querySelectorAll('#modal-btn').forEach(button=>{
-    button.addEventListener('click',(e)=>{
-      let walletContainer = e.target.parentElement.parentElement.parentElement;
-      document.querySelector('#popup-container2').style.display = 'block';
-      let sellerId = walletContainer.querySelector('td #id').innerHTML;
-
-
-
-
-
-      document.querySelector('#popup-container2 #seller p').innerHTML = sellerId;
-      // document.querySelector('#popup-container2 #wallet p').innerHTML = 
-    })
-  })
-}, 1000);
-
-
-
-//Closing the modal box
-window.addEventListener("click", function(event) {
-  if (event.target == document.querySelector('#popup-container2')||event.target == document.querySelector('#popup-container5')) {
-    document.querySelector('#popup-container2').style.display = "none"; // Hide the modal when clicking outside of it
-    document.querySelector('#popup-container5').style.display = 'none';
-  }
-});
