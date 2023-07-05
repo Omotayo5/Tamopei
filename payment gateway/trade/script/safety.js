@@ -7,7 +7,6 @@
 // };
 
 
-
 //Closing the modal box
 window.addEventListener("click", function (event) {
   if (
