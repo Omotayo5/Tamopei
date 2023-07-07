@@ -11,10 +11,11 @@
 window.addEventListener("click", function (event) {
   if (
     event.target == document.querySelector("#popup-container2") ||
-    event.target == document.querySelector("#popup-container5")
+    event.target == document.querySelector("#popup-container5")||event.target== document.querySelector('.popup-container')
   ) {
     document.querySelector("#popup-container2").style.display = "none"; // Hide the modal when clicking outside of it
     document.querySelector("#popup-container5").style.display = "none";
+    document.querySelector('.popup-container').style.display = "none";
   }
 });
 
@@ -32,12 +33,11 @@ setTimeout(() => {
 setTimeout(() => {
   document.querySelectorAll("#modal-btn").forEach((button) => {
     button.addEventListener("click", (e) => {
-      let walletContainer = e.target.parentElement.parentElement.parentElement;
-      document.querySelector("#popup-container2").style.display = "block";
-      let sellerId = walletContainer.querySelector('td #id').innerHTML;
-      document.querySelector("#popup-container2 #seller p").innerHTML =
-        sellerId;
-      // document.querySelector('#popup-container2 #wallet p').innerHTML =
+      console.log(document.querySelector('.limit').innerHTML);
+      document.querySelector('.popup-container').style.display = "block";
+      
     });
   });
 }, 1000);
+
+
