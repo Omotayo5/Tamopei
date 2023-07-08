@@ -147,49 +147,59 @@
           <div class="popup-container" style="display: none;">
             <div class="popup-content">
 
-
-              <div class="transaction">
-                <div class="payment-method-head">
-                  <H4> PAY BY WALLET</H4>
-                  <select name="" id="payment-method1">
-                    <option value="">GHC TO USD</option>
-
-                  </select>
+              <form id="buy_wallet">
+                <div class="transaction">
+                  <div class="payment-method-head">
+                    <H4> PAY BY WALLET</H4>
+                    <p><span></span> <span></span></p>
+                  </div>
+                  <div class="payment-method-bank">
+                    <div class="name-details" id="my_wallet">
+                      <h4 >MY WALLET:</h4>
+                      <p>GHC WALLET</p>
+                    </div>
+                    <div class="name-details" id="wallet_balance">
+                      <h4 >MY WALLET BALANCE:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="seller_wallet">
+                      <h4 >SELLER WALLET:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="low_limit">
+                      <h4 >Low limit:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="high_limit">
+                      <h4 >High limit:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="exchange_rate">
+                      <h4 >Exchange Rate:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
+                    </div>
+                    <div class="name-details" id="purchase_cost">
+                      <h4 >PURCHASE COST:</h4>
+                      <p> </p>
+                    </div>
+                    <div class="name-details" id="transaction_fee">
+                      <h4 >FEE 1%:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="receive_amount">
+                      <h4 >RECEIVE AMOUNT:</h4>
+                      <p></p>
+                    </div>
+                    <div class="btn-proceed">
+                      <button class="popup-confirm" id="buy_wallet_confirm">CONFIRM</button>
+                      <button type="reset" class="close-btn" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="payment-method-bank">
-                  <div class="name-details">
-                    <h4>MY WALLET:</h4>
-                    <p>GHC WALLET</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>WALLET BALANCE:</h4>
-                    <p>500</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>SELLER WALLET:</h4>
-                    <p>USD WALLET</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE AMOUNT</h4><input type="tel" placeholder=" $">
-                  </div>
-                  <div class="name-details">
-                    <h4>PURCHASE COST:</h4>
-                    <p> &#x20A6;74,000</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>FEE 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
-                    <button class="popup-confirm">CONFIRM</button>
-                    <button class="close-btn" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                  </div>
-                </div>
-              </div>
+              </form>
 
             </div>
           </div>
@@ -296,39 +306,47 @@
         <div class="popup-container2" id="popup-container2" style="display: none;">
           <div class="popup-content">
             <div class="transaction">
-              <div class="payment-method-head">
-                <H4> PAY BY WALLET</H4>
-              </div>
-             
-              <div class="payment-method-bank">
-                <div class="name-details" id="seller">
-                  <h4 >SELLER ID:</h4>
-                  <p> </p>
+              <form id="sell_wallet">
+                <div class="transaction">
+                  <div class="payment-method-head">
+                    <H4> PAY BY WALLET</H4>
+                    <p><span></span> <span></span></p>
+                  </div>
+                  <div class="payment-method-bank">
+                    <div class="name-details">
+                      <h4 id="my_wallet">MY WALLET:</h4>
+                      <p>GHC WALLET</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="wallet_balance">WALLET BALANCE:</h4>
+                      <p>500</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="seller_wallet">SELLER WALLET:</h4>
+                      <p>USD WALLET</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
+                    </div>
+                    <div class="name-details">
+                      <h4 id="purchase_cost">PURCHASE COST:</h4>
+                      <p> &#x20A6;74,000</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="transaction_fee">FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="receive_amount">RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+                    <div class="btn-proceed">
+                      <button class="popup-confirm" id="sell_wallet_confirm">CONFIRM</button>
+                      <button type="reset" class="close-btn" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="name-details" id="wallet">
-                  <h4 >WALLET NAME:</h4>
-                  <p>GHC WALLET</p>
-                </div>
-                <div class="name-details" id="wallet_balance">
-                  <h4 >WALLET BALANCE:</h4>
-                  <p>&#x20B5;500</p>
-                </div>
-                <div class="name-details" id="receiver_wallet">
-                  <h4 >RECEIVER WALLET:</h4>
-                  <p>USD WALLET</p>
-                </div>
-                <div class="name-details">
-                  <h4>SOLD AMOUNT</h4>
-                  <input type="tel" id="amount">
-                </div>
-                <div class="name-details" id="receive_value">
-                  <h4 >RECEIVE AMOUNT:</h4>
-                  <p>$12.5</p>
-                </div>
-                <div class="btn-proceed">
-                  <button class="popup-confirm1">CONFIRM</button>
-                  <button class="close-btn2" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
-                </div>
+              </form>
               </div>
             </div>
 
@@ -370,10 +388,7 @@
                   <h4>RECEIVED AMOUNT:</h4>
                   <p>$12.5</p>
                 </div>
-
-
                 <div class="complete-card" id="complete-card">
-
                   <h3>Transaction ID: #2187093564 </h3>
                 </div>
                 <div class="btn-proceed">
@@ -499,43 +514,65 @@
                 <div class="payment-method-head">
                   <H4>OTHER PAYMENT METHODS</H4>
                 </div>
-                <div class="payment-method-bank" id="bank-box1">
-                  <div class="name-details">
-                    <h4>Bank name:</h4>
-                    <p>SPRING BANK</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>Acc name:</h4>
-                    <p>ADEJUYI SAMSON J</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>Account NO:</h4>
-                    <p>2187093564</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>purchase unit</h4><input type="tel" placeholder=" $">
-                  </div>
-                  <div class="name-details">
-                    <h4>Cost:</h4>
-                    <p>&#x20A6;74,000</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>Transaction fee 1%:</h4>
-                    <p>$1</p>
-                  </div>
-                  <div class="name-details">
-                    <h4>RECEIVE AMOUNT:</h4>
-                    <p>$99.00</p>
-                  </div>
-                  <div class="btn-proceed">
+                <form id="sell_wallet">
+                  <div class="transaction">
+                    <div class="payment-method-head">
 
-                    <a href="verify.html">
-                      <button class="close-btn5" id="cancel-inner"> CONFIRM</button>
-                    </a>
+                      <div class="methods">
+                        <div class="name-details">
+                          <h4>Bank name:</h4>
+                          <p>SPRING BANK</p>
+                        </div>
+                        <div class="name-details">
+                          <h4>Acc name:</h4>
+                          <p>ADEJUYI SAMSON J</p>
+                        </div>
+                        <div class="name-details">
+                          <h4>Account NO:</h4>
+                          <p>2187093564</p>
+                        </div>
+                      </div>
 
-                    <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
+
+                    <div class="payment-method-bank">
+                      <div class="name-details">
+                        <h4 id="my_wallet">MY WALLET:</h4>
+                        <p>GHC WALLET</p>
+                      </div>
+                      <div class="name-details" id="wallet_balance">
+                        <h4 >WALLET BALANCE:</h4>
+                        <p>500</p>
+                      </div>
+                      <div class="name-details">
+                        <h4 id="seller_wallet">SELLER WALLET:</h4>
+                        <p>USD WALLET</p>
+                      </div>
+                      <div class="name-details">
+                        <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
+                      </div>
+                      <div class="name-details">
+                        <h4 id="purchase_cost">PURCHASE COST:</h4>
+                        <p> &#x20A6;74,000</p>
+                      </div>
+                      <div class="name-details">
+                        <h4 id="transaction_fee">FEE 1%:</h4>
+                        <p>$1</p>
+                      </div>
+                      <div class="name-details">
+                        <h4 id="receive_amount">RECEIVE AMOUNT:</h4>
+                        <p>$99.00</p>
+                      </div>
+
+                      <div class="btn-proceed">
+                        <a href="verify.html">
+                          <button class="close-btn5" id="cancel-inner"> CONFIRM</button>
+                        </a>
+                        <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
 
             </div>

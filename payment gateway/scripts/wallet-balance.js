@@ -15,6 +15,10 @@ balanceReq.onload = function () {
       walletName: key,
       walletValue: data[key],
     };
+    sessionStorage.setItem("Naira",curr.walletValue["Naira"]);
+    sessionStorage.setItem("Cedi",curr.walletValue["Cedi"]);
+    sessionStorage.setItem("Rand",curr.walletValue["Rand"]);
+    sessionStorage.setItem("Dollar",curr.walletValue["Dollar"]);
     var html = `<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">${curr.walletName}<span class="material-icons-sharp">
       visibility</span></h3><h2><span">%logo</span><span id="amount">${curr.walletValue}</span></h2></div></div></div></div>`;
     //will leave this because of the currency logo.
@@ -30,7 +34,7 @@ balanceReq.onload = function () {
     const exchange = [];
     //Creating the exchange rate logic
     if (curr.walletName == "Naira") {
-      newHtml = newHtml.replace("%logo", "₦");
+      newHtml = newHtml.replace("%logo", "NGN");
       //Get the current exchange rate oƒ dollar
       const dollar = 730;
       domStrings.totalBalContainer.innerHTML = exchangeRate(
@@ -38,11 +42,11 @@ balanceReq.onload = function () {
         curr.walletValue
       );
     } else if (curr.walletName == "Dollar") {
-      newHtml = newHtml.replace("%logo", "$");
+      newHtml = newHtml.replace("%logo", "USD");
     } else if (curr.walletName == "Cedi") {
-      newHtml = newHtml.replace("%logo", "₡");
+      newHtml = newHtml.replace("%logo", "GHC");
     } else if (curr.walletName == "Rand") {
-      newHtml = newHtml.replace("%logo", "₨");
+      newHtml = newHtml.replace("%logo", "ZAR");
     }
 
     //Wallet to Wallet

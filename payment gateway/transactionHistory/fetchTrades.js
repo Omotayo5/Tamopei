@@ -34,14 +34,11 @@ async function fetchData(url) {
           const pendingTrade = 
           `<div class="table-info">
           <h4>Wallet: <span class="green-text">${pending.wallet}</span></h4>
-          <h4>Amount: <span class="green-text">${pending.amount} </span>NGN ${pending.type}</h4>
           <h4>Rate: <span class="green-text">${pending.user_rate}</span></h4>
           <h4>Highest: <span class="green-text">${pending.highest_rate}</span></h4>
           <h4>Lowest: <span class="green-text">${pending.lowest_rate}</span></h4>
           <h4>Posted on: <span class="green-text">${pending.date}</span></h4>
-          <h4>Payment Receiving Methods: <span><b>${pending.payment_method_1}</b></span>
-          <span><b>${pending.payment_method_2 ? pending.payment_method_2 : ' '}</b><span>
-          <b>${pending.payment_method_3 ? pending.payment_method_3 : ' '}</b></span></span>
+          <h4>Payment Receiving Methods: <span><b>${pending.payment_method}</b></span>
           <h4><button style="background-color: var(--secondary); cursor: pointer;">Cancel</button></h4>
           `;
           document.querySelector('#pending').insertAdjacentHTML('beforeend',pendingTrade);
@@ -137,44 +134,3 @@ setTimeout(() => {
     //The trade will be cancelled and the notification will be shown on the buyer's account as cancelled trade.
   });
 }, 1000);
-
-
-
-//Pending Trade
-`<div class="table-info">
-<h4>Trade Value: <span class="green-text">4,000 </span>NGN [sell]</h4>
-<h4>Rate: 1 USD/700 NGN</h4>
-<h4>Trade ID: <span class="text-faded">213298</span></h4>
-<h4>Status: <button>Pending</button></h4>
-</div>`//Active trade
-`<div class="table-info" id="4000">
-<h4>Trade Value: <span class="green-text">4,000 </span>NGN [sell]</h4>
-<h4>Rate: 1 USD/700 NGN</h4>
-<h4>Trade ID: <span class="text-faded">213298</span></h4>
-<h4>Status: <button>Active</button> <button
-    style="background-color: var(--secondary); cursor: pointer;">Cancel</button></h4>
-</div>`//Disputed Trade
-`<div class="table-info">
-<h4>Trade Value: <span class="green-text">3,000 </span>NGN [Buy]</h4>
-<h4>Rate: 1 USD/720 NGN</h4>
-<h4>Trade ID: <span class="text-faded">213297</span></h4>
-<h4>Status: <button>Disputed</button></h4>
-</div>`//Cancelled trade
-` <div class="table-info">
-<h4>Trade Value: <span class="green-text">2,000 </span>NGN [sell]</h4>
-<h4>Rate: 1 USD/750 NGN</h4>
-<h4>Trade ID: <span class="text-faded">213296</span></h4>
-<h4>Status: <button>Cancelled</button></h4>
-</div>`//Completed
-`<div class="table-info">
-<h4>My Wallet: <span class="green-text">NAIRA WALLET</span></h4>
-<h4>Seller Wallet: <span class="green-text">USD WALLET </span></h4>
-<h4>Seller Name: <span class="green-text">@EMMANUELJOJO </span></h4>
-<h4>Trade Value: <span class="green-text">$100 </span> [BUY]</h4>
-<h4>Trade Cost: <span class="green-text">&#x20A6;74,000 </span> </h4>
-<h4>Rate: 1 USD/700 NGN</h4>
-<h4>Fee: $1</h4>
-<h4>Amount Recieved: $99.00</h4>
-<h4>Trade ID: <span class="text-faded">#213298</span></h4>
-<h4>Status: <button>Completed</button></h4>
-</div>`;

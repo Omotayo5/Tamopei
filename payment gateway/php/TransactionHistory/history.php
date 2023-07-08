@@ -43,13 +43,10 @@ if ($activeTrade->num_rows > 0) {
 
 //Select all from cancelled trade
 $sql = "SELECT `wallet`,
-`amount`,
 `lowest_rate`,
 `highest_rate`,
 `user_rate`,
-`payment_method_1`,
-`payment_method_2`,
-`payment_method_3`,
+`payment_method`,
 `date` FROM `p2p_posts_buy` WHERE user_id = $accountOwner";
 $pendingTrade = mysqli_query($conn, $sql);
 

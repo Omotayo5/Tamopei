@@ -46,7 +46,12 @@
             <div class="currency-c">
               <div class="assest-c">
                 <div class="labe1-c">
-                  <label for="">Wallet</label> &nbsp;&nbsp;&nbsp;
+                  <div class="payment_proceed">
+
+                    <div class="payment-method-c">
+                      <button class="btn-c active" id="dropbtn">Sell</button>
+                    </div>
+                  </div>
                   <select class="wallet-select select" id="buy_wallet_select">
                     <option value="" id="available_curr">Select Wallet</option>
                     <!--Data from the database will be shown here  -->
@@ -54,6 +59,21 @@
                   </select>
                   <div class="buy_wallet_value_display">
                     <span></span>
+                  </div>
+                </div>
+                <div>
+                  <div class="payment_proceed">
+                    <div class="payment-method-c">
+                      <button class="btn-c active" id="dropbtn">Buy</button>
+                    </div>
+                  </div>
+                  <div class="method_a">
+                    <select class="wallet-select" id="wallet_to_receive">
+                      <option value="Rand">ZAR</option>
+                      <option value="Cedi">GHC</option>
+                      <option value="Dollar">USD</option>
+                      <option value="Naira">NGN</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -95,7 +115,7 @@
 
             </div>
             <hr>
-            <div class="payment_proceed">
+            <!-- <div class="payment_proceed">
               <div class="payment-method-c">
                 <button class="btn-c active" id="dropbtn">Wallet</button>
               </div>
@@ -107,7 +127,7 @@
                 <option value="Dollar">USD</option>
                 <option value="Naira">NGN</option>
               </select>
-            </div>
+            </div> -->
             <div class="post-btn">
               <button id="wallet_submit" class="btn-1">POST</button>
               <button type="reset" id="wallet_cancel" class="btn-1 cancel">CANCEL</button>
