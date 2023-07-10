@@ -236,7 +236,7 @@ function loadData(method, url) {
         <td class="flex">
               <td>
                 <div class="card-buy">
-                  <button class="btn4" id="modal-btn"> Buy ${data.wallet}</button>
+                  <button class="btn4" id="modal-btn_buy_other"> Buy ${data.wallet}</button>
                 </div>
               </td>
 

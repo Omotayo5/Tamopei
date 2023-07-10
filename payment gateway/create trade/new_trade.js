@@ -24,6 +24,7 @@ const buy_other_form = document.querySelector("#trade_post_buy_other"),
   buy_other_buying_rate = document.querySelector("#other_buying_rate"),
   buy_other_low_limit = document.querySelector("#other_low_limit"),
   buy_other_high_limit = document.querySelector("#other_high_limit"),
+  buy_other_wallet_to = document.querySelector('#buy_select_wallet_to'),
   buy_other_payment_method = document.querySelector("#other_payment_methods"),
   buy_other_submit = document.querySelector("#buy_other_submit"),
   buy_other_cancel = document.querySelector("#buy_other_cancel");
@@ -39,11 +40,12 @@ const sell_wallet_form = document.querySelector("#wallet_method_sell"),
   sell_wallet_submit = document.querySelector("#sell_wallet_submit"),
   sell_wallet_cancel = document.querySelector("#sell_wallet_cancel");
 
-const sell_other_form = document.querySelector("#trade_post_sell_other"),
+const sell_other_form = document.querySelector("#wallet_sell_other"),
   sell_other_select = document.querySelector("#sell_other_select"),
   sell_other_selling_rate = document.querySelector("#sell_other_selling_rate"),
   sell_other_low_limit = document.querySelector("#sell_other_low_limit"),
   sell_other_high_limit = document.querySelector("#sell_other_high_limit"),
+  sell_other_wallet_to = document.querySelector('#sell_other_select_to'),
   sell_other_payment_method = document.querySelector(
     "#sell_other_payment_methods"
   ),
@@ -134,8 +136,10 @@ const currency = [
   document.querySelector("#other_available_curr"),
   document.querySelector("#sell_available_curr"),
   document.querySelector("#sell_other_available_curr"),
+  document.querySelector('#buy_other_available_curr'),
+  document.querySelector('#sell_other_available_curr_to')
 ];
-console.log(currency);
+console.log(currency[1]);
 
 //Setting wallet value data as option values;
 const useData = function (data) {
@@ -144,7 +148,7 @@ const useData = function (data) {
       walletName: key,
       walletValue: data[key],
     };
-    console.log(curr);
+    console.table(curr);
     var availableCurrOption = `<option  name="${curr.walletName}" value="${curr.walletName} ${curr.walletValue}">${curr.walletName}</option>`;
     currency.forEach((available) =>
       available.insertAdjacentHTML("afterend", availableCurrOption)
@@ -237,11 +241,12 @@ buy_wallet_submit.addEventListener("click", (e) => {
 buy_other_submit.addEventListener("click", (e) => {
   e.preventDefault();
   const buy_otherformData = new FormData();
-  buy_otherformData.append("type", "buy");
+  buy_otherformData.append("type", "buy_other");
   buy_otherformData.append("wallet", buy_other_select.value.split(" ")[0]);
   buy_otherformData.append("rate", buy_other_buying_rate.value.trim());
   buy_otherformData.append("low_limit", buy_other_low_limit.value.trim());
   buy_otherformData.append("high_limit", buy_other_high_limit.value.trim());
+  buy_otherformData.append('wallet_to',buy_other_wallet_to.value.split(" ")[0]);
   buy_otherformData.append("method", buy_other_payment_method.value.trim());
   console.log(walletAvailable.innerHTML.split(" ")[0]);
   async function loadData() {
@@ -358,11 +363,12 @@ setTimeout(() => {
 sell_other_submit.addEventListener("click", (e) => {
   e.preventDefault();
   const sell_other_formData = new FormData();
-  sell_other_form.append("type", "sell");
+  sell_other_formData.append("type", "sell_other");
   sell_other_formData.append("wallet", sell_other_select.value.split(" ")[0]);
   sell_other_formData.append("rate", sell_other_selling_rate.value.trim());
   sell_other_formData.append("low_limit", sell_other_low_limit.value.trim());
   sell_other_formData.append("high_limit", sell_other_high_limit.value.trim());
+  sell_other_formData.append('wallet_to',sell_other_wallet_to.value.split(" ")[0])
   sell_other_formData.append("method", sell_other_payment_method.value.trim());
   async function loadData() {
     try {
@@ -413,46 +419,64 @@ sell_other_submit.addEventListener("click", (e) => {
   loadData();
 });
 
+
+
+
+
 //Getting user saved payment receiving methods from the database
 const paymentOptions = document.querySelector("#other_payment_methods");
+const sellPaymentOptions = document.querySelector('#sell_other_payment_methods')
 //Set this as the other method select option values
 fetch("../php/payment-options.php")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    console.table(data);
     data.forEach((datas) => {
       if (datas["apple_email"]) {
         var html = ` <option value="Apple">Apple pay</option>`;
         paymentOptions.insertAdjacentHTML("afterbegin", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
       }
       if (datas["bank_name"]) {
         var html = `<option value="bank">Bank</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
         console.log(datas["bank_name"]);
       }
       if (datas["google_address"]) {
         var html = ` <option value="Google pay">Google Pay</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
       }
       if (datas["wallet_Address"]) {
         var html = ` <option value="pix">Pi coin</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
+
       }
       if (datas["user_name"]) {
         var html = ` <option value="Mobile money">Mobile money</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
+
       }
       if (datas["chipper"]) {
         var html = ` <option value="Chipper cash">Chipper cash</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
+
       }
       if (datas["paypal_address"]) {
         var html = ` <option value="Paypal">PayPal</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
+
       }
       if (datas["skrill_address"]) {
         var html = ` <option value="Skrill">Skrill</option>`;
         paymentOptions.insertAdjacentHTML("beforeend", html);
+		sellPaymentOptions.insertAdjacentHTML('beforeend',html);
+
       }
     });
     // console.log(data);

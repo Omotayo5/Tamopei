@@ -8,7 +8,7 @@ function loadData2(method, url) {
     xhr.onload = function () {
       const datas = JSON.parse(this.response);
       console.log(datas);
-      datas.forEach((data) => {
+      datas['wallet'].forEach((data) => {
         if (data.payment_method == "Cedi") {
           const byWallet = `<tr>
           <td>
@@ -176,12 +176,14 @@ function loadData2(method, url) {
         /*
         End of payment by wallet        
         */
+      });
+      datas['other'].forEach(other_method=>{
         const html = `<tr>
         <td>
           <div class="card-info1">
-          <input type="tel" value="${data.user_id}" hidden>
-          <input type="tel" id="trade_ind" value="${data.ind}" hidden>
-            <h3> ${data.user_name} -- (${data.user_id})</h3>
+          <input type="tel" value="${other_method.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${other_method.ind}" hidden>
+            <h3> ${other_method.user_name} -- (${other_method.user_id})</h3>
     
           </div>
         </td>
@@ -197,28 +199,28 @@ function loadData2(method, url) {
         </td>
         <td>
           <div class="card-info2">
-            <h3>Limit: $${data.lowest_rate} - $${data.highest_rate}</h3>
+            <h3>Limit: ${other_method.lowest_rate} - ${other_method.highest_rate}</h3>
     
           </div>
         </td>
         <td>
           <div class="card-info2">
-            <h3>1USD <i class="fa-solid fa-right-left"></i> ${data.user_rate}NGN</h3>
+            <h3>1${other_method.wallet}<i class="fa-solid fa-right-left"></i> ${other_method.user_rate}${other_method.wallet_to}</h3>
           </div>
         </td>
         <td>
             <div class="methods">
-            <span><b>${data.payment_method}</b> </span>
+            <span><b>${other_method.payment_method}</b> </span>
             </div>
         </td>
         <td>
           <div class="card-buy">
-            <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell</button>
+            <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell ${other_method.wallet}</button>
           </div>
         </td>
       </tr>`;
         sell_tableBody.innerHTML += html;
-      });
+      })
     };
     xhr.send();
   }

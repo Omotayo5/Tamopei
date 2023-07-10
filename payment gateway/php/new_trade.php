@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $selected = mysqli_real_escape_string($conn, $_POST['wallet']);
     $lowLimit = mysqli_real_escape_string($conn, $_POST['low_limit']);
     $highLimit = mysqli_real_escape_string($conn, $_POST['high_limit']);
+    $wallet_to = mysqli_real_escape_string($conn,$_POST['wallet_to']);
     $Rate = mysqli_real_escape_string($conn, $_POST['rate']);
     $paymentMethod = mysqli_real_escape_string($conn, $_POST['method']);
 
@@ -70,6 +71,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         mysqli_stmt_close($sellStmt);
+    }
+
+
+    if ($_POST['type'] === 'buy_other') {
+        // Prepare the query using prepared statements for better security
+        $buy_other = "INSERT INTO p2p_post_buy_other_method (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`,`wallet_to`, `payment_method`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $buy_other_Stmt = mysqli_prepare($conn, $buy_other);
+        mysqli_stmt_bind_param($buy_other_Stmt, "isssssss", $accountOwner, $accountOwnerName, $selected, $lowLimit, $highLimit, $Rate,$wallet_to, $paymentMethod);
+        $buy_other_method = mysqli_stmt_execute($buy_other_Stmt);
+
+        if ($buy_other_method) {
+            $posted['wallet']= $selected;
+            $posted['low_limit']=$lowLimit;
+            $posted['high_limit']=$highLimit;
+            $posted['rate']=$Rate;
+            $posted['wallet_to'] = $wallet_to;
+            $posted['payment_method']=$paymentMethod;
+            $response["Successful"] = $posted;
+        } else {
+            // Handle the error case when the query execution fails
+            $response['Failed'] = "Failed to post sell order";
+        }
+
+        mysqli_stmt_close($buy_other_Stmt);
+    }
+
+    if ($_POST['type'] === 'sell_other') {
+        // Prepare the query using prepared statements for better security
+        $sell_other = "INSERT INTO p2p_post_sell_other_method (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`,`wallet_to`, `payment_method`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sell_other_Stmt = mysqli_prepare($conn, $sell_other);
+        mysqli_stmt_bind_param($sell_other_Stmt, "isssssss", $accountOwner, $accountOwnerName, $selected, $lowLimit, $highLimit, $Rate,$wallet_to, $paymentMethod);
+        $sell_other_method = mysqli_stmt_execute($sell_other_Stmt);
+
+        if ($sell_other_method) {
+            $posted['wallet']= $selected;
+            $posted['low_limit']=$lowLimit;
+            $posted['high_limit']=$highLimit;
+            $posted['rate']=$Rate;
+            $posted['wallet_to'] = $wallet_to;
+            $posted['payment_method']=$paymentMethod;
+            $response["Successful"] = $posted;
+        } else {
+            // Handle the error case when the query execution fails
+            $response['Failed'] = "Failed to post sell order";
+        }
+
+        mysqli_stmt_close($sell_other_Stmt);
     }
 }
 

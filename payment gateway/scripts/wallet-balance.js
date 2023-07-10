@@ -9,16 +9,20 @@ const domStrings = {
 const balanceReq = new XMLHttpRequest();
 balanceReq.onload = function () {
   const data = JSON.parse(this.responseText);
-  // console.log(this.responseText);
+  const naira = data['Naira'],
+  dollar = data['Dollar'],
+  rand = data['Rand'],
+  cedi = data['Cedi'];
+  sessionStorage.setItem('Naira',naira);
+  sessionStorage.setItem('Dollar',dollar);
+  sessionStorage.setItem('Rand',rand);
+  sessionStorage.setItem('Cedi',cedi);
+  console.log(sessionStorage.getItem('Cedi'));
   for (const key in data) {
     const curr = {
       walletName: key,
       walletValue: data[key],
-    };
-    sessionStorage.setItem("Naira",curr.walletValue["Naira"]);
-    sessionStorage.setItem("Cedi",curr.walletValue["Cedi"]);
-    sessionStorage.setItem("Rand",curr.walletValue["Rand"]);
-    sessionStorage.setItem("Dollar",curr.walletValue["Dollar"]);
+    }; 
     var html = `<div class="insights"><div class="stat"><div class="balance"><div class="left"><h3 id="total">${curr.walletName}<span class="material-icons-sharp">
       visibility</span></h3><h2><span">%logo</span><span id="amount">${curr.walletValue}</span></h2></div></div></div></div>`;
     //will leave this because of the currency logo.

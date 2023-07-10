@@ -1,15 +1,9 @@
-// const userId = buy_tableBody.querySelector(' tr td .card-info1 span');
-// export async function fetchAsync(url) {
-//   let response = await fetch(url);
-//   let data = await response.json();
-//   console.log(data);
-//   return data;
-// };
 const naira = sessionStorage.getItem("Naira");
 const dollar = sessionStorage.getItem("Dollar");
 const rand = sessionStorage.getItem("Rand");
 const cedi = sessionStorage.getItem("Cedi");
 
+console.log(naira,dollar,rand,cedi)
 //Closing the modal box
 window.addEventListener("click", function (event) {
   if (
@@ -54,13 +48,24 @@ setTimeout(() => {
       const purchase_cost = document.querySelector('#buy_wallet #purchase_cost p');
       const rate =  document.querySelector('#buy_wallet #exchange_rate p').innerHTML = `${exchange_rate}${seller_wallet} <b>=</b> 1${my_wallet}`;
       const fee = document.querySelector('#buy_wallet #transaction_fee p');
-      const receive_amount = document.querySelector("#buy_wallet #receive_amount p")
+      const receive_amount = document.querySelector("#buy_wallet #receive_amount p");
+      const confirmBtn = document.querySelector('#buy_wallet #buy_wallet_confirm');
       console.log(exchange_rate);
 
 
 
 
       amount_buy.addEventListener('input',(e)=>{
+        const inputValue = e.target.value.trim();
+        if(/^\d+$/.test(inputValue)){
+          console.log("value is a number")
+          confirmBtn.disabled = false;
+          confirmBtn.style.backgroundColor = "rgb(46, 204, 113)";
+        }else{
+            confirmBtn.disabled = true;
+            confirmBtn.style.backgroundColor = "red";
+        }
+        
         purchase_cost.innerHTML = (e.target.value *1)*exchange_rate;
         fee.innerHTML =( purchase_cost.innerHTML *1)*0.01;
         receive_amount.innerHTML = ((purchase_cost.innerHTML *1) - (fee.innerHTML*1)).toFixed(2);

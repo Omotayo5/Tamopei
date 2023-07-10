@@ -9,7 +9,6 @@ xmlhttp.onload=function(){
     document.querySelector('.h2').innerHTML = `${user.firstName} ${user.lastName}`;
     document.querySelector('#id span').innerHTML = user.Id;
     console.log(data);
-    sessionStorage()
 }
 xmlhttp.open("GET","./php/Home.php");//this can make us send both request and response on thesame page
 xmlhttp.send()
