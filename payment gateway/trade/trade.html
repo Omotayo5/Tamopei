@@ -59,51 +59,27 @@
 
 
           <div class="banner-left" id="bankhead">
-
             <button id="button3" class="active1 pick-btn">BUY</button>
-
-
             <button id="button4" class="pick-btn" hidden>SELL</button>
-
-
-
           </div>
           <div class="banner-left1 content-list" id="bankhead1">
-
-
             <button id="button0" class="active1 pick-btn">BUY</button>
-
-
             <button id="button01" class="pick-btn" hidden>SELL</button>
-
-
-
           </div>
         </div>
-        <div class="p2p">
+        <!-- <div class="p2p">
           <button id="Buy1" class="active pick-btn">(&#x20A6;) NGN</button>
           <button id="Buy2" class="pick-btn">($) USD</button>
           <button id="Buy3" class="pick-btn">(&#163;) GPB</button>
           <button id="Buy4" class="pick-btn">(&#x0052;) ZAR</button>
           <button id="Buy5" class="pick-btn">(&#x20B5;) GHC</button>
-        </div>
+        </div> -->
         <div class="banner-center">
-
           <button id="Buy6" class="active pick-btn">PAY BY WALLET</button>
-
-
-          <button id="Buy7" class="pick-btn">OTHER METHOD</button>
-
-
+           <button id="Buy7" class="pick-btn">OTHER METHOD</button>
         </div>
-
-
       </div>
     </head>
-
-
-
-
 
     <main id="content1">
       <div class="check">
@@ -116,19 +92,17 @@
         <div class="labe1" id="label2">
           <label for=""><span>Wallet </span> </label>
           <select>
-            <option value="(&#x20A6;) NGN">(&#x20A6;) NGN</option>
-            <option value="($) USD">($) USD</option>
-            <option value="(&#163;) GPB">(&#163;) GPB</option>
-            <option value="(&#x20B5;) GHC">(&#x20B5;) GHC</option>
-            <option value="(&#x0052;) ZAR">(&#x0052;) ZAR</option>
+            <option value=" NGN">(&#x20A6;) NGN</option>
+            <option value=" USD">($) USD</option>
+            <option value=" GPB">(&#163;) GPB</option>
+            <option value=" GHC">(&#x20B5;) GHC</option>
+            <option value=" ZAR">(&#x0052;) ZAR</option>
           </select>
         </div>
 
       </div>
       <section id="content1">
         <div class="ngn">
-
-
           <table>
             <thead>
               <th>Advertiser <span>Trade</span></th>
@@ -140,10 +114,11 @@
             <tbody id="PayByWallet">
 
               <!-- Buy by wallet -->
-
             </tbody>
           </table>
 
+
+          <!-- BUY POPUP CONTAINER -->
           <div class="popup-container" style="display: none;">
             <div class="popup-content">
 
@@ -200,14 +175,13 @@
                   </div>
                 </div>
               </form>
-
             </div>
           </div>
+
+
           <div class="popup-container-inner">
             <div class="transaction">
-
               <div class="popup-b">
-
                 <div class="payment-method-head">
                   <H3>Transaction Details </H3>
                   <div class="modal-content2">
@@ -216,7 +190,6 @@
                       <!-- <i class="fa-solid fa-check"></i> -->
                       <h2>Trade Completed</h2>
                       <img src="./Tamo Pay Logo png 1.jpg" alt="">
-
                     </div>
                   </div>
                 </div>
@@ -229,7 +202,6 @@
                     <h4>SELLER:</h4>
                     <p>USD WALLET</p>
                   </div>
-
                   <div class="name-details">
                     <h4>PURCHASE</h4>
                     <p>$100</p>
@@ -246,9 +218,7 @@
                     <h4>RECEIVE:</h4>
                     <p>$99.00</p>
                   </div>
-
                   <div class="complete-card" id="complete-card">
-
                     <h3>Transaction ID: #2187093564 </h3>
                   </div>
                   <div class="btn-proceed">
@@ -275,15 +245,17 @@
         <div class="labe1">
           <label for=""><span>Wallet </span> </label>
           <select>
-            <option value="(&#x20A6;) NGN">(&#x20A6;) NGN</option>
-            <option value="($) USD">($) USD</option>
-            <option value="(&#163;) GPB">(&#163;) GPB</option>
-            <option value="(&#x20B5;) GHC">(&#x20B5;) GHC</option>
-            <option value="(&#x0052;) ZAR">(&#x0052;) ZAR</option>
+            <option value="NGN">(&#x20A6;) NGN</option>
+            <option value="USD"> USD</option>
+            <option value="GPB"> GPB</option>
+            <option value="GHC"> GHC</option>
+            <option value="ZAR"> ZAR</option>
           </select>
         </div>
-
       </div>
+
+
+      <!-- SELL CONTAINER -->
       <section id="content1">
         <table>
           <thead>
@@ -295,49 +267,41 @@
           </thead>
           <tbody id="sellByWallet">
             <!-- The sales data will be posted here -->
-
-
           </tbody>
-
-
-
         </table>
-        <!-- Pop-up container -->
-        <div class="popup-container2" id="popup-container2" style="display: none;">
+
+        <!-- Pop-up container for sell -->
+        <div class="popup-container" id="popup-container2" style="display: none;">
           <div class="popup-content">
-            <div class="transaction">
               <form id="sell_wallet">
                 <div class="transaction">
-                  <div class="payment-method-head">
-                    <H4> PAY BY WALLET</H4>
-                    <p><span></span> <span></span></p>
-                  </div>
+                  
                   <div class="payment-method-bank">
-                    <div class="name-details">
-                      <h4 id="my_wallet">MY WALLET:</h4>
+                    <div class="name-details" id="my_wallet">
+                      <h4 >MY WALLET:</h4>
                       <p>GHC WALLET</p>
                     </div>
-                    <div class="name-details">
-                      <h4 id="wallet_balance">WALLET BALANCE:</h4>
+                    <div class="name-details" id="wallet_balance">
+                      <h4 >WALLET BALANCE:</h4>
                       <p>500</p>
                     </div>
-                    <div class="name-details">
-                      <h4 id="seller_wallet">SELLER WALLET:</h4>
+                    <div class="name-details" id="seller_wallet">
+                      <h4 >SELLER WALLET:</h4>
                       <p>USD WALLET</p>
                     </div>
                     <div class="name-details">
                       <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
                     </div>
-                    <div class="name-details">
-                      <h4 id="purchase_cost">PURCHASE COST:</h4>
+                    <div class="name-details" id="purchase_cost">
+                      <h4 >PURCHASE COST:</h4>
                       <p> &#x20A6;74,000</p>
                     </div>
-                    <div class="name-details">
-                      <h4 id="transaction_fee">FEE 1%:</h4>
+                    <div class="name-details" id="transaction_fee">
+                      <h4 >FEE 1%:</h4>
                       <p>$1</p>
                     </div>
-                    <div class="name-details">
-                      <h4 id="receive_amount">RECEIVE AMOUNT:</h4>
+                    <div class="name-details" id="receive_amount">
+                      <h4 >RECEIVE AMOUNT:</h4>
                       <p>$99.00</p>
                     </div>
                     <div class="btn-proceed">
@@ -347,9 +311,7 @@
                   </div>
                 </div>
               </form>
-              </div>
             </div>
-
           </div>
         </div>
 
@@ -399,8 +361,10 @@
           </div>
         </div>
       </section>
-
     </main>
+
+
+    <!-- BUY OTHER METHOD -->
     <main id="content3" class="content-list">
 
       <div class="check1" id="content3">
@@ -423,16 +387,16 @@
         <div class="labe1">
           <label for=""><span>Fiat:</span> </label>
           <select>
-            <option value="(&#x20A6;) NGN">(&#x20A6;) NGN</option>
-            <option value="($) USD">($) USD</option>
-            <option value="(&#163;) GPB">(&#163;) GPB</option>
-            <option value="(&#x20B5;) GHC">(&#x20B5;) GHC</option>
-            <option value="(&#x0052;) ZAR">(&#x0052;) ZAR</option>
+            <option value="NGN">NGN</option>
+            <option value="USD">USD</option>
+            <option value="GPB">GPB</option>
+            <option value="GHC">GHC</option>
+            <option value="ZAR">ZAR</option>
           </select>
         </div>
       </div>
 
-
+<!-- BUY OTHER METHOD -->
       <section id="content3">
         <div class="ngn">
           <table class="relative">
@@ -448,22 +412,85 @@
               <!-- The p2p data from the database will be posted here -->
             </tbody>
           </table>
+
+          <!-- The modal box will be here -->
           <div class="popup-container4" id="popup-container4">
-            <!-- This is where the modal box html will be injected into with the specific user dynamic data-->
+            <div class="popup-content">
+              <form id="buy_other">
+                <div class="transaction">
+                  <div class="payment-method-head">
+                    <H4>OTHER PAYMENT METHODS</H4>
+                  </div>
+                  <div class="payment-method-head">
+
+                    <div class="methods">
+                      <div class="name-details">
+                        <h4>Bank name:</h4>
+                        <p>SPRING BANK</p>
+                      </div>
+                      <div class="name-details">
+                        <h4>Acc name:</h4>
+                        <p>ADEJUYI SAMSON J</p>
+                      </div>
+                      <div class="name-details">
+                        <h4>Account NO:</h4>
+                        <p>2187093564</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="payment-method-bank">
+                    <div class="name-details">
+                      <h4 id="my_wallet">MY WALLET:</h4>
+                      <p>GHC WALLET</p>
+                    </div>
+                    <div class="name-details" id="wallet_balance">
+                      <h4 >WALLET BALANCE:</h4>
+                      <p>500</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="seller_wallet">SELLER WALLET:</h4>
+                      <p>USD WALLET</p>
+                    </div>
+                    <div class="name-details">
+                      <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
+                    </div>
+                    <div class="name-details">
+                      <h4 id="purchase_cost">PURCHASE COST:</h4>
+                      <p> &#x20A6;74,000</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="transaction_fee">FEE 1%:</h4>
+                      <p>$1</p>
+                    </div>
+                    <div class="name-details">
+                      <h4 id="receive_amount">RECEIVE AMOUNT:</h4>
+                      <p>$99.00</p>
+                    </div>
+
+                    <div class="btn-proceed">
+                      <a href="verify.html">
+                        <button class="close-btn5" id="cancel-inner"> CONFIRM</button>
+                      </a>
+                      <button class="close-btn5" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          </div>
           </div>
         </div>
       </section>
     </main>
 
-
+    <!-- SELL OTHER METHODS -->
     <main id="content4" class="content-list">
-
       <div class="check1" id="content3">
         <div class="labe1">
           <label for="">
             <input type="search" placeholder="Amount" style="margin-top: 1.6rem;">
           </label>
-
         </div>
         <div class="labe1">
           <label for="">Payment:</label> &nbsp;&nbsp;&nbsp;
@@ -486,7 +513,6 @@
             <option value="(&#x0052;) ZAR">(&#x0052;) ZAR</option>
           </select>
         </div>
-
       </div>
       <section id="content3">
         <div class="ngn">
@@ -504,18 +530,14 @@
             </tbody>
           </table>
 
-
-
-
-          <!-- Sell other methods container -->
+          <!-- Sell other methods modal -->
           <div class="popup-container5" id="popup-container5">
             <div class="popup-content">
-              <div class="transaction">
-                <div class="payment-method-head">
-                  <H4>OTHER PAYMENT METHODS</H4>
-                </div>
-                <form id="sell_wallet">
+                <form id="sell_wallet_other">
                   <div class="transaction">
+                    <div class="payment-method-head">
+                      <H4>OTHER PAYMENT METHODS</H4>
+                    </div>
                     <div class="payment-method-head">
 
                       <div class="methods">
@@ -573,10 +595,10 @@
                     </div>
                   </div>
                 </form>
-              </div>
+              
 
             </div>
-          </div>x
+          </div>
       </section>
     </main>
   </main>

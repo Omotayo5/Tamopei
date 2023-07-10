@@ -8,23 +8,17 @@ console.log(naira,dollar,rand,cedi)
 window.addEventListener("click", function (event) {
   if (
     event.target == document.querySelector("#popup-container2") ||
-    event.target == document.querySelector("#popup-container5")||event.target== document.querySelector('.popup-container')
+    event.target == document.querySelector("#popup-container5")||
+    event.target== document.querySelector('.popup-container') || 
+    event.target ==  document.querySelector('#popup-container4')
   ) {
     document.querySelector("#popup-container2").style.display = "none"; // Hide the modal when clicking outside of it
     document.querySelector("#popup-container5").style.display = "none";
     document.querySelector('.popup-container').style.display = "none";
+    document.querySelector('#popup-container4').style.display = 'none';
   }
 });
 
-
-// pop-up contsiner for other paynent methods
-setTimeout(() => {
-  document.querySelectorAll(".sell_other_method").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      document.querySelector("#popup-container5").style.display = "block";
-    });
-  });
-}, 1000);
 
 //Getting the values of the trade box whenever its clicked individually;
 setTimeout(() => {
@@ -53,8 +47,6 @@ setTimeout(() => {
       console.log(exchange_rate);
 
 
-
-
       amount_buy.addEventListener('input',(e)=>{
         const inputValue = e.target.value.trim();
         if(/^\d+$/.test(inputValue)){
@@ -81,4 +73,43 @@ setTimeout(() => {
 }, 1000);
 
 
+
+
+
+
+setTimeout(() => {
+  document.querySelector('#modal-btn_sell').addEventListener('click',(e)=>{
+    console.log(e.target.parentElement.parentElement.parentElement);
+    document.querySelector('#popup-container2').style.display = 'block';
+    console.log(document.querySelector('#popup-container4'))
+  })
+}, 1000);
+
+
+
+
+
+
+
+setTimeout(() => {
+  document.querySelectorAll('#modal-btn_buy_other').forEach(button=>{
+    button.addEventListener('click',(e)=>{
+      document.querySelector('#popup-container4').style.display = 'block';
+    })
+  })
+}, 1000);
+
+
+
+
+
+
+setTimeout(() => {
+  document.querySelectorAll("#modal-btn_sell_other").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      document.querySelector('#popup-container5').style.display = 'block';
+     console.log( e.target.parentElement.parentElement)
+    });
+  });
+}, 1000);
 

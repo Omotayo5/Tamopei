@@ -43,7 +43,7 @@ function loadData2(method, url) {
             <div class="card-buy">
   
   
-              <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell GHC</button>
+              <button class="btn2 sell_btn" id="modal-btn_sell" style="background-color: var(--secondary);"> Sell GHC</button>
             </div>
           </td>
         </tr>`;
@@ -82,10 +82,8 @@ function loadData2(method, url) {
             </div>
           </td>
           <td>
-            <div class="card-buy">
-  
-  
-              <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell USD</button>
+            <div class="card-buy">  
+              <button class="btn2 sell_btn" id="modal-btn_sell" style="background-color: var(--secondary);"> Sell USD</button>
             </div>
           </td>
         </tr>`;
@@ -127,7 +125,7 @@ function loadData2(method, url) {
             <div class="card-buy">
   
   
-              <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell ZAR</button>
+              <button class="btn2 sell_btn" id="modal-btn_sell" style="background-color: var(--secondary);"> Sell ZAR</button>
             </div>
           </td>
         </tr>`;
@@ -165,7 +163,7 @@ function loadData2(method, url) {
           </td>
           <td>
             <div class="card-buy">
-              <button class="btn2 sell_btn" id="modal-btn" style="background-color: var(--secondary);"> Sell NGN</button>
+              <button class="btn2 sell_btn" id="modal-btn_sell" style="background-color: var(--secondary);"> Sell NGN</button>
             </div>
           </td>
         </tr>`;
@@ -215,7 +213,7 @@ function loadData2(method, url) {
         </td>
         <td>
           <div class="card-buy">
-            <button class="btn2 sell_other_method" id="modal-btn" style="background-color: var(--secondary);"> Sell ${other_method.wallet}</button>
+            <button class="btn2" id="modal-btn_sell_other" style="background-color: var(--secondary);"> Sell ${other_method.wallet}</button>
           </div>
         </td>
       </tr>`;

@@ -196,14 +196,15 @@ function loadData(method, url) {
           .insertAdjacentHTML("afterbegin", buy_order_wallet);
       }
       else{
-        const html = `<tr>
+        datas.other.forEach(other_method=>{
+          console.log(data.other);
+          const html = `<tr>
         <td>
-        <input type="tel" value="${data.user_id}" hidden>
-        <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <div class="card-info1">
-
-            <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
-
+          <input type="tel" value="${other_method.user_id}" hidden>
+          <input type="tel" id="trade_ind" value="${other_method.ind}" hidden>
+            <h3> ${other_method.user_name} -- (${other_method.user_id})</h3>
+    
           </div>
         </td>
         <td>
@@ -213,38 +214,34 @@ function loadData(method, url) {
                   class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i
                   class="fa-regular fa-star"></i>
               </span></h3>
-
+    
           </div>
         </td>
         <td>
           <div class="card-info2">
-            <h3 class="limit">Limit: <span>${data.lowest_rate}</span> - <span>${data.highest_rate}</span></h3>
-
+            <h3>Limit: ${other_method.lowest_rate} - ${other_method.highest_rate}</h3>
+    
           </div>
         </td>
         <td>
           <div class="card-info2">
-          <h3 class="wallet"> <span class="exchange_rate">${data.user_rate}</span>  <span class="seller_wallet">${data.wallet}
-          </span><i class="fa-solid fa-right-left"></i>1<span class="my_wallet">${data.payment_method}</span></h3>
+            <h3>1${other_method.wallet}<i class="fa-solid fa-right-left"></i> ${other_method.user_rate}${other_method.wallet_to}</h3>
           </div>
         </td>
         <td>
-        <div class="methods">
-            <span>${data.payment_method}</span>
+            <div class="methods">
+            <span><b>${other_method.payment_method}</b> </span>
+            </div>
+        </td>
+        <td>
+          <div class="card-buy">
+            <button class="btn2" id="modal-btn_buy_other"> Buy ${other_method.wallet}</button>
           </div>
         </td>
-        <td class="flex">
-              <td>
-                <div class="card-buy">
-                  <button class="btn4" id="modal-btn_buy_other"> Buy ${data.wallet}</button>
-                </div>
-              </td>
-
-      </td>
-        
-    </tr>`;
+      </tr>`;
       //Adding the html into the dom;
       buy_tableBody.innerHTML += html;
+        })
       }
     });
   };
