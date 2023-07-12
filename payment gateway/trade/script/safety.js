@@ -16,8 +16,15 @@ window.addEventListener("click", function (event) {
     document.querySelector("#popup-container5").style.display = "none";
     document.querySelector('.popup-container').style.display = "none";
     document.querySelector('#popup-container4').style.display = 'none';
+    //Once the window is clicked the disabled should be false;
+    amount_buy.disabled = false;
+    document.querySelector('#buy_wallet_confirm').disabled = false;
+    amount_sell.disabled = false;
+    document.querySelector('#sell_wallet_confirm').disabled = false;
   }
 });
+
+
 
 
 // BUY BY WALLET
@@ -31,6 +38,16 @@ setTimeout(() => {
       const container = e.target.parentElement.parentElement.parentElement;
       const td = container.querySelectorAll('td');
       seller_wallet_buy_id = td[0].querySelector('.card-info1 #id').innerText;
+
+      //Disable the input box if the seller id and the buyer id is thesame.
+      if(seller_wallet_buy_id*1 == sessionStorage.getItem('UserId')*1){
+        amount_buy.disabled = true;
+        document.querySelector('#buy_wallet_confirm').disabled = true;
+        console.log('Thesame id');
+      }
+
+      console.log(seller_wallet_buy_id,sessionStorage.getItem('UserId'));
+
       const low_limits = td[2].querySelectorAll('.limit span')[0].innerHTML,
       high_limits = td[2].querySelectorAll('.limit span')[1].innerHTML;
       my_Wallet_buy = td[3].querySelector('.wallet .my_wallet').innerHTML;
@@ -74,11 +91,6 @@ setTimeout(() => {
         fee.innerHTML = '';
         receive_amount.innerHTML = '';
       })
-      // const purchase_cost = document.querySelector('#buy_wallet #purchase_cost').innerHTML;
-      // const transaction_fee = document.querySelector('#buy_wallet #transaction_fee');
-      // const receive_amount = document.querySelector('#buy_wallet #receive_amount');
-      // const buy_wallet_confirm = document.querySelector('#buy_wallet #buy_wallet_confirm');
-      
     });
   });
 }, 1000);
@@ -97,14 +109,14 @@ document.querySelector('#buy_wallet_confirm').addEventListener('click',(e)=>{
   buyOrder.append("Cost",purchaseCost);
   buyOrder.append("TransactionFee",transactionFee);
   buyOrder.append('ReceiveAmount',receiveAmount*1);
-  buyOrder.append('buyerId',seller_wallet_buy_id);
+  buyOrder.append('SellerId',seller_wallet_buy_id);
   buyOrder.append('OrderUnit',orderUnit.value.trim()*1);
   buyOrder.append('BuyerWallet',my_Wallet_buy);
   buyOrder.append('SellerWallet',seller_wallet_buy);  
   const urlEncodedData = new URLSearchParams(buyOrder).toString();
   console.log(urlEncodedData);
-  // let url = '../php/order_request.php';
-  // sendData(url,buyOrder);
+  let url = '../php/order_request.php';
+  sendData(url,buyOrder);
 
   setTimeout(() => {
     buy_cancel.click();
