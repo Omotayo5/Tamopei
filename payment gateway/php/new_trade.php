@@ -1,6 +1,6 @@
 <?php
 // Make sure to sanitize and validate user inputs before using them in your queries
-
+//Connected to new_trade.js
 include('server.php');
 
 // Check if the user is logged in and retrieve necessary session data
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $selected = mysqli_real_escape_string($conn, $_POST['wallet']);
     $lowLimit = mysqli_real_escape_string($conn, $_POST['low_limit']);
     $highLimit = mysqli_real_escape_string($conn, $_POST['high_limit']);
-    $wallet_to = mysqli_real_escape_string($conn,$_POST['wallet_to']);
     $Rate = mysqli_real_escape_string($conn, $_POST['rate']);
     $paymentMethod = mysqli_real_escape_string($conn, $_POST['method']);
 
@@ -75,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if ($_POST['type'] === 'buy_other') {
+        $wallet_to = mysqli_real_escape_string($conn,$_POST['wallet_to']);
         // Prepare the query using prepared statements for better security
         $buy_other = "INSERT INTO p2p_post_buy_other_method (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`,`wallet_to`, `payment_method`)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -99,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($_POST['type'] === 'sell_other') {
+        $wallet_to = mysqli_real_escape_string($conn,$_POST['wallet_to']);
         // Prepare the query using prepared statements for better security
         $sell_other = "INSERT INTO p2p_post_sell_other_method (`user_id`, `user_name`, `wallet`, `lowest_rate`, `highest_rate`, `user_rate`,`wallet_to`, `payment_method`)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";

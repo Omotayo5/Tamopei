@@ -131,7 +131,7 @@
                   <div class="payment-method-bank">
                     <div class="name-details" id="my_wallet">
                       <h4 >MY WALLET:</h4>
-                      <p>GHC WALLET</p>
+                      <p> </p>
                     </div>
                     <div class="name-details" id="wallet_balance">
                       <h4 >MY WALLET BALANCE:</h4>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="btn-proceed">
                       <button class="popup-confirm" id="buy_wallet_confirm">CONFIRM</button>
-                      <button type="reset" class="close-btn" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                      <button type="reset" class="close-btn" id="buy_wallet_cancel" style="background-color: var(--secondary);">CANCEL</button>
                     </div>
                   </div>
                 </div>
@@ -283,30 +283,42 @@
                     </div>
                     <div class="name-details" id="wallet_balance">
                       <h4 >WALLET BALANCE:</h4>
-                      <p>500</p>
+                      <p> <span></span></p>
                     </div>
                     <div class="name-details" id="seller_wallet">
                       <h4 >SELLER WALLET:</h4>
-                      <p>USD WALLET</p>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="low_limit">
+                      <h4 >Low limit:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="high_limit">
+                      <h4 >High limit:</h4>
+                      <p></p>
+                    </div>
+                    <div class="name-details" id="exchange_rate">
+                      <h4 >Exchange Rate:</h4>
+                      <p></p>
                     </div>
                     <div class="name-details">
                       <h4>PURCHASE Unit</h4><input type="tel" placeholder="" id="amount">
                     </div>
                     <div class="name-details" id="purchase_cost">
                       <h4 >PURCHASE COST:</h4>
-                      <p> &#x20A6;74,000</p>
+                      <p></p>
                     </div>
                     <div class="name-details" id="transaction_fee">
                       <h4 >FEE 1%:</h4>
-                      <p>$1</p>
+                      <p></p>
                     </div>
                     <div class="name-details" id="receive_amount">
                       <h4 >RECEIVE AMOUNT:</h4>
-                      <p>$99.00</p>
+                      <p></p>
                     </div>
                     <div class="btn-proceed">
                       <button class="popup-confirm" id="sell_wallet_confirm">CONFIRM</button>
-                      <button type="reset" class="close-btn" id="cancel" style="background-color: var(--secondary);">CANCEL</button>
+                      <button type="reset" class="close-btn" id="sell_wallet_cancel" style="background-color: var(--secondary);">CANCEL</button>
                     </div>
                   </div>
                 </div>
@@ -412,8 +424,6 @@
               <!-- The p2p data from the database will be posted here -->
             </tbody>
           </table>
-
-          <!-- The modal box will be here -->
           <div class="popup-container4" id="popup-container4">
             <div class="popup-content">
               <form id="buy_other">

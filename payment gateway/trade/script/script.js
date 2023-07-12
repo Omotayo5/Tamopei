@@ -31,7 +31,7 @@ function loadData(method, url) {
           <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <div class="card-info1">
 
-          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+          <h3> ${data.user_name} Id<span id="id"> ${data.user_id} </span></h3>
 
           </div>
         </td>
@@ -74,7 +74,7 @@ function loadData(method, url) {
           <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <div class="card-info1">
 
-          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+          <h3> ${data.user_name} Id<span id="id"> ${data.user_id} </span></h3>
 
           </div>
         </td>
@@ -117,7 +117,7 @@ function loadData(method, url) {
           <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <div class="card-info1">
 
-          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+          <h3> ${data.user_name} Id<span id="id"> ${data.user_id} </span></h3>
 
           </div>
         </td>
@@ -160,7 +160,7 @@ function loadData(method, url) {
           <input type="tel" id="trade_ind" value="${data.ind}" hidden>
           <div class="card-info1">
 
-          <h3> ${data.user_name} Id<span> ${data.user_id} </span></h3>
+          <h3> ${data.user_name} Id<span id="id"> ${data.user_id} </span></h3>
 
           </div>
         </td>
@@ -197,7 +197,7 @@ function loadData(method, url) {
       }
       else{
         datas.other.forEach(other_method=>{
-          console.log(data.other);
+          console.log(datas.other);
           const html = `<tr>
         <td>
           <div class="card-info1">
