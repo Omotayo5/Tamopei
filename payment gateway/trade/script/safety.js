@@ -28,7 +28,7 @@ window.addEventListener("click", function (event) {
 
 
 // BUY BY WALLET
-let my_Wallet_buy,seller_wallet_buy_id,seller_wallet_buy;
+let my_Wallet_buy,seller_wallet_buy_id,seller_wallet_buy,high_limits,low_limits;
 const amount_buy = document.querySelector('#buy_wallet #amount'),
 buy_cancel = document.querySelector('#buy_wallet #buy_wallet_cancel')
 
@@ -48,7 +48,7 @@ setTimeout(() => {
 
       console.log(seller_wallet_buy_id,sessionStorage.getItem('UserId'));
 
-      const low_limits = td[2].querySelectorAll('.limit span')[0].innerHTML,
+      low_limits = td[2].querySelectorAll('.limit span')[0].innerHTML;
       high_limits = td[2].querySelectorAll('.limit span')[1].innerHTML;
       my_Wallet_buy = td[3].querySelector('.wallet .my_wallet').innerHTML;
       const exchange_rate = td[3].querySelector('.wallet .exchange_rate').innerHTML*1;
@@ -103,24 +103,34 @@ document.querySelector('#buy_wallet_confirm').addEventListener('click',(e)=>{
   let orderUnit = document.querySelector('#buy_wallet #amount');
   // console.log(purchaseCost,transactionFee,receiveAmount,orderUnit.value);
 
+  e.target.disabled = false
+  if(orderUnit.value.trim()*1>high_limits*1||orderUnit.value.trim()<low_limits){
+    e.target.disabled = true;
+    alert('Value is lower than the low limit')
+    setTimeout(() => {
+      buy_cancel.click();
+    }, 500);
+  }else{
+     e.target.disabled = false
+    const buyOrder = new FormData();
+    buyOrder.append('Type','buyWallet');
+    buyOrder.append("Cost",purchaseCost);
+    buyOrder.append("TransactionFee",transactionFee);
+    buyOrder.append('ReceiveAmount',receiveAmount*1);
+    buyOrder.append('SellerId',seller_wallet_buy_id);
+    buyOrder.append('OrderUnit',orderUnit.value.trim()*1);
+    buyOrder.append('BuyerWallet',my_Wallet_buy);
+    buyOrder.append('SellerWallet',seller_wallet_buy);  
+    const urlEncodedData = new URLSearchParams(buyOrder).toString();
+    console.log(urlEncodedData);
+    let url = '../php/order_request.php';
+    sendData(url,buyOrder);
+  
+    setTimeout(() => {
+      buy_cancel.click();
+    }, 500);
+  }
 
-  const buyOrder = new FormData();
-  buyOrder.append('Type','buyWallet');
-  buyOrder.append("Cost",purchaseCost);
-  buyOrder.append("TransactionFee",transactionFee);
-  buyOrder.append('ReceiveAmount',receiveAmount*1);
-  buyOrder.append('SellerId',seller_wallet_buy_id);
-  buyOrder.append('OrderUnit',orderUnit.value.trim()*1);
-  buyOrder.append('BuyerWallet',my_Wallet_buy);
-  buyOrder.append('SellerWallet',seller_wallet_buy);  
-  const urlEncodedData = new URLSearchParams(buyOrder).toString();
-  console.log(urlEncodedData);
-  let url = '../php/order_request.php';
-  sendData(url,buyOrder);
-
-  setTimeout(() => {
-    buy_cancel.click();
-  }, 500);
 })
 
 
@@ -222,24 +232,32 @@ document.querySelector('#sell_wallet_confirm').addEventListener('click',(e)=>{
     let orderUnit = document.querySelector('#sell_wallet #amount');
     console.log(document.querySelector('#sell_wallet #wallet_balance p b').innerHTML,sellerId);
     // let buyerWallet = sessionStorage.getItem(`${document.querySelector('#sell_wallet #my_wallet p').innerHTML.split(' ')[0]}`);
-    
-    const sellOrder = new FormData();
-    sellOrder.append('Type','sellWallet');
-    sellOrder.append('Cost',purchaseCost);
-    sellOrder.append('TransactionFee',transactionFee*1);
-    sellOrder.append('ReceiveAmount',receiveAmount*1);
-    sellOrder.append('SellerId',sellerId);
-    sellOrder.append('OrderUnit',orderUnit.value.trim()*1);
-    sellOrder.append('BuyerWallet',my_Wallet.innerHTML);
-    sellOrder.append('SellerWallet',seller_wallet);  
-    const urlEncodedData = new URLSearchParams(sellOrder).toString();
-    console.log(urlEncodedData);
-    let url = '../php/order_request.php';
-    sendData(url,sellOrder);
-
-    setTimeout(() => {
-      sell_cancel.click();
-    }, 500);
+    e.target.disabled = false;
+    if(orderUnit.value.trim()*1<low_limit.innerHTML*1||orderUnit.value.trim()>high_limit.innerHTML*1){
+      e.target.disabled = true;
+      alert('too loẇor too high');
+      setTimeout(() => {
+        sell_cancel.click();
+      }, 500);
+    }else{
+      const sellOrder = new FormData();
+      sellOrder.append('Type','sellWallet');
+      sellOrder.append('Cost',purchaseCost);
+      sellOrder.append('TransactionFee',transactionFee*1);
+      sellOrder.append('ReceiveAmount',receiveAmount*1);
+      sellOrder.append('SellerId',sellerId);
+      sellOrder.append('OrderUnit',orderUnit.value.trim()*1);
+      sellOrder.append('BuyerWallet',my_Wallet.innerHTML);
+      sellOrder.append('SellerWallet',seller_wallet);  
+      const urlEncodedData = new URLSearchParams(sellOrder).toString();
+      console.log(urlEncodedData);
+      let url = '../php/order_request.php';
+      sendData(url,sellOrder);
+  
+      setTimeout(() => {
+        sell_cancel.click();
+      }, 500);
+    }
     
   })
 
