@@ -266,6 +266,7 @@ setTimeout(() => {
   document.querySelectorAll('#modal-btn_buy_other').forEach(button=>{
     button.addEventListener('click',(e)=>{
       document.querySelector('#popup-container4').style.display = 'block';
+      console.log(e.target)
     })
   })
 }, 1000);
@@ -273,13 +274,34 @@ setTimeout(() => {
 
 
 
-
+`<div class="name-details">
+<h4 id="">Bank name:</h4>
+<p>SPRING BANK</p>
+</div>
+<div class="name-details">
+<h4>Acc name:</h4>
+<p>ADEJUYI SAMSON J</p>
+</div>
+<div class="name-details">
+<h4>Account NO:</h4>
+<p>2187093564</p>
+</div>`
 
 setTimeout(() => {
   document.querySelectorAll("#modal-btn_sell_other").forEach((button) => {
     button.addEventListener("click", (e) => {
       document.querySelector('#popup-container5').style.display = 'block';
-     console.log( e.target.parentElement.parentElement)
+     const container = e.target.parentElement.parentElement.parentElement;
+      const td = container.querySelectorAll('td');
+      sellerId = td[0].querySelector('.card-info1 #id').innerText;
+      const low_limits = td[2].querySelectorAll('.limit span')[0].innerHTML,
+      high_limit = td[2].querySelectorAll('.limit span')[1].innerHTML;
+      const my_wallet = td[3].querySelector('.wallet .my_wallet').innerHTML;
+      const exchange_rate = td[3].querySelector('.wallet .exchange_rate').innerHTML*1;
+      seller_wallet = td[3].querySelector('.wallet .seller_wallet').innerHTML;
+      const payment_method = td[4].querySelector('.methods span .payment_method').innerHTML
+
+      console.log(sellerId,low_limits,high_limit,seller_wallet,exchange_rate,my_wallet,payment_method);
     });
   });
 }, 1000);

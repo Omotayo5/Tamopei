@@ -154,8 +154,11 @@ function loadData2(method, url) {
           </td>
           <td>
           <div class="card-info2">
-          <h3 class="wallet"> <span class="exchange_rate">${data.user_rate}</span>  <span class="seller_wallet">${data.wallet}
-          </span><i class="fa-solid fa-right-left"></i>1<span class="my_wallet">${data.payment_method}</span></h3>
+          <h3 class="wallet"> 
+          <span class="exchange_rate">${data.user_rate}</span>  
+          <span class="seller_wallet">${data.wallet}
+          </span><i class="fa-solid fa-right-left"></i>
+          1<span class="my_wallet">${data.payment_method}</span></h3>
         </div>
           </td>
           <td>
@@ -173,12 +176,12 @@ function loadData2(method, url) {
         */
       });
       datas['other'].forEach(other_method=>{
+        console.log(datas['other']);
         const html = `<tr>
         <td>
           <div class="card-info1">
           <input type="tel" value="${other_method.user_id}" hidden>
-          <input type="tel" id="trade_ind" value="${other_method.ind}" hidden>
-            <h3> ${other_method.user_name} -- (${other_method.user_id})</h3>
+            <h3> ${other_method.user_name} -- <span id="id">${other_method.user_id}</span></h3>
     
           </div>
         </td>
@@ -194,18 +197,20 @@ function loadData2(method, url) {
         </td>
         <td>
           <div class="card-info2">
-            <h3>Limit: ${other_method.lowest_rate} - ${other_method.highest_rate}</h3>
-    
+          <h3 class="limit">Limit: <span>${other_method.lowest_rate}</span> - <span>${other_method.highest_rate}</span></h3>    
           </div>
         </td>
         <td>
           <div class="card-info2">
-            <h3>1${other_method.wallet}<i class="fa-solid fa-right-left"></i> ${other_method.user_rate}${other_method.wallet_to}</h3>
+            <h3 class="wallet">
+            1<span class="seller_wallet">${other_method.wallet}</span><i class="fa-solid fa-right-left"></i>
+            <span class="exchange_rate">${other_method.user_rate}</span> 
+            <span class="my_wallet">${other_method.wallet_to}</span></h3>
           </div>
         </td>
         <td>
             <div class="methods">
-            <span><b>${other_method.payment_method}</b> </span>
+            <span><b class="payment_method">${other_method.payment_method}</b> </span>
             </div>
         </td>
         <td>
