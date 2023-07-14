@@ -274,18 +274,19 @@ setTimeout(() => {
 
 
 
-`<div class="name-details">
-<h4 id="">Bank name:</h4>
-<p>SPRING BANK</p>
-</div>
-<div class="name-details">
-<h4>Acc name:</h4>
-<p>ADEJUYI SAMSON J</p>
-</div>
-<div class="name-details">
-<h4>Account NO:</h4>
-<p>2187093564</p>
-</div>`
+const amount_sell_other = document.querySelector('#sell_wallet_other #amount'),
+sell_cancel_other = document.querySelector('#sell_wallet_other #sell_wallet_other_cancel'),
+wallet_balance_other = document.querySelector('#sell_wallet_other #wallet_balance p'),
+modal_seller_wallet_other = document.querySelector('#sell_wallet_other #seller_wallet p'),
+purchase_cost_sell_other = document.querySelector('#sell_wallet_other #purchase_cost p'),
+rate_sell_other =  document.querySelector('#sell_wallet_other #exchange_rate p'),
+fee_sell_other = document.querySelector('#sell_wallet_other #transaction_fee p'),
+receive_amount_sell_other = document.querySelector("#sell_wallet_other #receive_amount p"),
+confirmBtn_sell_other = document.querySelector('#sell_wallet_other #sell_wallet_other_confirm');
+
+let my_Wallet_sell_other = document.querySelector('#sell_wallet_other #my_wallet p'),
+low_limit_sell_other = document.querySelector('#sell_wallet_other #low_limit p'),
+high_limit_sell_other = document.querySelector('#sell_wallet_other #high_limit p');
 
 setTimeout(() => {
   document.querySelectorAll("#modal-btn_sell_other").forEach((button) => {
@@ -301,12 +302,40 @@ setTimeout(() => {
       seller_wallet = td[3].querySelector('.wallet .seller_wallet').innerHTML;
       const payment_method = td[4].querySelector('.methods span .payment_method').innerHTML
 
-      console.log(sellerId,low_limits,high_limit,seller_wallet,exchange_rate,my_wallet,payment_method);
+      modal_seller_wallet_other.innerHTML = seller_wallet;
+      rate_sell_other.innerHTML = exchange_rate;
+      my_Wallet_sell_other.innerHTML = my_wallet;
+      wallet_balance_other.innerHTML = `<b>${my_wallet}</b> ${sessionStorage.getItem(`${my_wallet}`)}`;
+      rate_sell_other.innerHTML = `${exchange_rate}${modal_seller_wallet_other.innerHTML}<b>=</b> 1${my_wallet}`
+      
+
+
+
+      //Function to get user payment method details from the database;
+      let methods = new FormData();
+      methods.append('method',payment_method);
+      methods.append('sellerId',sellerId);
+      let url = '../php/payment-methods-trade.php';
+      getPaymentMethodDetails(url,methods);
+      console.log(payment_method);
+
     });
   });
 }, 1000);
 
 
+//Function to get the payment methods data;
+function getPaymentMethodDetails(url,payMethod){
+  try {
+    fetch(url,{ method: "POST", body: payMethod })
+    .then(response=>response.json())
+    .then(data=>displayDetails(data))
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+//Function to send data to the database and process;
 async function sendData(url, formData) {
   try {
     fetch(url, { method: "POST", body: formData })
@@ -318,3 +347,102 @@ async function sendData(url, formData) {
     console.log(error);
   }
 }
+
+//Function to handle the payment data returned;
+let methodDisplay = document.querySelector('#method_display');
+function displayDetails(data) {
+  for (const key in data) {
+    const curr = {
+      walletName: key,
+      walletValue: data[key],
+    };
+    console.log(curr);
+    if (curr.walletName == "bank") {
+      let html =
+      `<div class="name-details">
+        <h4 id="">Bank name:</h4>
+        <p>${curr.walletValue.bank_name}</p>
+        </div>
+        <div class="name-details">
+        <h4>Acc name:</h4>
+        <p>${curr.walletValue.user_name}</p>
+        </div>
+        <div class="name-details">
+        <h4>Account NO:</h4>
+        <p>${curr.walletValue.account_number}</p>
+      </div>`;
+      methodDisplay.innerHTML = html;
+      // console.log(curr.walletValue.bank_name);
+    }else if(curr.walletName == "skrill"){
+      let html =
+      `<div class="name-details">
+        <h4 id="">Skrill Wallet</h4>
+        <p>${curr.walletValue.skrill_address}</p>
+      </div>
+      `;
+      methodDisplay.innerHTML = html;
+      console.log(html);
+    }else if(curr.walletName == 'google'){
+      let html =
+      `<div class="name-details">
+        <h4 id="">Google Wallet</h4>
+        <p>${curr.walletValue.google_address}</p>
+      </div>
+      `;
+      methodDisplay.innerHTML = html;
+    }else if(curr.walletName == 'momo'){
+      let html =
+      `<div class="name-details">
+        <h4 id="">Mobile Money</h4>
+        <p>${curr.walletValue.user_name}</p>
+      </div>
+      <div class="name-details">
+        <h4>Acc name:</h4>
+        <p>${curr.walletValue.account_number}</p>
+        </div>
+      `;
+      methodDisplay.innerHTML = html;
+    }else if(curr.walletName == 'paypal'){
+      let html =
+      `<div class="name-details">
+        <h4 id="">PayPal Wallet</h4>
+        <p>${curr.walletValue.paypal_address}</p>
+      </div>
+      `;
+      methodDisplay.innerHTML = html;
+    }
+  }
+}
+
+
+`function copyInnerHtmlToClipboard(elementId) {
+  const element = document.getElementById(elementId);
+  if (!element) {
+    console.error(Element with id '${elementId}' not found);
+    return;
+  }
+
+  const htmlToCopy = element.innerHTML;
+
+  const textarea = document.createElement('textarea');
+  textarea.value = htmlToCopy;
+  textarea.style.position = 'fixed';
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    const successful = document.execCommand('copy');
+    const message = successful ? 'HTML copied to clipboard' : 'Failed to copy HTML to clipboard';
+    console.log(message);
+  } catch (error) {
+    console.error('Error copying HTML to clipboard:', error);
+  }
+
+  document.body.removeChild(textarea);
+}
+
+// Usage:
+const elementId = 'myElement';
+copyInnerHtmlToClipboard(elementId);
+
+`

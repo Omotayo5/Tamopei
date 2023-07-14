@@ -1,4 +1,5 @@
 <?php
+//Connected to trade.js
 session_start();
 $accountOwner = $_SESSION['id'];
 $serverName = 'localhost';
